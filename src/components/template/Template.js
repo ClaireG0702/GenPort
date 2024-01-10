@@ -1,6 +1,8 @@
 import { Container, Row, Card, Col } from "react-bootstrap";
-import { templatesList } from "../data/TemplatesList";
+import { templatesList } from "../../data/TemplatesList";
 import { BsPlusSquare } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import './Template.scss';
 
 function Template() {
     return (
@@ -17,7 +19,7 @@ function Template() {
                         </Card>
                     </Col>)}
                     <Col className="my-2">
-                        <Card style={{height: '150px'}}>
+                        <Card style={{height: '150px'}} as={Link} to="/custom">
                             <Card.Body className="d-flex align-items-center justify-content-center">
                                 <BsPlusSquare />
                             </Card.Body>
@@ -30,5 +32,3 @@ function Template() {
 }
 
 export default Template
-
-//boooooop booooooooop boooooooop booooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooop boop

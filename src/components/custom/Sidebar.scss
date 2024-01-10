@@ -1,0 +1,41 @@
+.light-theme {
+	.elements {
+		background: var(--light-card-bg);
+		color: var(--light-card-text);
+
+		&:hover {
+			background: var(--light-card-bg-hover);
+			color: var(--light-card-text-hover);
+		}
+	}
+}
+
+.dark-theme {
+	.elements {
+		background: var(--dark-card-bg);
+		color: var(--dark-card-text);
+
+		&:hover {
+			background: var(--dark-card-bg-hover);
+			color: var(--dark-card-text-hover);
+		}
+	}
+}
+
+aside {
+	position: relative;
+	float: left;
+	width: 15%;
+}
+
+.nav {
+	display: flex;
+	flex-direction: column;
+	border-right: 1px black solid;
+}
+
+.elements {
+	margin: 4px 6px;
+	padding: 12px 16px 4px;
+	font-weight: bold;
+}

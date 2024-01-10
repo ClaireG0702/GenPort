@@ -1,0 +1,60 @@
+:root {
+	--dark-body-bg: rgba(94, 94, 94, 1);
+	--dark-navbar-bg: rgba(50, 48, 54, 1);
+	--dark-hover-sidebar: rgba(255, 255, 255, 0.3);
+	--dark-hover-sidebar-terrain: rgba(255, 255, 255, 0.1);
+	--dark-body-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.10);
+	--dark-primary-text: rgba(255, 255, 255, 0.95);
+	--dark-secondary-text: #ebebf577;
+	--dark-button-bg: linear-gradient(0deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.06) 100%), linear-gradient(45deg, rgba(94, 94, 94, 0.18) 0%, rgba(94, 94, 94, 0.18) 100%);
+	--dark-card-bg: rgba(127, 127, 127, 0.3);
+	--dark-card-bg-hover: #3a383b;
+	--dark-card-text: rgba(235, 235, 245, 1);
+	--dark-card-text-hover: rgba(235, 235, 245, 0.6);
+	--dark-select-text-color: #949494;
+	--dark-search-bg: rgba(0, 0, 0, 0.2);
+	--dark-disabled-button: #7e7e7e;
+	--dark-search-bg-hover: rgba(0, 0, 0, 0.4);
+	--dark-valid-btn: rgba(94, 137, 99, 0.9);
+	--dark-valid-btn-hover: rgba(94, 177, 99, 0.5);
+	--dark-body-modal-bg: rgba(50, 48, 54, 1);
+
+	--light-body-bg: rgba(255, 255, 255, 0.5);
+	--light-navbar-bg: rgb(235, 235, 235, 1);
+	--light-hover-sidebar: rgba(221, 221, 221, 0.8);
+	--light-body-box-shadow: 5px 15px 21px rgba(0, 0, 0, 0.05);
+	--light-primary-text: #333;
+	--light-secondary-text: #777;
+	--light-button-bg: linear-gradient(0deg, rgba(127, 127, 127, 0.06) 0%, rgba(127, 127, 127, 0.06) 100%), linear-gradient(0deg, rgba(94, 94, 94, 0.18) 0%, rgba(94, 94, 94, 0.18) 100%);
+	--light-card-bg: rgba(12, 12, 12, 0.3);
+	--light-card-bg-hover: rgba(255, 255, 255, 0.4);
+	--light-card-text: #333;
+	--light-card-text-hover: rgba(51, 51, 51, 0.8);
+	--light-select-text-color: #555;
+	--light-search-bg: rgba(0, 0, 0, 0.05);
+	--light-disabled-button: #7e7e7e;
+	--light-search-bg-hover: rgba(255, 255, 255, 0.4);
+	--light-valid-btn: rgba(94, 127, 94, 0.5);
+	--light-valid-btn-hover: rgba(94, 167, 94, 0.5);
+	--light-body-modal-bg: rgba(235, 235, 235, 1);
+}
+
+.light-theme {
+	color: var(--light-primary-text) !important;
+	background: var(--light-body-bg);
+}
+
+.dark-theme {
+	color: var(--dark-primary-text) !important;
+	background: var(--dark-body-bg);
+	height: 100%;
+}
+
+html,
+body,
+#root {
+	min-height: 100%;
+	height: 100%;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+	font-weight: normal;
+}

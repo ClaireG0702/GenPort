@@ -1,22 +1,26 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header.js';
-import Home from './components/Home.js';
-import Template from './components/Template.js';
-import Custom from './components/Custom.js';
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
+import Header from './components/header/Header.js';
+import Home from './components/home/Home.js';
+import Template from './components/template/Template.js';
+import Custom from './components/custom/Custom.js';
+import { useContext } from 'react';
+import { ThemeContext } from './Theme.js';
+import './App.css';
 
 
 function App() {
+	const { theme } = useContext(ThemeContext);
+
 	return (
-		<div>
+		<div className={`${theme}`}>
 			<Header />
-			<Router>
-				<Routes>
-					<Route path="/" exact component={Home}/>
-					<Route path='/template' component={Template} />
-					<Route path='/custom' component={Custom} />
-				</Routes>
-			</Router>
+			<Routes>
+				<Route path="/home" index element={<Home />} />
+				<Route path='/template' element={<Template />} />
+				<Route path='/custom' element={<Custom />} />
+			</Routes>
+			<Outlet />
 		</div>
 	);
 }

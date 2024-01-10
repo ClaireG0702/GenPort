@@ -1,0 +1,31 @@
+.light-theme {
+	.MuiPaper-root {
+		background: var(--bg-primary-light);
+	}
+}
+
+.dark-theme {
+	.MuiPaper-root {
+		background: var(--bg-primary-dark);
+	}
+
+	svg {
+		color: white;
+	}
+
+	button[aria-pressed="true"] {
+		svg {
+			color: brown;
+		}
+	}
+}
+
+.toolsbar {
+	position: relative;
+	float: left;
+}
+
+.MuiPaper-root {
+	display: flex;
+	flex-wrap: wrap;
+}
