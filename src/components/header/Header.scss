@@ -2,11 +2,6 @@
 .light-theme {
 	.navbar {
 		background: var(--light-navbar-bg);
-		
-		.navbar-brand,
-		.nav-link {
-			color: var(--light-primary-text);
-		}
 	}
 }
 
@@ -14,11 +9,6 @@
 .dark-theme {
 	.navbar {
 		background: var(--dark-navbar-bg);
-
-		.navbar-brand,
-		.nav-link {
-			color: var(--dark-primary-text);
-		}
 	}
 }
 
@@ -27,26 +17,19 @@ header {
 	position: relative;
 }
 
+.navbar,
+.navbar-brand,
+.nav-link,
+.btn-link {
+	color: var(--navbar-text) !important;
+}
+
 a:hover {
 	text-decoration: underline;
 }
 
 /* Switch theme */
-form {
-	height: inherit;
-	width: 70px;
-	margin-right: 16px;
-	
-	.form-switch {
-		height: 100%;
-		padding: 0;
-		
-		.form-check-input {
-			height: 100%;
-			width: 100% !important;
-			margin: 0;
-		}
-	}
+.form-switch {
+	margin-top: auto;
+	margin-bottom: auto;
 }
-
-

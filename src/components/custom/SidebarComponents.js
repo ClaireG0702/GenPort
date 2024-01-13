@@ -2,7 +2,7 @@ import { Card, Nav } from 'react-bootstrap';
 import { componentsList } from '../../data/ComponentsList.js';
 import './Sidebar.scss';
 
-function SidebarComponents({addComponent}) {
+function SidebarComponents({ addComponent }) {
     const handleClick = (component) => {
         addComponent(component);
     }
@@ -10,7 +10,7 @@ function SidebarComponents({addComponent}) {
     return (
         <aside >
             <Nav>
-                {componentsList.map(({id, name, elem}) =>
+                { componentsList.map(({id, name, elem}) =>
                 <Card key={id} className='elements' onClick={() => handleClick({elem})}>
                     <Nav.Item>{name}</Nav.Item>
                 </Card>

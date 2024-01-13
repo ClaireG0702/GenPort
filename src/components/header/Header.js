@@ -23,11 +23,9 @@ function Header() {
                         <Nav.Link>Portfolio</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Form>
-                            <Form.Switch id="theme-switch" onChange={() => setTheme(isDarktheme ? "light-theme" : "dark-theme")} checked={isDarktheme} />
-                        </Form>
-                        <Button variant='outline-secondary' className='me-2'>Inscription</Button>
-                        <Button variant='outline-primary'>Connexion</Button>
+                        <Form.Switch id="theme-switch" onChange={() => setTheme(isDarktheme ? "light-theme" : "dark-theme")} checked={isDarktheme} />
+                        <Button variant='link' className='me-2'>Inscription</Button>
+                        <Button variant='outline-light'>Connexion</Button>
                     </Nav> 
                 </Navbar.Collapse>
             </Navbar> 

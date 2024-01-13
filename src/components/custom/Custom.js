@@ -13,9 +13,9 @@ function Custom() {
 
     return (
         <div className='custom'>
-            <SidebarComponents addComponent={addComponent} />
+            <SidebarComponents addComponent={ addComponent } />
             <ToolsbarComponents />
-            <Preview customComponent={customComponent} />
+            <Preview customComponent={ customComponent } />
         </div>
     );
 }

@@ -13,7 +13,7 @@ function App() {
 	const { theme } = useContext(ThemeContext);
 
 	return (
-		<div className={`${theme}`}>
+		<div className={ theme }>
 			<Header />
 			<Routes>
 				<Route path="/home" index element={<Home />} />
