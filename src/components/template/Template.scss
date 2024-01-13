@@ -1,0 +1,13 @@
+.light-theme {
+    .template-card {
+        background: var(--light-template-card-bg);
+        color: var(--light-card-text);
+    }
+}
+
+.dark-theme {
+    .template-card {
+        background: var(--dark-template-card-bg);
+        color: var(--dark-card-text);
+    }
+}

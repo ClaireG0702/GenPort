@@ -19,7 +19,7 @@ function Home() {
 			</Container>
 
 			<div className="cards">
-				<Card className="text-center mb-4">
+				<Card className="text-center mb-4 home-card">
 					<Card.Body>
 						<Card.Text>
 							GenPort est un site de Génération de Portfolio,
@@ -27,7 +27,7 @@ function Home() {
 					</Card.Body>
 				</Card>
 
-				<Card className="text-center">
+				<Card className="text-center home-card">
 					<Card.Body>
 						<Card.Text>
 							Template

@@ -1,3 +1,17 @@
+.light-theme {
+	.home-card {
+		background: var(--light-home-card-bg);
+		color: var(--light-card-text);
+	}
+}
+
+.dark-theme {
+	.home-card {
+		background: var(--dark-home-card-bg);
+		color: var(--dark-card-text);
+	}
+}
+
 .search {
 	width: 60% !important;
 }

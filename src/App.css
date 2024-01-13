@@ -3,11 +3,17 @@
 	--dark-primary-text: #f7f5f1;
 	--dark-secondary-text: #f7f5f1c1;
 	--dark-navbar-bg: #1a222f;
+	--dark-home-card-bg: #5c6d86;
+	--dark-template-card-bg: #5c6d86c1;
+	--dark-card-text: #dddddd;
 
 	--light-body-bg: white;
 	--light-primary-text: #222;
 	--light-secondary-text: #32424b;
 	--light-navbar-bg: #667995;
+	--light-home-card-bg: #b1bcca;
+	--light-template-card-bg: #b1bccac1;
+	--light-card-text: #444;
 
 	--navbar-text: white;
 }

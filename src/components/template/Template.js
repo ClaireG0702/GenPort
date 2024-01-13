@@ -11,7 +11,7 @@ function Template() {
                 <Row xs={4} className="my-4">
                     {templatesList.map(({id, name, author}) => 
                     <Col key={id} className="my-2">
-                        <Card style={{height: '150px'}}>
+                        <Card style={{height: '150px'}} className="template-card">
                             <Card.Body>
                                 <Card.Title>{name}</Card.Title>
                                 <Card.Text>De : {author}</Card.Text>
@@ -19,7 +19,7 @@ function Template() {
                         </Card>
                     </Col>)}
                     <Col className="my-2">
-                        <Card style={{height: '150px'}} as={Link} to="/custom">
+                        <Card style={{height: '150px'}} as={Link} to="/custom" className="template-card">
                             <Card.Body className="d-flex align-items-center justify-content-center">
                                 <BsPlusSquare />
                             </Card.Body>
