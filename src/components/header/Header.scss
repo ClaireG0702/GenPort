@@ -21,7 +21,11 @@ header {
 .navbar-brand,
 .nav-link,
 .btn-link {
-	color: var(--navbar-text) !important;
+	color: var(--navbar-text);
+
+	&:hover {
+		color: var(--navbar-text);
+	}
 }
 
 a:hover {

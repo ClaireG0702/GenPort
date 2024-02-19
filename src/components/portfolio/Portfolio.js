@@ -1,35 +1,35 @@
 import { Container, Row, Card, Col } from "react-bootstrap";
 import { BsPlusSquare } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import './Template.scss';
+import './Portfolio.scss';
 import { useEffect, useState } from "react";
 import { environment } from "../../environment/environment.developments";
 
-function Template() {
-    const [templates, setTemplates] = useState([]);
+function Portfolio() {
+    const [portfolios, setPortfolios] = useState([]);
 
     useEffect(() => {
-        fetch(environment.apiURL+'/controllers/templates/get_all')
+        fetch(environment.apiURL+'/controllers/portfolios/get_all')
             .then(response => response.json())
-            .then(data => setTemplates(data))
-            .catch(error => console.error('Error fetching templates:', error));
+            .then(data => setPortfolios(data))
+            .catch(error => console.error('Error fetching portfolios:', error));
     }, []);
 
     return (
         <div>
             <Container>
                 <Row xs={4} className="my-4">
-                    {templates.map(template => 
-                    <Col key={template.id} className="my-2">
-                        <Card style={{height: '150px'}} className="template-card">
+                    {portfolios.map(portfolio => 
+                    <Col key={portfolio.id} className="my-2">
+                        <Card style={{height: '150px'}} className="portfolio-card">
                             <Card.Body>
-                                <Card.Title>{template.name}</Card.Title>
-                                <Card.Text>De : {template.owner_id}</Card.Text>
+                                <Card.Title>{portfolio.name}</Card.Title>
+                                <Card.Text>De : {portfolio.owner_id}</Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>)}
                     <Col className="my-2">
-                        <Card style={{height: '150px'}} as={Link} to="/custom" className="template-card">
+                        <Card style={{height: '150px'}} as={Link} to="/custom" className="portfolio-card">
                             <Card.Body className="d-flex align-items-center justify-content-center">
                                 <BsPlusSquare />
                             </Card.Body>
@@ -41,4 +41,4 @@ function Template() {
     )
 }
 
-export default Template
+export default Portfolio

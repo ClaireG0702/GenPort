@@ -1,4 +1,18 @@
 .light-theme {
+	.btn-search {
+		background-color: var(--light-navbar-bg);
+	}
+
+	.cards {
+		button {
+			background-color: var(--light-card-btn-bg);
+	
+			&:hover {
+				background-color: var(--light-card-btn-bg-hover);
+			}
+		}
+	}
+
 	.home-card {
 		background: var(--light-home-card-bg);
 		color: var(--light-card-text);
@@ -6,6 +20,24 @@
 }
 
 .dark-theme {
+	.select-search,
+	.btn-search {
+		background-color: var(--dark-body-bg);
+		border-color: var(--dark-btn);
+		color: var(--dark-btn);
+	}
+
+	.input-search {
+		background: linear-gradient(#40386B, var(--dark-navbar-bg));
+		border-color: var(--dark-btn);
+	}
+
+	.btn-search:hover {
+		background-color: var(--dark-btn);
+		border-color: var(--dark-btn);
+		color: black;
+	}
+
 	.home-card {
 		background: var(--dark-home-card-bg);
 		color: var(--dark-card-text);
@@ -19,4 +51,15 @@
 .cards {
 	width: 80%;
 	margin: auto;
+
+	.slogan {
+		width: 60%;
+		margin: auto;
+	}
+	
+	.home-card {
+		border: none;
+	}
 }
+
+

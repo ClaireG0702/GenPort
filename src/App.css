@@ -1,18 +1,21 @@
 :root {
-	--dark-body-bg: #2c3950;
-	--dark-primary-text: #f7f5f1;
-	--dark-secondary-text: #f7f5f1c1;
-	--dark-navbar-bg: #1a222f;
-	--dark-home-card-bg: #5c6d86;
+	--dark-body-bg: #0f0b21; /* old: #2c3950 */
+	--dark-primary-text: white /* old: #f7f5f1 */
+	--dark-secondary-text: #7f78a7; /* #b2abee / old: #f7f5f1c1 */
+	--dark-btn: #b2a8ee;
+	--dark-navbar-bg: #322c54; /* old: #1a222f */ 
+	--dark-home-card-bg: #221c44; /* #221c44 / old: #5c6d86 */
 	--dark-template-card-bg: #5c6d86c1;
 	--dark-card-text: #dddddd;
 
 	--light-body-bg: white;
-	--light-primary-text: #222;
-	--light-secondary-text: #32424b;
-	--light-navbar-bg: #667995;
-	--light-home-card-bg: #b1bcca;
-	--light-template-card-bg: #b1bccac1;
+	--light-primary-text: #251f4b; /* old: #222 */
+	--light-secondary-text: #32424b; 
+	--light-navbar-bg: #7269ff; /* old: #667995 */
+	--light-card-btn-bg: #7269ff;
+	--light-card-btn-bg-hover: #5a4fff;
+	--light-home-card-bg: #ece9fa; /* old: #b1bcca */
+	--light-template-card-bg: #ece9fa;
 	--light-card-text: #444;
 
 	--navbar-text: white;

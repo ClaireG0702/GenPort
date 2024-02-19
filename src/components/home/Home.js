@@ -8,21 +8,21 @@ function Home() {
 		<div>
 			<Container>
 				<InputGroup className="my-4 d-flex flex-wrap align-items-stretch w-100 position-relative">
-					<Form.Select className="input-group-text col-md-4" id="searchType">
+					<Form.Select className="input-group-text col-md-4 select-search" id="searchType">
 						<option>Type de recherche</option>
 						<option value="1">Personne</option>
 						<option value="2">Template</option>
 					</Form.Select>
-					<Form.Control type="text" className="search me-2" id="search"/>
-					<Button type="submit" variant="outline-success" >Rechercher</Button>
+					<Form.Control type="text" className="search me-2 input-search" id="search"/>
+					<Button type="submit" className="btn-search" >Rechercher</Button>
 				</InputGroup>
 			</Container>
 
 			<div className="cards">
-				<Card className="text-center mb-4 home-card">
+				<Card className="text-center mb-4 home-card slogan">
 					<Card.Body>
 						<Card.Text>
-							GenPort est un site de Génération de Portfolio,
+							Affichez vos compétences, partagez vos passions. GenPort rend la création de portfolios simple et élégante.
 						</Card.Text>
 					</Card.Body>
 				</Card>
@@ -32,7 +32,7 @@ function Home() {
 						<Card.Text>
 							Template
 						</Card.Text>
-						<Link to="/template">
+						<Link to="/templates">
 							<Button>Voir les templates</Button>
 						</Link>
 					</Card.Body>
