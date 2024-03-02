@@ -23,7 +23,7 @@ function Header() {
                         <Nav.Link as={Link} to="/portfolios">Portfolios</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Form.Switch id="theme-switch" onChange={() => setTheme(isDarktheme ? "light-theme" : "dark-theme")} checked={isDarktheme} />
+                        {/* <Form.Switch id="theme-switch" onChange={() => setTheme(isDarktheme ? "light-theme" : "dark-theme")} checked={isDarktheme} /> */}
                         <Button href='/registration' variant='link' className='me-2'>Inscription</Button>
                         <Button href='/connection' variant='outline-light'>Connexion</Button>
                     </Nav> 

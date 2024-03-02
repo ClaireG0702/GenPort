@@ -20,12 +20,7 @@
 	}
 }
 
-.toolsbar {
-	position: relative;
-	float: left;
-}
-
 .MuiPaper-root {
-	display: flex;
-	flex-wrap: wrap;
+	position: relative !important;
+	height: max-content;
 }

@@ -1,5 +1,14 @@
 .custom-preview {
 	position: relative;
-	float: left;
-	width: 85%;
+	height: 100%;
+}
+
+swiper-container {
+	height: inherit;
+}
+
+.preview {
+	width: 95%;
+	height: 80%;
+	margin: 30px auto;
 }
