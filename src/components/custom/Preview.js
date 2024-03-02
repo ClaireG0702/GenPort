@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import './Preview.scss';
 import Shape from "./elements/Shape";
 import Title from "./elements/Title";
-import TextZone from "./elements/TextZone.Js";
+import TextZone from "./elements/TextZone";
 
 register();
 
