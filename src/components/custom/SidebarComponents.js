@@ -1,6 +1,5 @@
 import { Card, Nav } from 'react-bootstrap';
 import './Sidebar.scss';
-import { Button, Input } from '@mui/material';
 
 function SidebarComponents({ addComponent, setSelectedElement }) {
     const handleClick = (component) => {
@@ -8,18 +7,9 @@ function SidebarComponents({ addComponent, setSelectedElement }) {
         setSelectedElement(component);
     }
 
-    const saveModele = () => {
-        /**
-         * Modal choix type template ou portfolio
-         */
-    }
-
     return (
         <aside>
             <Nav>
-                <Input placeholder='Nom du modèle' />
-                <Button onClick={saveModele}>Enregistrer</Button>
-                <hr/>
                 <Card className='elements' onClick={() => handleClick({ elem: 'div' })}>
                     <Nav.Item>Forme</Nav.Item>
                 </Card>

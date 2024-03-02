@@ -1,4 +1,4 @@
-import { ToggleButtonGroup, ToggleButton, Divider, Toolbar } from "@mui/material";
+import { ToggleButtonGroup, ToggleButton, Divider, Toolbar, Menu, MenuItem } from "@mui/material";
 import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
 import FormatAlignCenterIcon from "@mui/icons-material/FormatAlignCenter";
 import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
@@ -11,9 +11,11 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useState } from "react";
 import '../Toolbar.scss';
 
-function TextToolbar() {
+function TextToolbar({selectedElement}) {
     const [alignment, setAlignment] = useState('left');
 	const [formats, setFormats] = useState(() => ['italic']);
+    const [textColor, setTextColor] = useState('#000000');
+    const [colorMenuOpen, setColorMenuOpen] = useState(false);
 
 	const handleFormat = (event, newFormats) => {
 		setFormats(newFormats);
@@ -22,6 +24,20 @@ function TextToolbar() {
 	const handleAlignment = (event, newAlignment) => {
 		setAlignment(newAlignment);
 	};
+
+    const handleColorChange = (color) => {
+        setTextColor(color);
+    };
+
+    const handleOpenColorMenu = () => {
+        setColorMenuOpen(true);
+        document.getElementById('color_menu').style.display = "block"; 
+    }
+
+    const handleCloseColorMenu = () => {
+        setColorMenuOpen(false);
+        document.getElementById('color_menu').style.display = "none"; 
+    }
 
     return (
         <Toolbar>
@@ -54,6 +70,29 @@ function TextToolbar() {
                     <FormatColorFillIcon />
                     <ArrowDropDownIcon />
                 </ToggleButton>
+                <Menu
+                    id="color-menu"
+                    anchorEl={null}
+                    open={colorMenuOpen}
+                    onClick={handleOpenColorMenu}
+                    onClose={handleCloseColorMenu}
+                    MenuListProps={{
+                        'aria-labelledby': 'color-button',
+                    }}
+                >
+                    <MenuItem>
+                        <input
+                            id="color_menu"
+                            type="color"
+                            value={textColor}
+                            onChange={(e) => handleColorChange(e.target.value)}
+                            style={{ display: 'none' }}
+                        />
+                        <label htmlFor="color-picker">
+                            Select Text Color
+                        </label>
+                    </MenuItem>
+                </Menu>
             </ToggleButtonGroup>
         </Toolbar>
     );
