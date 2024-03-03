@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Title({color, onClick}) {
+function Title({ id, color, onClick }) {
     const [text, setText] = useState('Titre');
 
     const handleTextChange = (event) => {
@@ -8,7 +8,8 @@ function Title({color, onClick}) {
     }
 
     return (
-        <h1 style={{
+        <h1 id={id}
+        style={{
             width: 'fit-content',
             padding: '2px',
             color: color,

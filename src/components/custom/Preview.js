@@ -1,15 +1,13 @@
-import { register } from "swiper/element/bundle";
 import { Card } from "react-bootstrap";
 import './Preview.scss';
 import Shape from "./elements/Shape";
 import Title from "./elements/Title";
 import TextZone from "./elements/TextZone";
 
-register();
-
 function Preview({ customComponent, setSelectedElement, shapeProps }) {
-	const handleClick = (component) => {
-        setSelectedElement(component);
+
+	const handleClick = (index) => {
+        setSelectedElement(document.getElementById(index));
     }
 
 	return (
@@ -21,15 +19,15 @@ function Preview({ customComponent, setSelectedElement, shapeProps }) {
 							{ customComponent.map((component, index) => {
 								switch(component.elem) {
 									case 'div':
-										return <Shape key={index} {...shapeProps} onClick={() => handleClick({elem: 'div'})} />
+										return <Shape key={index} id={index} {...shapeProps[index]} onClick={() => handleClick(index)} />
 									case 'h1':
-										return <Title key={index} onClick={() => handleClick({elem: 'h1'})} />
+										return <Title key={index} id={index} onClick={() => handleClick(index)} />
 									case 'span':
-										return <TextZone key={index} onClick={() => handleClick({elem: 'span'})}/>
+										return <TextZone key={index} id={index} onClick={() => handleClick(index)}/>
 									case 'img':
-										return <img key={index} src="" alt="upload" style={{width:'110px', height:'110px'}} onClick={() => handleClick({elem: 'img'})}></img>
+										return <img key={index} id={index} src="" alt="upload" onClick={() => handleClick(index)}></img>
 									case 'i':
-										return <i key={index} onClick={() => handleClick({elem: 'i'})}></i>
+										return <i key={index} id={index} onClick={() => handleClick(index)}></i>
 									default:
 										return null;
 								}

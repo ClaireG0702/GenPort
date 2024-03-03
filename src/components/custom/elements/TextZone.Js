@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function TextZone({color, onClick}) {
+function TextZone({ id, color, onClick }) {
     const [text, setText] = useState('Zone de texte');
 
     const handleTextChange = (event) => {
@@ -8,7 +8,8 @@ function TextZone({color, onClick}) {
     }
 
     return (
-        <span style={{
+        <span id={id}
+        style={{
             width: 'fit-content',
             padding: '2px',
             color: color,

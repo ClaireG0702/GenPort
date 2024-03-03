@@ -4,7 +4,7 @@ import './Sidebar.scss';
 function SidebarComponents({ addComponent, setSelectedElement }) {
     const handleClick = (component) => {
         addComponent(component);
-        setSelectedElement(component);
+        // setSelectedElement(component);
     }
 
     return (

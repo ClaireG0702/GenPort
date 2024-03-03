@@ -4,19 +4,18 @@ import TextToolbar from './toolbars/TextToolbar';
 import IconToolbar from './toolbars/IconToolbar';
 import './Toolbar.scss';
 import { AppBar } from '@mui/material';
-import { useState } from 'react';
+
 
 function ToolbarComponents({ selectedElement, shapeProps, setShapeProps }) {
-
 	return (
 		<AppBar className="toolbar">
 			{selectedElement ? (
 				<>
-					{selectedElement.elem === 'div' && <ElemToolbar shapeProps={shapeProps} setShapeProps={setShapeProps} />}
-					{selectedElement.elem === 'h1' && <TextToolbar />}
-					{selectedElement.elem === 'span' && <TextToolbar />}
-					{selectedElement.elem === 'img' && <ElemToolbar />}
-					{selectedElement.elem === 'i' && <IconToolbar />}
+					{selectedElement.tagName.toLowerCase() === 'div' && <ElemToolbar shapeProps={shapeProps} setShapeProps={setShapeProps} element={selectedElement} />}
+					{selectedElement.tagName.toLowerCase() === 'h1' && <TextToolbar />}
+					{selectedElement.tagName.toLowerCase() === 'span' && <TextToolbar />}
+					{selectedElement.tagName.toLowerCase() === 'img' && <ElemToolbar />}
+					{selectedElement.tagName.toLowerCase() === 'i' && <IconToolbar />}
 				</>
 			) : (
 				<DefaultToolbar />

@@ -1,4 +1,4 @@
-function Shape({width, height, top, left, color, border, borderColor, onClick}) {
+function Shape({ id, width, height, top, left, color, border, borderColor, onClick }) {
     return (
         <div style={{
             width: `${width}px`,
@@ -8,7 +8,7 @@ function Shape({width, height, top, left, color, border, borderColor, onClick}) 
             left: `${left}px`,
             backgroundColor: color,
             border: `${border}px solid ${borderColor}`
-        }} onClick={onClick}></div>
+        }} onClick={onClick} id={id}></div>
     );
 }
 
