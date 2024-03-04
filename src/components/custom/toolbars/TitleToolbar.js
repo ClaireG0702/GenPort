@@ -9,7 +9,7 @@ import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
 import '../Toolbar.scss';
 import { useState } from "react";
 
-function TextToolbar({ textProps, setTextProps, element }) {
+function TitleToolbar({ titleProps, setTitleProps, element }) {
     const [isBoldCheck, setIsBoldCheck] = useState(false);
     const [isItalicCheck, setIsItalicCheck] = useState(false);
     const [isUnderlineCheck, setIsUnderlineCheck] = useState(false);
@@ -31,7 +31,7 @@ function TextToolbar({ textProps, setTextProps, element }) {
                     break;
             }
 
-            setTextProps(prevState => ({
+            setTitleProps(prevState => ({
                 ...prevState,
                 [element.id]: {
                     ...prevState[element.id],
@@ -40,7 +40,7 @@ function TextToolbar({ textProps, setTextProps, element }) {
             }));
         } else {
             const { value } = event.target;
-            setTextProps(prevState => ({
+            setTitleProps(prevState => ({
                 ...prevState,
                 [element.id]: {
                     ...prevState[element.id],
@@ -50,7 +50,7 @@ function TextToolbar({ textProps, setTextProps, element }) {
         }
     };
 
-    const { top, left, alignment, style, weight, decoration, police, textSize, color } = textProps[element.id];
+    const { top, left, alignment, style, weight, decoration, police, textSize, color } = titleProps[element.id];
 
     return (
         <Toolbar>
@@ -111,4 +111,4 @@ function TextToolbar({ textProps, setTextProps, element }) {
     );
 }
 
-export default TextToolbar;
+export default TitleToolbar;

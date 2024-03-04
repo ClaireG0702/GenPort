@@ -3,7 +3,7 @@ import { Toolbar, Divider, Typography, Grid } from '@mui/material';
 import '../Toolbar.scss';
 
 function ElemToolbar({ shapeProps, setShapeProps, element }) {
-    console.log(shapeProps);
+
     const handleInputChange = (event, propName) => {
         const { value } = event.target;
         setShapeProps(prevState => ({
@@ -15,10 +15,7 @@ function ElemToolbar({ shapeProps, setShapeProps, element }) {
         }));
     };
 
-    // Only display toolbar for the selected shape ID
-    if (!shapeProps[element.id]) return null;
-
-    const { width, height, top, left, color, border, borderColor } = shapeProps[element.id];
+    const { width, height, top, left, color, border, borderColor, borderRadius } = shapeProps[element.id];
 
     return (
         <Toolbar>
@@ -45,9 +42,12 @@ function ElemToolbar({ shapeProps, setShapeProps, element }) {
 
                 <Typography variant="h6">Couleur de bordure:</Typography>
                 <input type="color" value={borderColor} onChange={(event) => handleInputChange(event, 'borderColor')} />
+
+                <Typography variant="h6">Arrondi :</Typography>
+                <input type="number" value={borderRadius} onChange={(event) => handleInputChange(event, 'borderRadius')} />
             </Grid>
         </Toolbar>
-    );
+    );  
 }
 
 export default ElemToolbar;

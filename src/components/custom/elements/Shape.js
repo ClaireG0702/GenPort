@@ -1,14 +1,16 @@
-function Shape({ id, width, height, top, left, color, border, borderColor, onClick }) {
+function Shape({ id, width, height, top, left, color, border, borderColor, borderRadius, onClick }) {
     return (
-        <div style={{
-            width: `${width}px`,
-            height: `${height}px`,
-            position: 'relative',
-            top: `${top}px`,
-            left: `${left}px`,
-            backgroundColor: color,
-            border: `${border}px solid ${borderColor}`
-        }} onClick={onClick} id={id}></div>
+        <div id={id}
+            style={{
+                width: `${width}px`,
+                height: `${height}px`,
+                position: 'relative',
+                top: `${top}px`,
+                left: `${left}px`,
+                backgroundColor: color,
+                border: `${border}px solid ${borderColor}`,
+                borderRadius: `${borderRadius}`
+            }} onClick={onClick} ></div>
     );
 }
 

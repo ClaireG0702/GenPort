@@ -3,8 +3,10 @@ import './Preview.scss';
 import Shape from "./elements/Shape";
 import Title from "./elements/Title";
 import TextZone from "./elements/TextZone";
+import Image from "./elements/Image";
+import Icon from "./elements/Icon";
 
-function Preview({ customComponent, setSelectedElement, shapeProps }) {
+function Preview({ customComponent, setSelectedElement, shapeProps, titleProps, textProps, imageProps, iconProps }) {
 
 	const handleClick = (index) => {
         setSelectedElement(document.getElementById(index));
@@ -21,13 +23,13 @@ function Preview({ customComponent, setSelectedElement, shapeProps }) {
 									case 'div':
 										return <Shape key={index} id={index} {...shapeProps[index]} onClick={() => handleClick(index)} />
 									case 'h1':
-										return <Title key={index} id={index} onClick={() => handleClick(index)} />
+										return <Title key={index} id={index} {...titleProps[index]}  onClick={() => handleClick(index)} />
 									case 'span':
-										return <TextZone key={index} id={index} onClick={() => handleClick(index)}/>
+										return <TextZone key={index} id={index} {...textProps[index]} onClick={() => handleClick(index)}/>
 									case 'img':
-										return <img key={index} id={index} src="" alt="upload" onClick={() => handleClick(index)}></img>
+										return <Image key={index} id={index} {...imageProps[index]} onClick={() => handleClick(index)} />
 									case 'i':
-										return <i key={index} id={index} onClick={() => handleClick(index)}></i>
+										return <Icon key={index} id={index} {...iconProps[index]} onClick={() => handleClick(index)} />
 									default:
 										return null;
 								}
