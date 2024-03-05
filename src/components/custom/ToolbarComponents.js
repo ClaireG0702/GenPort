@@ -8,10 +8,10 @@ import './Toolbar.scss';
 import { AppBar } from '@mui/material';
 
 
-function ToolbarComponents({ selectedElement, 
-	shapeProps, setShapeProps, 
+function ToolbarComponents({ selectedElement,
+	shapeProps, setShapeProps,
 	titleProps, setTitleProps,
-	textProps, setTextProps, 
+	textProps, setTextProps,
 	imageProps, setImageProps,
 	iconProps, setIconProps }) {
 

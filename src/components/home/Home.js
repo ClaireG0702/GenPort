@@ -1,5 +1,6 @@
 import { Container, Form, Button, Card, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import svgTemplate from "../../assets/undraw_website_builder.svg"
 import './Home.scss';
 
 function Home() {
@@ -22,7 +23,11 @@ function Home() {
 				<Card className="text-center mb-4 home-card slogan">
 					<Card.Body>
 						<Card.Text>
-							Affichez vos compétences, partagez vos passions. GenPort rend la création de portfolios simple et élégante.
+							Affichez vos compétences, partagez vos passions.
+						</Card.Text>
+						<img src={svgTemplate} width="500px" alt="Image_Template" />
+						<Card.Text>
+							GenPort rend la création de portfolios simple et élégante.
 						</Card.Text>
 					</Card.Body>
 				</Card>

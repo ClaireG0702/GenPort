@@ -8,7 +8,7 @@ function TextZone({ id, top, left, alignment, style, weight, decoration, police,
         setText(event.target.textContent);
     }
 
-    style ? textStyle = 'italic' : textSize = '';
+    style ? textStyle = 'italic' : textStyle = '';
     weight ? textWeight = 'bold' : textWeight = '';
     decoration ? textDecoration = 'underline' : textDecoration = '';
 

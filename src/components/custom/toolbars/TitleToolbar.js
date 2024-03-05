@@ -1,4 +1,4 @@
-import { ToggleButtonGroup, ToggleButton, Divider, Toolbar, Menu, MenuItem, Select, InputLabel, FormControl, Typography, FormControlLabel, Checkbox } from "@mui/material";
+import { ToggleButtonGroup, ToggleButton, Toolbar, MenuItem, Select, InputLabel, Typography, FormControlLabel, Checkbox, Grid } from "@mui/material";
 import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
 import FormatAlignCenterIcon from "@mui/icons-material/FormatAlignCenter";
 import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
@@ -6,8 +6,8 @@ import FormatAlignJustifyIcon from "@mui/icons-material/FormatAlignJustify";
 import FormatBoldIcon from "@mui/icons-material/FormatBold";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
-import '../Toolbar.scss';
 import { useState } from "react";
+import '../Toolbar.scss';
 
 function TitleToolbar({ titleProps, setTitleProps, element }) {
     const [isBoldCheck, setIsBoldCheck] = useState(false);
@@ -50,63 +50,77 @@ function TitleToolbar({ titleProps, setTitleProps, element }) {
         }
     };
 
-    const { top, left, alignment, style, weight, decoration, police, textSize, color } = titleProps[element.id];
+    const { top, left, alignment, police, textSize, color } = titleProps[element.id];
 
     return (
-        <Toolbar>
-            <Typography variant="h6">Marge en haut :</Typography>
-            <input type="number" value={top} onChange={(event) => handleInputChange(event, 'top')} />
+        <Toolbar className="toolbar-element">
+            <Grid container justifyContent="space-between">
+                <Grid item>
+                    <Typography variant="subtitle1">Marge en haut :</Typography>
+                    <input type="number" value={top} onChange={(event) => handleInputChange(event, 'top')} />
+                </Grid>
 
-            <Typography variant="h6">Marge à gauche :</Typography>
-            <input type="number" value={left} onChange={(event) => handleInputChange(event, 'left')} />
+                <Grid item>
+                    <Typography variant="subtitle1">Marge à gauche :</Typography>
+                    <input type="number" value={left} onChange={(event) => handleInputChange(event, 'left')} />
+                </Grid>
 
-            <ToggleButtonGroup value={alignment} exclusive onChange={(event) => handleInputChange(event, 'alignment')} aria-label="text alignment">
-                <ToggleButton value="left" aria-label="left aligned">
-                    <FormatAlignLeftIcon />
-                </ToggleButton>
-                <ToggleButton value="center" aria-label="centered">
-                    <FormatAlignCenterIcon />
-                </ToggleButton>
-                <ToggleButton value="right" aria-label="right aligned">
-                    <FormatAlignRightIcon />
-                </ToggleButton>
-                <ToggleButton value="justify" aria-label="justified">
-                    <FormatAlignJustifyIcon />
-                </ToggleButton>
-            </ToggleButtonGroup>
-            <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1 }} />
-            <div>
-                <FormControlLabel
-                    control={
-                        <Checkbox checked={isBoldCheck} onChange={(event) => handleInputChange(event, 'weight')}
-                            color="primary" />
-                    } label="Bold" />
-                <FormControlLabel
-                    control={
-                        <Checkbox checked={isItalicCheck} onChange={(event) => handleInputChange(event, 'style')}
-                            color="primary" />
-                    } label="Italic" />
-                <FormControlLabel
-                    control={
-                        <Checkbox checked={isUnderlineCheck} onChange={(event) => handleInputChange(event, 'decoration')}
-                            color="primary" />
-                    } label="Underline" />
-            </div>
+                <Grid item>
+                    <ToggleButtonGroup value={alignment} exclusive onChange={(event) => handleInputChange(event, 'alignment')} aria-label="text alignment">
+                        <ToggleButton value="left" aria-label="left aligned">
+                            <FormatAlignLeftIcon />
+                        </ToggleButton>
+                        <ToggleButton value="center" aria-label="centered">
+                            <FormatAlignCenterIcon />
+                        </ToggleButton>
+                        <ToggleButton value="right" aria-label="right aligned">
+                            <FormatAlignRightIcon />
+                        </ToggleButton>
+                        <ToggleButton value="justify" aria-label="justified">
+                            <FormatAlignJustifyIcon />
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+                </Grid>
 
-            <FormControl>
-                <InputLabel>Police</InputLabel>
-                <Select value={police} onChange={(event) => handleInputChange(event, 'police')}>
-                    <MenuItem value="Arial">Arial</MenuItem>
-                    <MenuItem value="Verdana">Verdana</MenuItem>
-                    <MenuItem value="Helvetica">Helvetica</MenuItem>
-                </Select>
-            </FormControl>
+                <Grid item>
+                    <div role="group">
+                        <FormControlLabel
+                            control={
+                                <Checkbox className="checkbox" checked={isBoldCheck} onChange={(event) => handleInputChange(event, 'weight')}
+                                    icon={<FormatBoldIcon />} checkedIcon={<FormatBoldIcon />} />
+                            } />
+                        <FormControlLabel
+                            control={
+                                <Checkbox className="checkbox" checked={isItalicCheck} onChange={(event) => handleInputChange(event, 'style')}
+                                    icon={<FormatItalicIcon />} checkedIcon={<FormatItalicIcon />} />
+                            } />
+                        <FormControlLabel
+                            control={
+                                <Checkbox className="checkbox" checked={isUnderlineCheck} onChange={(event) => handleInputChange(event, 'decoration')}
+                                    icon={<FormatUnderlinedIcon />} checkedIcon={<FormatUnderlinedIcon />} />
+                            } />
+                    </div>
+                </Grid>
 
-            <Typography variant="h6">Taille de texte :</Typography>
-            <input type="number" value={textSize} onChange={(event) => handleInputChange(event, 'textSize')} />
+                <Grid item>
+                    <InputLabel>Police</InputLabel>
+                    <Select value={police} onChange={(event) => handleInputChange(event, 'police')}>
+                        <MenuItem value="Arial">Arial</MenuItem>
+                        <MenuItem value="Verdana">Verdana</MenuItem>
+                        <MenuItem value="Helvetica">Helvetica</MenuItem>
+                    </Select>
+                </Grid>
 
-            <Typography variant="h6">Couleur :</Typography>
-            <input type="color" value={color} onChange={(event) => handleInputChange(event, 'color')} />
+                <Grid item>
+                    <Typography variant="subtitle1">Taille de texte :</Typography>
+                    <input type="number" value={textSize} onChange={(event) => handleInputChange(event, 'textSize')} />
+                </Grid>
+
+                <Grid item>
+                    <Typography variant="subtitle1">Couleur :</Typography>
+                    <input type="color" value={color} onChange={(event) => handleInputChange(event, 'color')} />
+                </Grid>
+            </Grid>
         </Toolbar>
     );
 }

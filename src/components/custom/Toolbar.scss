@@ -25,10 +25,44 @@
 	height: max-content;
 }
 
-h6 {
-	color: black;
-}
+.toolbar-element {
+	.MuiGrid-item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-input {
-	width: 100px;
+	h6 {
+		color: black;
+	}
+
+	input {
+		width: 80px;
+	}
+
+	label {
+		margin: 0;
+	}
+
+	.checkbox {
+		margin-left: -1px;
+		border-left: 1px solid transparent;
+		border-radius: 0;
+		-webkit-tap-highlight-color: transparent;
+		background-color: transparent;
+		padding: 11px;
+		border: 1px solid rgba(0, 0, 0, 0.12);
+		color: rgba(0, 0, 0, 0.54);
+
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.12);
+		}
+
+	}
+
+	.checkbox:has(input:checked) {
+		color: rgba(0, 0, 0, 0.87);
+		background-color: rgba(0, 0, 0, 0.08);
+
+	}
 }

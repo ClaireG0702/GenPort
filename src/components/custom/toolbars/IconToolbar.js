@@ -1,4 +1,4 @@
-import { Toolbar, Typography } from '@mui/material';
+import { Grid, Toolbar, Typography } from '@mui/material';
 import '../Toolbar.scss';
 
 function IconToolbar({ iconProps, setIconProps, element }) {
@@ -17,15 +17,23 @@ function IconToolbar({ iconProps, setIconProps, element }) {
     const { top, left, color } = iconProps[element.id];
 
     return (
-        <Toolbar>
-            <Typography variant="h6">Marge en haut :</Typography>
-            <input type="number" value={top} onChange={(event) => handleInputChange(event, 'top')} />
+        <Toolbar className='toolbar-element'>
+            <Grid container justifyContent="space-between">
+                <Grid item>
+                    <Typography variant="h6">Marge en haut :</Typography>
+                    <input type="number" value={top} onChange={(event) => handleInputChange(event, 'top')} />
+                </Grid>
 
-            <Typography variant="h6">Marge à gauche :</Typography>
-            <input type="number" value={left} onChange={(event) => handleInputChange(event, 'left')} />
+                <Grid item>
+                    <Typography variant="h6">Marge à gauche :</Typography>
+                    <input type="number" value={left} onChange={(event) => handleInputChange(event, 'left')} />
+                </Grid>
 
-            <Typography variant="h6">Couleur :</Typography>
-            <input type="number" value={color} onChange={(event) => handleInputChange(event, 'color')} />
+                <Grid item>
+                    <Typography variant="h6">Couleur :</Typography>
+                    <input type="number" value={color} onChange={(event) => handleInputChange(event, 'color')} />
+                </Grid>
+            </Grid>
         </Toolbar>
     );
 }
