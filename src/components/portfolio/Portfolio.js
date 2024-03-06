@@ -24,6 +24,7 @@ function Portfolio() {
                         <Card style={{height: '150px'}} className="portfolio-card">
                             <Card.Body>
                                 <Card.Title>{portfolio.name}</Card.Title>
+                                <Card.Subtitle>{portfolio.description}</Card.Subtitle>
                                 <Card.Text>De : {portfolio.owner_id}</Card.Text>
                             </Card.Body>
                         </Card>

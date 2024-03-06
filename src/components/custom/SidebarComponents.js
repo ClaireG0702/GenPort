@@ -1,10 +1,9 @@
 import { Card, Nav } from 'react-bootstrap';
 import './Sidebar.scss';
 
-function SidebarComponents({ addComponent, setSelectedElement }) {
+function SidebarComponents({ addComponent }) {
     const handleClick = (component) => {
         addComponent(component);
-        // setSelectedElement(component);
     }
 
     return (

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-function TextZone({ id, top, left, alignment, style, weight, decoration, police, textSize, color, onClick }) {
-    const [text, setText] = useState('Zone de texte');
+function TextZone({ id, top, left, alignment, style, weight, decoration, police, textSize, color, textValue, onClick }) {
+    const [text, setText] = useState(textValue);
     let textStyle, textWeight, textDecoration;
 
     const handleTextChange = (event) => {
@@ -16,7 +16,7 @@ function TextZone({ id, top, left, alignment, style, weight, decoration, police,
         <span id={id}
             style={{
                 width: 'fit-content',
-                position: 'relative',
+                position: 'absolute',
                 top: `${top}px`,
                 left: `${left}px`,
                 padding: '2px',

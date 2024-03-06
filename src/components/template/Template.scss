@@ -14,4 +14,9 @@
 
 .template-card {
     border: none;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
 }

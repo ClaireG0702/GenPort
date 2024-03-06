@@ -35,8 +35,9 @@ function Custom() {
                 weight: false,
                 decoration: false,
                 police: '',
-                textSize: 24,
-                color: '#000000'
+                textSize: 32,
+                color: '#000000',
+                textValue: 'Titre'
             }
         }));
         setTextProps(prevState => ({
@@ -49,8 +50,9 @@ function Custom() {
                 weight: false,
                 decoration: false,
                 police: '',
-                textSize: 12,
-                color: '#000000'
+                textSize: 16,
+                color: '#000000',
+                textValue: 'Zone de texte'
             }
         }));
         setImageProps(prevState => ({
@@ -82,7 +84,7 @@ function Custom() {
     return (
         <Grid container alignItems="stretch" className='custom'>
             <Grid item xs={2}>
-                <SidebarComponents addComponent={addComponent} setSelectedElement={setSelectedElement} />
+                <SidebarComponents addComponent={addComponent} />
             </Grid>
             <Grid item xs={10}>
                 <ToolbarComponents selectedElement={selectedElement} shapeProps={shapeProps} 

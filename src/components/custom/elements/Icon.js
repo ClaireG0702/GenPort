@@ -2,7 +2,7 @@ function Icon({ id, top, left, color, onClick }) {
     return (
         <i id={id}
             style={{
-                position: 'relative',
+                position: 'absolute',
                 top: `${top}px`,
                 left: `${left}px`,
                 color: color

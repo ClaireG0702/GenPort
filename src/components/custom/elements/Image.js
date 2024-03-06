@@ -2,8 +2,9 @@ function Image({ id, top, left, border, borderColor, borderRadius, onClick }) {
     return (
         <img id={id}
             src=""
+            alt={'upload-'+id}
             style={{
-                position: 'relative',
+                position: 'absolute',
                 top: `${top}px`,
                 left: `${left}px`,
                 border: `${border}px solid ${borderColor}`,

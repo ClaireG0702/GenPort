@@ -1,5 +1,5 @@
 import React from 'react';
-import { Toolbar, Divider, Typography, Grid } from '@mui/material';
+import { Toolbar, Typography, Grid } from '@mui/material';
 import '../Toolbar.scss';
 
 function ElemToolbar({ shapeProps, setShapeProps, element }) {

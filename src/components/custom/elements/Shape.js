@@ -4,7 +4,7 @@ function Shape({ id, width, height, top, left, color, border, borderColor, borde
             style={{
                 width: `${width}px`,
                 height: `${height}px`,
-                position: 'relative',
+                position: 'absolute',
                 top: `${top}px`,
                 left: `${left}px`,
                 backgroundColor: color,
