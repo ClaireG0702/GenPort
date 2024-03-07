@@ -15,7 +15,7 @@ function ElemToolbar({ shapeProps, setShapeProps, element }) {
         }));
     };
 
-    const { width, height, top, left, color, border, borderColor, borderRadius } = shapeProps[element.id];
+    const { width, height, position_y, position_x, color, border, borderColor, borderRadius } = shapeProps[element.id];
 
     return (
         <Toolbar className='toolbar-element'>
@@ -32,12 +32,12 @@ function ElemToolbar({ shapeProps, setShapeProps, element }) {
 
                 <Grid item>
                     <Typography variant="subtitle1">Marge en haut :</Typography>
-                    <input type="number" value={top} onChange={(event) => handleInputChange(event, 'top')} />
+                    <input type="number" value={position_y} onChange={(event) => handleInputChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="subtitle1">Marge à gauche :</Typography>
-                    <input type="number" value={left} onChange={(event) => handleInputChange(event, 'left')} />
+                    <input type="number" value={position_x} onChange={(event) => handleInputChange(event, 'position_x')} />
                 </Grid>
 
                 <Grid item>

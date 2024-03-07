@@ -14,19 +14,19 @@ function ImageToolbar({ imageProps, setImageProps, element }) {
         }));
     };
 
-    const { top, left, border, borderColor, borderRadius } = imageProps[element.id];
+    const { position_y, position_x, border, borderColor, borderRadius } = imageProps[element.id];
 
     return (
         <Toolbar className='toolbar-element'>
             <Grid container justifyContent="space-between">
                 <Grid item>
                     <Typography variant="h6">Marge en haut :</Typography>
-                    <input type="number" value={top} onChange={(event) => handleInputChange(event, 'top')} />
+                    <input type="number" value={position_y} onChange={(event) => handleInputChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="h6">Marge à gauche :</Typography>
-                    <input type="number" value={left} onChange={(event) => handleInputChange(event, 'left')} />
+                    <input type="number" value={position_x} onChange={(event) => handleInputChange(event, 'position_x')} />
                 </Grid>
 
                 <Grid item>

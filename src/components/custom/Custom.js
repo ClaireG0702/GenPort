@@ -15,10 +15,10 @@ function Custom() {
         setShapeProps(prevState => ({
             ...prevState,
             [newId]: {
+                position_y: 0,
+                position_x: 0,
                 width: 100,
                 height: 50,
-                top: 0,
-                left: 0,
                 color: '#000000',
                 border: 0,
                 borderColor: '#000000',
@@ -28,8 +28,10 @@ function Custom() {
         setTitleProps(prevState => ({
             ...prevState,
             [newId]: {
-                top: 0,
-                left: 0,
+                position_y: 0,
+                position_x: 0,
+                width: 300,
+                height: 50,
                 alignment: 'center',
                 style: false,
                 weight: false,
@@ -43,8 +45,10 @@ function Custom() {
         setTextProps(prevState => ({
             ...prevState,
             [newId]: {
-                top: 0,
-                left: 0,
+                position_y: 0,
+                position_x: 0,
+                width: 400,
+                height: 50,
                 alignment: 'center',
                 style: false,
                 weight: false,
@@ -58,8 +62,10 @@ function Custom() {
         setImageProps(prevState => ({
             ...prevState,
             [newId]: {
-                top: 0,
-                left: 0,
+                position_y: 0,
+                position_x: 0,
+                width: 200,
+                height: 200,
                 border: 0,
                 borderColor: '#000000',
                 borderRadius: 0
@@ -68,8 +74,10 @@ function Custom() {
         setIconProps(prevState => ({
             ...prevState,
             [newId]: {
-                top: 0,
-                left: 0,
+                position_y: 0,
+                position_x: 0,
+                width: 50,
+                height: 50,
                 color: '#000000'
             }
         }));

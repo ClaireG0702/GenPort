@@ -15,12 +15,12 @@ function PreviewTemplate({ components }) {
 						switch (component.value_type) {
 							case 1:
                                 if(component.information_type === 2) {
-                                    return <Title key={index} id={index} top={component.position_y} left={component.position_x} textValue={component.values.texte} />
+                                    return <Title key={index} id={index} component={component} textValue={component.values.texte} />
                                 } else {
-                                    return <TextZone key={index} id={index} top={component.position_y} left={component.position_x} textValue={component.values.texte}/>
+                                    return <TextZone key={index} id={index} component={component} textValue={component.values.texte}/>
                                 }
 							case 2:
-								return <Image key={index} id={index} top={component.position_y} left={component.position_x} />
+								return <Image key={index} id={index} component={component} />
 							default:
 								return null;
 						}

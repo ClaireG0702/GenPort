@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function TextZone({ id, top, left, alignment, style, weight, decoration, police, textSize, color, textValue, onClick }) {
+function TextZone({ id, component, position_y, position_x, width, height, alignment, style, weight, decoration, police, textSize, color, textValue, onClick }) {
     const [text, setText] = useState(textValue);
     let textStyle, textWeight, textDecoration;
 
@@ -12,13 +12,21 @@ function TextZone({ id, top, left, alignment, style, weight, decoration, police,
     weight ? textWeight = 'bold' : textWeight = '';
     decoration ? textDecoration = 'underline' : textDecoration = '';
 
+    if(component) {
+        position_x = component.position_x;
+        position_y = component.position_y;
+        width = component.width;
+        height = component.height;
+    }
+
     return (
         <span id={id}
             style={{
-                width: 'fit-content',
                 position: 'absolute',
-                top: `${top}px`,
-                left: `${left}px`,
+                top: `${position_y}px`,
+                left: `${position_x}px`,
+                width: `${width}px`,
+                height: `${height}px`,
                 padding: '2px',
                 color: color,
                 fontSize: `${textSize}px`,
