@@ -1,16 +1,17 @@
 import { useState } from "react";
 
-function TextZone({ id, component, position_y, position_x, width, height, alignment, style, weight, decoration, police, textSize, color, textValue, onClick }) {
+function TextZone({ id, component, position_y, position_x, width, height, alignment, style, weight, decoration, police, textSize, color, textValue, onChange, onClick }) {
     const [text, setText] = useState(textValue);
-    let textStyle, textWeight, textDecoration;
 
     const handleTextChange = (event) => {
         setText(event.target.textContent);
-    }
+        const updatedComponent = { ...component, values: {...component.values, texte: event.target.textContent} };
+        onChange(id, updatedComponent);
+    }; 
 
-    style ? textStyle = 'italic' : textStyle = '';
-    weight ? textWeight = 'bold' : textWeight = '';
-    decoration ? textDecoration = 'underline' : textDecoration = '';
+    let textStyle = style ? 'italic' : '';
+    let textWeight = weight ? 'bold' : '';
+    let textDecoration = decoration ? 'underline' : '';
 
     if(component) {
         position_x = component.position_x;

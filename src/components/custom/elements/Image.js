@@ -1,4 +1,4 @@
-function Image({ id, component, position_y, position_x, width, height, border, borderColor, borderRadius, onClick }) {
+function Image({ id, component, position_y, position_x, width, height, border, borderColor, borderRadius, onChange, onClick }) {
     
     if(component) {
         position_x = component.position_x;

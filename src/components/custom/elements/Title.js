@@ -1,12 +1,14 @@
 import { useState } from "react";
 
-function Title({ id, component, position_y, position_x, width, height, alignment, style, weight, decoration, police, textSize, color, textValue, onClick }) {
+function Title({ id, component, position_y, position_x, width, height, alignment, style, weight, decoration, police, textSize, color, textValue, onChange, onClick }) {
     const [text, setText] = useState(textValue);
     let textStyle, textWeight, textDecoration;
 
     const handleTextChange = (event) => {
         setText(event.target.textContent);
-    }
+        const updatedComponent = { ...component, values: {...component.values, texte: event.target.textContent} };
+        onChange(id, updatedComponent);
+    };
 
     style ? textStyle = 'italic' : textStyle = '';
     weight ? textWeight = 'bold' : textWeight = '';
