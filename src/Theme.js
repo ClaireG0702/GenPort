@@ -7,9 +7,9 @@ const getTheme = () => {
 	const db = localStorage.getItem("db-theme");
 	if(!theme || !db) {
 		// Default theme is taken as dark-theme
-		localStorage.setItem("theme", "dark-theme");
-		localStorage.setItem("db-theme", "dark");
-		return "dark-theme";
+		localStorage.setItem("theme", "light-theme");
+		localStorage.setItem("db-theme", "light");
+		return "light-theme";
 	} else {
 		return theme;
 	}

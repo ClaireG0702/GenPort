@@ -11,7 +11,7 @@ function CustomTemplate() {
     const { id } = useParams();
     const [components, setComponents] = useState([]);
     const [templateData, setTemplateData] = useState({
-        id: parseInt(id)+1,
+        id: null,
         name: 'Portfolio',
         description: 'Ceci est la description par defaut',
         owner_id: null
@@ -27,6 +27,7 @@ function CustomTemplate() {
         console.log(newData)
         setTemplateData(prevTemplateData => ({
             ...prevTemplateData,
+            name: newData.name,
             components: newData.components
         }));
         console.log(templateData)
@@ -67,7 +68,7 @@ function CustomTemplate() {
         <>
             <Grid container>
                 <Grid item xs={12}>
-                    <DefaultToolbar components={components} templateData={templateData}  saveTemplateHandler={saveTemplateHandler} />
+                    <DefaultToolbar templateData={templateData}  saveTemplateHandler={saveTemplateHandler} />
                 </Grid>
             </Grid>
             <Grid container alignItems="stretch" className='custom'>

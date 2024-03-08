@@ -3,7 +3,7 @@ import { Button, Input } from '@mui/material';
 import '../Toolbar.scss';
 import { useState } from "react";
 
-function DefaultToolbar({ components, templateData, saveTemplateHandler }) {
+function DefaultToolbar({ templateData, saveTemplateHandler }) {
 
     const [name, setName] = useState('Portfolio');
 
@@ -14,8 +14,6 @@ function DefaultToolbar({ components, templateData, saveTemplateHandler }) {
 
     const handleSaveTemplate = () => {
         const updatedComponents = { ...templateData, name: name };
-        console.log('toolbar')
-        console.log(updatedComponents)
         saveTemplateHandler(updatedComponents);
     };
 
