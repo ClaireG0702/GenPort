@@ -31,7 +31,7 @@ function Template() {
                     </Col>
                     {templates.map(template => 
                     <Col key={template.id} className="my-2">
-                        <Card style={{height: '150px'}} className="template-card">
+                        <Card style={{height: '150px'}} as={Link} to={'/custom/'+template.id} className="template-card">
                             <Card.Body>
                                 <Card.Title>{template.name}</Card.Title>
                                 <Card.Subtitle>{template.description}</Card.Subtitle>

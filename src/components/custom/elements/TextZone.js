@@ -24,8 +24,8 @@ function TextZone({ id, component, position_y, position_x, width, height, alignm
         <span id={id}
             style={{
                 position: 'absolute',
-                top: `${position_y}px`,
-                left: `${position_x}px`,
+                top: `${position_y}%`,
+                left: `${position_x}%`,
                 width: `${width}px`,
                 height: `${height}px`,
                 padding: '2px',

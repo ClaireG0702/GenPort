@@ -24,11 +24,11 @@ function Title({ id, component, position_y, position_x, width, height, alignment
     return (
         <h1 id={id}
             style={{
+                position: 'absolute',
+                top: `${position_y}%`,
+                left: `${position_x}%`,
                 width: `${width}px`,
                 height: `${height}px`,
-                position: 'absolute',
-                top: `${position_y}px`,
-                left: `${position_x}px`,
                 padding: '2px',
                 color: color,
                 fontSize: `${textSize}px`,

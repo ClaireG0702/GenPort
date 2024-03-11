@@ -1,6 +1,6 @@
 {
   "id":-1,
-  "name":"Template 01",
+  "name":"Template 00",
   "description":"Ceci est un template par défaut",
   "owner_id":null,
   "components":[
@@ -8,8 +8,8 @@
       "component_id":-1,
       "value_type":1,
       "information_type":3,
-      "position_x":20,
-      "position_y":20,
+      "position_x":1,
+      "position_y":2,
       "width":250,
       "height":25,
       "values":{
@@ -20,8 +20,8 @@
       "component_id":-1,
       "value_type":1,
       "information_type":11,
-      "position_x":20,
-      "position_y":50,
+      "position_x":1,
+      "position_y":7,
       "width":300,
       "height":50,
       "values":{
@@ -32,9 +32,9 @@
       "component_id":-1,
       "value_type":1,
       "information_type":2,
-      "position_x":475,
-      "position_y":10,
-      "width":500,
+      "position_x":33,
+      "position_y":1,
+      "width":450,
       "height":50,
       "values":{
 				"texte":"Le titre de ton portfolio"
@@ -44,8 +44,8 @@
       "component_id":-1,
       "value_type":2,
       "information_type":1,
-      "position_x":90,
-      "position_y":580,
+      "position_x":3,
+      "position_y":80,
       "width":200,
       "height":200,
       "values":{
@@ -56,8 +56,8 @@
       "component_id":-1,
       "value_type":1,
       "information_type":5,
-      "position_x":175,
-      "position_y":180,
+      "position_x":10,
+      "position_y":25,
       "width":150,
       "height":35,
       "values":{
@@ -68,8 +68,8 @@
       "component_id":-1,
       "value_type":1,
       "information_type":4,
-      "position_x":340,
-      "position_y":180,
+      "position_x":20,
+      "position_y":25,
       "width":150,
       "height":35,
       "values":{
@@ -80,8 +80,8 @@
       "component_id":-1,
       "value_type":1,
       "information_type":13,
-      "position_x":90,
-      "position_y":240,
+      "position_x":5,
+      "position_y":30,
       "width":480,
       "height":200,
       "values":{
@@ -92,8 +92,8 @@
 			"component_id":-1,
 			"value_type":1,
 			"information_type":6,
-			"position_x":590,
-			"position_y":250,
+			"position_x":40,
+			"position_y":30,
 			"width":200,
 			"height":35,
 			"values":{
@@ -104,9 +104,9 @@
 			"component_id":-1,
 			"value_type":1,
 			"information_type":12,
-			"position_x":590,
-			"position_y":290,
-			"width":550,
+			"position_x":40,
+			"position_y":35,
+			"width":500,
 			"height":400,
 			"values":{
 				"texte":"Détails des expériences"
@@ -116,8 +116,8 @@
 			"component_id":-1,
 			"value_type":1,
 			"information_type":6,
-			"position_x":1150,
-			"position_y":250,
+			"position_x":75,
+			"position_y":30,
 			"width":200,
 			"height":35,
 			"values":{
@@ -128,9 +128,9 @@
 			"component_id":-1,
 			"value_type":1,
 			"information_type":9,
-			"position_x":1150,
-			"position_y":290,
-			"width":300,
+			"position_x":75,
+			"position_y":35,
+			"width":350,
 			"height":400,
 			"values":{
 				"texte":"Détails des réalisations"
@@ -140,8 +140,8 @@
       "component_id":-1,
       "value_type":1,
       "information_type":3,
-      "position_x":1050,
-      "position_y":20,
+      "position_x":77,
+      "position_y":2,
       "width":200,
       "height":25,
       "values":{
@@ -152,8 +152,8 @@
       "component_id":-1,
       "value_type":1,
       "information_type":8,
-      "position_x":1050,
-      "position_y":50,
+      "position_x":77,
+      "position_y":7,
       "width":300,
       "height":50,
       "values":{

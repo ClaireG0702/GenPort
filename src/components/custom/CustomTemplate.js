@@ -18,9 +18,13 @@ function CustomTemplate() {
     });
 
     useEffect(() => {
-        if(jsonTemplate.id === parseInt(id)) {
-            setComponents(jsonTemplate.components);
-        }
+        fetch(environment.apiURL+`/controllers/templates/get?id=${id}`)
+            .then(response => response.json())
+            .then(data => {
+                const {components: componentsData} = data
+                setComponents(componentsData)
+            })
+            .catch(error => console.error('Error fetching templates:', error));
     }, [id]);
 
     const updateTemplateData = (newData) => {
