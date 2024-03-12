@@ -5,8 +5,9 @@
 }
 
 .dark-theme {
-	.MuiPaper-root {
-		background: var(--bg-primary-dark);
+	.toolbar {
+		background-color: var(--dark-toolbar-bg);
+		color: var(--dark-primary-text);
 	}
 
 	svg {
@@ -23,6 +24,10 @@
 .MuiPaper-root {
 	position: relative !important;
 	height: max-content;
+}
+
+.toolbar {
+	border-bottom-left-radius: 5px;
 }
 
 .toolbar-element {

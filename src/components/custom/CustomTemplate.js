@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import PreviewTemplate from './PreviewTemplate.js';
 import { Grid } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import jsonTemplate from '../../data/template1.json';
 import DefaultToolbar from './toolbars/DefaultToolbar.js';
 import { environment } from '../../environment/environment.developments.js';
 
@@ -21,8 +20,8 @@ function CustomTemplate() {
         fetch(environment.apiURL+`/controllers/templates/get?id=${id}`)
             .then(response => response.json())
             .then(data => {
-                const {components: componentsData} = data
-                setComponents(componentsData)
+                const {components: componentsData} = data;
+                setComponents(componentsData);
             })
             .catch(error => console.error('Error fetching templates:', error));
     }, [id]);
@@ -48,13 +47,13 @@ function CustomTemplate() {
 			});
 
 			if (!response.ok) {
-				throw new Error('Failed to save template');
+				throw new Error('Failed to save portfolio');
 			}
 
 			const responseData = await response.json();
 			return responseData;
 		} catch (error) {
-			console.error('Error saving template:', error.message);
+			console.error('Error saving portfolio:', error.message);
 			throw error;
 		}
 	};
@@ -62,9 +61,9 @@ function CustomTemplate() {
 	const saveTemplateHandler = async () => {
 		try {
 			const savedTemplate = await saveTemplate(templateData);
-			console.log('Saved template:', savedTemplate);
+			console.log('Saved portfolio:', savedTemplate);
 		} catch (error) {
-			console.error('Error saving template:', error);
+			console.error('Error saving portfolio:', error);
 		}
 	};
 

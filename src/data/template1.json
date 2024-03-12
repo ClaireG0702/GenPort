@@ -10,8 +10,8 @@
       "information_type":3,
       "position_x":1,
       "position_y":2,
-      "width":250,
-      "height":25,
+      "width":20,
+      "height":5,
       "values":{
 				"texte":"Mes informations personnelles"
 			}
@@ -22,8 +22,8 @@
       "information_type":11,
       "position_x":1,
       "position_y":7,
-      "width":300,
-      "height":50,
+      "width":25,
+      "height":10,
       "values":{
 				"texte":"Détails des informations personnelles"
 			}
@@ -34,8 +34,8 @@
       "information_type":2,
       "position_x":33,
       "position_y":1,
-      "width":450,
-      "height":50,
+      "width":35,
+      "height":9,
       "values":{
 				"texte":"Le titre de ton portfolio"
 			}
@@ -58,8 +58,8 @@
       "information_type":5,
       "position_x":10,
       "position_y":25,
-      "width":150,
-      "height":35,
+      "width":10,
+      "height":5,
       "values":{
 				"texte":"Ton Prénom"
 			}	
@@ -68,10 +68,10 @@
       "component_id":-1,
       "value_type":1,
       "information_type":4,
-      "position_x":20,
+      "position_x":21,
       "position_y":25,
-      "width":150,
-      "height":35,
+      "width":10,
+      "height":5,
       "values":{
 				"texte":"Ton Nom"
 			}
@@ -82,8 +82,8 @@
       "information_type":13,
       "position_x":5,
       "position_y":30,
-      "width":480,
-      "height":200,
+      "width":33,
+      "height":35,
       "values":{
 				"texte":"Ta petite description personnelle"
 			}
@@ -94,8 +94,8 @@
 			"information_type":6,
 			"position_x":40,
 			"position_y":30,
-			"width":200,
-			"height":35,
+			"width":15,
+			"height":5,
 			"values":{
 				"texte":"Mes expériences"
 			}
@@ -106,8 +106,8 @@
 			"information_type":12,
 			"position_x":40,
 			"position_y":35,
-			"width":500,
-			"height":400,
+			"width":33,
+			"height":48,
 			"values":{
 				"texte":"Détails des expériences"
 			}
@@ -118,8 +118,8 @@
 			"information_type":6,
 			"position_x":75,
 			"position_y":30,
-			"width":200,
-			"height":35,
+			"width":15,
+			"height":5,
 			"values":{
 				"texte":"Mes réalisations"
 			}
@@ -130,8 +130,8 @@
 			"information_type":9,
 			"position_x":75,
 			"position_y":35,
-			"width":350,
-			"height":400,
+			"width":23,
+			"height":48,
 			"values":{
 				"texte":"Détails des réalisations"
 			}
@@ -142,8 +142,8 @@
       "information_type":3,
       "position_x":77,
       "position_y":2,
-      "width":200,
-      "height":25,
+      "width":12,
+      "height":5,
       "values":{
 				"texte":"Mes liens utiles"
 			}
@@ -154,8 +154,8 @@
       "information_type":8,
       "position_x":77,
       "position_y":7,
-      "width":300,
-      "height":50,
+      "width":20,
+      "height":10,
       "values":{
 				"texte":"Liens utiles"
 			}

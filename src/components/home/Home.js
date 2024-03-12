@@ -6,7 +6,7 @@ import './Home.scss';
 function Home() {
 
 	return (
-		<div>
+		<div className="home">
 			<Container>
 				<InputGroup className="my-4 d-flex flex-wrap align-items-stretch w-100 position-relative">
 					<Form.Select className="input-group-text col-md-4 select-search" id="searchType">

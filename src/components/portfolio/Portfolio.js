@@ -16,7 +16,7 @@ function Portfolio() {
     }, []);
 
     return (
-        <div>
+        <div className="portfolios">
             <Container>
                 <Row xs={4} className="my-4">
                     {portfolios.map(portfolio => 

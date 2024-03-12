@@ -7,21 +7,21 @@ function SidebarComponents({ addComponent }) {
     }
 
     return (
-        <aside>
+        <aside className='sidebar'>
             <Nav>
-                <Card className='elements' onClick={() => handleClick({ elem: 'div' })}>
+                <Card className='elements' onClick={() => handleClick({ value_type: 5 })}>
                     <Nav.Item>Forme</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ elem: 'h1' })}>
+                <Card className='elements' onClick={() => handleClick({ value_type: 1, information_type: 2, values:{texte: 'Titre'}})}>
                     <Nav.Item>Titre</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ elem: 'span' })}>
+                <Card className='elements' onClick={() => handleClick({ value_type: 1, information_type: null, values:{texte: 'Zone de texte'} })}>
                     <Nav.Item>Zone de texte</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ elem: 'img' })}>
-                    <Nav.Item>Image<input type='file' /></Nav.Item>
+                <Card className='elements' onClick={() => handleClick({ value_type: 2 })}>
+                    <Nav.Item>Image<input className='input-file' type='file' /></Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ elem: 'i' })}>
+                <Card className='elements' onClick={() => handleClick({ value_type: 1 })}>
                     <Nav.Item>Icon</Nav.Item>
                 </Card>
             </Nav>

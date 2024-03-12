@@ -9,7 +9,7 @@ import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
 import { useState } from "react";
 import '../Toolbar.scss';
 
-function TitleToolbar({ titleProps, setTitleProps, element }) {
+function TitleToolbar({ componentProps, setComponentProps, element }) {
     const [isBoldCheck, setIsBoldCheck] = useState(false);
     const [isItalicCheck, setIsItalicCheck] = useState(false);
     const [isUnderlineCheck, setIsUnderlineCheck] = useState(false);
@@ -31,26 +31,26 @@ function TitleToolbar({ titleProps, setTitleProps, element }) {
                     break;
             }
 
-            setTitleProps(prevState => ({
-                ...prevState,
-                [element.id]: {
-                    ...prevState[element.id],
-                    [propName]: checked
-                }
-            }));
+            // setTitleProps(prevState => ({
+            //     ...prevState,
+            //     [element.id]: {
+            //         ...prevState[element.id],
+            //         [propName]: checked
+            //     }
+            // }));
         } else {
             const { value } = event.target;
-            setTitleProps(prevState => ({
-                ...prevState,
-                [element.id]: {
-                    ...prevState[element.id],
-                    [propName]: value
-                }
-            }));
+            // setTitleProps(prevState => ({
+            //     ...prevState,
+            //     [element.id]: {
+            //         ...prevState[element.id],
+            //         [propName]: value
+            //     }
+            // }));
         }
     };
 
-    const { position_y, position_x, alignment, police, textSize, color } = titleProps[element.id];
+    const { position_y, position_x, alignment, police, textSize, color } = componentProps;
 
     return (
         <Toolbar className="toolbar-element">

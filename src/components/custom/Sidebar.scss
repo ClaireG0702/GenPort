@@ -12,8 +12,8 @@
 
 .dark-theme {
 	.elements {
-		background: var(--dark-card-bg);
-		color: var(--dark-card-text);
+		background: var(--dark-sidebar-card-bg);
+		color: var(--dark-primary-text);
 
 		&:hover {
 			background: var(--dark-card-bg-hover);
@@ -28,6 +28,12 @@
 }
 
 .elements {
+	margin-top: 4px;
+	margin-inline: 4px;
 	padding: 4px;
 	font-weight: bold;
+}
+
+.input-file {
+	display: none;
 }

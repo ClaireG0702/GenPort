@@ -8,18 +8,17 @@ import './Toolbar.scss';
 import { AppBar } from '@mui/material';
 
 
-function ToolbarComponents({ selectedElement, shapeProps, setShapeProps, titleProps, setTitleProps,
-	textProps, setTextProps, imageProps, setImageProps, iconProps, setIconProps }) {
+function ToolbarComponents({ selectedElement, componentProps, setComponentProps }) {
 
 	return (
 		<AppBar className="toolbar">
 			{selectedElement ? (
 				<>
-					{selectedElement.tagName.toLowerCase() === 'div' && <ElemToolbar shapeProps={shapeProps} setShapeProps={setShapeProps} element={selectedElement} />}
-					{selectedElement.tagName.toLowerCase() === 'h1' && <TitleToolbar titleProps={titleProps} setTitleProps={setTitleProps} element={selectedElement} />}
-					{selectedElement.tagName.toLowerCase() === 'span' && <TextToolbar textProps={textProps} setTextProps={setTextProps} element={selectedElement} />}
-					{selectedElement.tagName.toLowerCase() === 'img' && <ImageToolbar imageProps={imageProps} setImageProps={setImageProps} element={selectedElement} />}
-					{selectedElement.tagName.toLowerCase() === 'i' && <IconToolbar iconProps={iconProps} setIconProps={setIconProps} element={selectedElement} />}
+					{selectedElement.tagName.toLowerCase() === 'div' && <ElemToolbar componentProps={componentProps} setComponentProps={setComponentProps} element={selectedElement} />}
+					{selectedElement.tagName.toLowerCase() === 'h1' && <TitleToolbar componentProps={componentProps} setComponentProps={setComponentProps} element={selectedElement} />}
+					{selectedElement.tagName.toLowerCase() === 'span' && <TextToolbar componentProps={componentProps} setComponentProps={setComponentProps} element={selectedElement} />}
+					{selectedElement.tagName.toLowerCase() === 'img' && <ImageToolbar componentProps={componentProps} setComponentProps={setComponentProps} element={selectedElement} />}
+					{selectedElement.tagName.toLowerCase() === 'i' && <IconToolbar componentProps={componentProps} setComponentProps={setComponentProps} element={selectedElement} />}
 				</>
 			) : (
 				<DefaultToolbar />

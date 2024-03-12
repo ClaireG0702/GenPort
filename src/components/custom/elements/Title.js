@@ -6,7 +6,7 @@ function Title({ id, component, position_y, position_x, width, height, alignment
 
     const handleTextChange = (event) => {
         setText(event.target.textContent);
-        const updatedComponent = { ...component, values: {...component.values, texte: event.target.textContent} };
+        const updatedComponent = { ...component, values: {...component.values, texte: text} };
         onChange(id, updatedComponent);
     };
 
@@ -27,8 +27,8 @@ function Title({ id, component, position_y, position_x, width, height, alignment
                 position: 'absolute',
                 top: `${position_y}%`,
                 left: `${position_x}%`,
-                width: `${width}px`,
-                height: `${height}px`,
+                width: `${width}%`,
+                height: `${height}%`,
                 padding: '2px',
                 color: color,
                 fontSize: `${textSize}px`,

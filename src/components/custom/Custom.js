@@ -6,88 +6,41 @@ import Preview from './Preview.js';
 import { Grid } from '@mui/material';
 
 function Custom() {
-    const [customComponent, setCustomComponent] = useState([]);
+    const [model, setModel] = useState({
+        name: 'Portfolio',
+        description: 'Description par défaut',
+        owner_id: null,
+        components: []
+    });
     const [selectedElement, setSelectedElement] = useState(null);
 
     const addComponent = (component) => {
-        const newId = customComponent.length;
-        setCustomComponent([...customComponent, { ...component, id: newId }]);
-        setShapeProps(prevState => ({
-            ...prevState,
-            [newId]: {
-                position_y: 0,
-                position_x: 0,
-                width: 100,
-                height: 50,
-                color: '#000000',
-                border: 0,
-                borderColor: '#000000',
-                borderRadius: 0
+        const newComponent = {
+            ...component,
+            values: {
+                ...component.values
             }
+        };
+        setModel(prevModel => ({
+            ...prevModel,
+            components: [...prevModel.components, newComponent]
         }));
-        setTitleProps(prevState => ({
-            ...prevState,
-            [newId]: {
-                position_y: 0,
-                position_x: 0,
-                width: 300,
-                height: 50,
-                alignment: 'center',
-                style: false,
-                weight: false,
-                decoration: false,
-                police: '',
-                textSize: 32,
-                color: '#000000',
-                textValue: 'Titre'
-            }
-        }));
-        setTextProps(prevState => ({
-            ...prevState,
-            [newId]: {
-                position_y: 0,
-                position_x: 0,
-                width: 400,
-                height: 50,
-                alignment: 'center',
-                style: false,
-                weight: false,
-                decoration: false,
-                police: '',
-                textSize: 16,
-                color: '#000000',
-                textValue: 'Zone de texte'
-            }
-        }));
-        setImageProps(prevState => ({
-            ...prevState,
-            [newId]: {
-                position_y: 0,
-                position_x: 0,
-                width: 200,
-                height: 200,
-                border: 0,
-                borderColor: '#000000',
-                borderRadius: 0
-            }
-        }));
-        setIconProps(prevState => ({
-            ...prevState,
-            [newId]: {
-                position_y: 0,
-                position_x: 0,
-                width: 50,
-                height: 50,
-                color: '#000000'
-            }
-        }));
+        console.log('Portfolio:')
+        console.log(model)
     };
 
-    const [shapeProps, setShapeProps] = useState({});
-    const [titleProps, setTitleProps] = useState({});
-    const [textProps, setTextProps] = useState({});
-    const [imageProps, setImageProps] = useState({});
-    const [iconProps, setIconProps] = useState({});
+    const updateTemplateData = (newData) => {
+        console.log('Step 4 (params to update portfolio data)')
+        console.log(newData)
+        setModel(prevTemplateData => ({
+            ...prevTemplateData,
+            components: newData.components
+        }));
+
+        console.log(model)
+    };
+
+    const [componentProps, setComponentProps] = useState({});
 
     return (
         <Grid container alignItems="stretch" className='custom'>
@@ -95,13 +48,8 @@ function Custom() {
                 <SidebarComponents addComponent={addComponent} />
             </Grid>
             <Grid item xs={10}>
-                <ToolbarComponents selectedElement={selectedElement} shapeProps={shapeProps} 
-                    setShapeProps={setShapeProps} titleProps={titleProps} setTitleProps={setTitleProps}
-                    textProps={textProps} setTextProps={setTextProps} imageProps={imageProps} 
-                    setImageProps={setImageProps} iconProps={iconProps} setIconProps={setIconProps} />
-                <Preview customComponent={customComponent} setSelectedElement={setSelectedElement}
-                    shapeProps={shapeProps} titleProps={titleProps} textProps={textProps}
-                    imageProps={imageProps} iconProps={iconProps} />
+                <ToolbarComponents selectedElement={selectedElement} componentProps={componentProps} setComponentProps={setComponentProps} />
+                <Preview model={model} setSelectedElement={setSelectedElement} componentProps={componentProps} updateTemplateData={updateTemplateData} />
             </Grid>
         </Grid>
     );
