@@ -7,13 +7,14 @@
 	--dark-navbar-search: #484848;
 	--dark-home-card-bg: #92b0dd; 
 	--dark-card-btn-bg: #4678c6;
-	--dark-card-bg-hover: #3360a6;
+	--dark-card-btn-bg-hover: ;
 	--dark-border-search: #dfe8f5;
 	--dark-template-card-bg: #92b0dd;
 	--dark-portfolio-card-bg: #92b0dd;
 	--dark-card-text: #3e3e3e;
-	--dark-toolbar-bg: #3e3e3e;
-	--dark-sidebar-card-bg: #3e3e3e;
+	--dark-toolbar-bg: #484848;
+	--dark-sidebar-card-bg: #484848;
+	--dark-sidebar-card-bg-hover: #4678c6;
 
 	--light-body-bg: white;
 	--light-primary-text: #333; 
@@ -26,6 +27,11 @@
 	--light-template-card-bg: #cedbf0;
 	--light-portfolio-card-bg: #cedbf0;
 	--light-card-text: #484848;
+	--light-toolbar-bg: white;
+	--light-sidebar-card-bg: white;
+	--light-sidebar-card-bg-hover: #4678c6;
+	--light-sidebar-text-hover: white;
+
 
 	--navbar-text: #e8e8e8;
 }
@@ -47,6 +53,7 @@ body,
 #root {
 	min-height: 100%;
 	height: 100%;
+	margin: 0;
 	font-family: Roboto, "Helvetica Neue", sans-serif;
 	font-weight: normal;
 }

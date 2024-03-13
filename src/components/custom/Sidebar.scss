@@ -1,11 +1,11 @@
 .light-theme {
 	.elements {
-		background: var(--light-card-bg);
+		background: var(--light-sidebar-card-bg);
 		color: var(--light-card-text);
 
 		&:hover {
-			background: var(--light-card-bg-hover);
-			color: var(--light-card-text-hover);
+			background: var(--light-sidebar-card-bg-hover);
+			color: var(--light-sidebar-text-hover);
 		}
 	}
 }
@@ -16,7 +16,7 @@
 		color: var(--dark-primary-text);
 
 		&:hover {
-			background: var(--dark-card-bg-hover);
+			background: var(--dark-sidebar-card-bg-hover);
 			color: var(--dark-card-text-hover);
 		}
 	}

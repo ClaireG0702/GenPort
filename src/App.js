@@ -9,6 +9,7 @@ import Template from './components/template/Template.js';
 import Portfolio from './components/portfolio/Portfolio.js';
 import Custom from './components/custom/Custom.js';
 import CustomTemplate from './components/custom/CustomTemplate.js';
+import ViewPortfolio from './components/view/ViewPortfolio.js';
 import { useContext, useEffect } from 'react';
 import { ThemeContext } from './Theme.js';
 import './App.css';
@@ -34,6 +35,7 @@ function App() {
 				<Route path='/portfolios' exact element={<Portfolio />} />
 				<Route path='/custom' exact element={<Custom />} />
 				<Route path='/custom/:id' element={<CustomTemplate />} />
+				<Route path='/view/:id' element={<ViewPortfolio />} />
 				<Route path="*" element={<Navigate to="/home" replace />} />
 			</Routes>
 			<Outlet />

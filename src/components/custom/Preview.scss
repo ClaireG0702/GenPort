@@ -1,3 +1,15 @@
+.light-theme {
+	.preview {
+		box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+	}
+}
+
+.dark-theme {
+	.preview {
+		box-shadow: 0px 2px 4px -1px rgba(95,95,95,0.6),0px 4px 5px 0px rgba(95,95,95,0.34),0px 1px 10px 0px rgba(95,95,95,0.32);
+	}
+}
+
 .custom-preview {
 	position: relative;
 	height: 100%;

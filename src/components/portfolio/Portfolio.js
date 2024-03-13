@@ -5,6 +5,7 @@ import './Portfolio.scss';
 import { useEffect, useState } from "react";
 import { environment } from "../../environment/environment.developments";
 
+// Affichage des portfolios
 function Portfolio() {
     const [portfolios, setPortfolios] = useState([]);
 
@@ -21,7 +22,7 @@ function Portfolio() {
                 <Row xs={4} className="my-4">
                     {portfolios.map(portfolio => 
                     <Col key={portfolio.id} className="my-2">
-                        <Card style={{height: '150px'}} className="portfolio-card">
+                        <Card style={{height: '150px'}} as={Link} to={'/view/'+portfolio.id} className="portfolio-card">
                             <Card.Body>
                                 <Card.Title>{portfolio.name}</Card.Title>
                                 <Card.Subtitle>{portfolio.description}</Card.Subtitle>
@@ -32,7 +33,7 @@ function Portfolio() {
                     <Col className="my-2">
                         <Card style={{height: '150px'}} as={Link} to="/custom" className="portfolio-card">
                             <Card.Body className="d-flex align-items-center justify-content-center">
-                                <BsPlusSquare />
+                                <BsPlusSquare className="add-portfolio" />
                             </Card.Body>
                         </Card>
                     </Col>

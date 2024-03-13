@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-function Title({ id, component, position_y, position_x, width, height, alignment, style, weight, decoration, police, textSize, color, textValue, onChange, onClick }) {
-    const [text, setText] = useState(textValue);
+function Title({ id, component, alignment, style, weight, decoration, police, textSize, color, onChange, onClick }) {
+    const { position_x, position_y, width, height } = component;
+    const [text, setText] = useState(component.values.texte);
     let textStyle, textWeight, textDecoration;
 
     const handleTextChange = (event) => {
@@ -13,13 +14,6 @@ function Title({ id, component, position_y, position_x, width, height, alignment
     style ? textStyle = 'italic' : textStyle = '';
     weight ? textWeight = 'bold' : textWeight = '';
     decoration ? textDecoration = 'underline' : textDecoration = '';
-
-    if(component) {
-        position_x = component.position_x;
-        position_y = component.position_y;
-        width = component.width;
-        height = component.height;
-    }
 
     return (
         <h1 id={id}
@@ -38,10 +32,7 @@ function Title({ id, component, position_y, position_x, width, height, alignment
                 fontWeight: textWeight,
                 textDecoration: textDecoration,
                 cursor: 'text'
-            }}
-            onClick={onClick}
-            contentEditable onBlur={handleTextChange}
-            dangerouslySetInnerHTML={{ __html: text }}></h1>
+            }}>{text}</h1>
     );
 }
 

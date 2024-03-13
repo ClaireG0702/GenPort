@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-function TextZone({ id, component, position_y, position_x, width, height, alignment, style, weight, decoration, police, textSize, color, textValue, onChange, onClick }) {
-    const [text, setText] = useState(textValue);
+function TextZone({ id, component, alignment, style, weight, decoration, police, textSize, color, onChange, onClick }) {
+    const { position_x, position_y, width, height } = component;
+    const [text, setText] = useState(component.values.texte);
     
     const handleTextChange = (event) => {
         setText(event.target.textContent);
@@ -12,13 +13,6 @@ function TextZone({ id, component, position_y, position_x, width, height, alignm
     let textStyle = style ? 'italic' : '';
     let textWeight = weight ? 'bold' : '';
     let textDecoration = decoration ? 'underline' : '';
-
-    if (component) {
-        position_x = component.position_x;
-        position_y = component.position_y;
-        width = component.width;
-        height = component.height;
-    }
 
     return (
         <span id={id}
@@ -37,10 +31,7 @@ function TextZone({ id, component, position_y, position_x, width, height, alignm
                 fontWeight: textWeight,
                 textDecoration: textDecoration,
                 cursor: 'text'
-            }}
-            onClick={onClick}
-            contentEditable onBlur={handleTextChange}
-            dangerouslySetInnerHTML={{ __html: text }}></span>
+            }}>{text}</span>
     );
 }
 

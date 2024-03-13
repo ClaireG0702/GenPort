@@ -1,10 +1,29 @@
 .light-theme {
     .portfolio-card {
-        background: var(--light-template-card-bg);
+        background: var(--light-portfolio-card-bg);
         color: var(--light-card-text);
+    }
+}
+
+.dark-theme {
+    .portfolio-card {
+        background-color: var(--dark-portfolio-card-bg);
+
+        .add-portfolio {
+            color: var(--dark-card-text);
+        }
     }
 }
 
 .portfolios {
     position: relative;
+}
+
+.portfolio-card {
+    border: none;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
 }

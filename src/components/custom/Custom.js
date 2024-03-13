@@ -5,6 +5,7 @@ import ToolbarComponents from './ToolbarComponents.js';
 import Preview from './Preview.js';
 import { Grid } from '@mui/material';
 
+// Page de création de template
 function Custom() {
     const [model, setModel] = useState({
         name: 'Portfolio',

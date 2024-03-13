@@ -7,6 +7,7 @@ import Image from "./elements/Image";
 import Icon from "./elements/Icon";
 import { useState } from "react"; 
 
+// Pré-visualisation du modèle (template ou protfolio) pour la création
 function Preview({ model, setSelectedElement, componentProps, updateTemplateData }) {
 	const [updatedComponents, setUpdatedComponents] = useState([]);
 

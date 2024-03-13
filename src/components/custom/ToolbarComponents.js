@@ -7,7 +7,7 @@ import IconToolbar from './toolbars/IconToolbar';
 import './Toolbar.scss';
 import { AppBar } from '@mui/material';
 
-
+// Affichage de la barre d'outil correspondant à l'élément sélectionné
 function ToolbarComponents({ selectedElement, componentProps, setComponentProps }) {
 
 	return (

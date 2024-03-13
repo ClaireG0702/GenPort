@@ -5,6 +5,7 @@ import './Template.scss';
 import { useEffect, useState } from "react";
 import { environment } from "../../environment/environment.developments";
 
+// Affichage des templates
 function Template() {
     const [templates, setTemplates] = useState([]);
 
@@ -21,7 +22,7 @@ function Template() {
                 <Row xs={4} className="my-4">
                     {templates.map(template => 
                     <Col key={template.id} className="my-2">
-                        <Card style={{height: '150px'}} as={Link} to={'/custom/'+template.id} className="template-card">
+                        <Card style={{height: '150px'}} as={Link} to={'/custom/'+template.id} className="template-card"> {/** Redirection modif template */}
                             <Card.Body>
                                 <Card.Title>{template.name}</Card.Title>
                                 <Card.Subtitle>{template.description}</Card.Subtitle>
@@ -30,7 +31,7 @@ function Template() {
                         </Card>
                     </Col>)}
                     <Col className="my-2">
-                        <Card style={{height: '150px'}} as={Link} to="/custom" className="template-card">
+                        <Card style={{height: '150px'}} as={Link} to="/custom" className="template-card"> {/** Redirection création template */}
                             <Card.Body className="d-flex align-items-center justify-content-center">
                                 <BsPlusSquare className="add-template" />
                             </Card.Body>
