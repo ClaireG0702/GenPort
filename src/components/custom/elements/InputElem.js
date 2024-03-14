@@ -20,7 +20,7 @@ function InputElem({ id, type, component, updateComponentText, onClick }) {
 			}}
 			value={type === 'text' ? texte : undefined}
             onChange={type === 'text' ? handleChange : undefined}
-			onClick={onClick}
+			onClick={() => onClick(id, component)}
 		/>
 	)
 }

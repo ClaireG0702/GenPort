@@ -9,17 +9,19 @@ import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
 import { useState } from "react";
 import '../Toolbar.scss';
 
-function TextToolbar({ element }) {
+function TextToolbar({ element, updateComponentElement, updateComponentElementValue }) {
     const [isBoldCheck, setIsBoldCheck] = useState(false);
     const [isItalicCheck, setIsItalicCheck] = useState(false);
     const [isUnderlineCheck, setIsUnderlineCheck] = useState(false);
 
     const handleElementChange = (event, propName) => {
-        element[propName] = event.target;
+        const { value } = event.target;
+        updateComponentElement(element.id, propName, value);
     };
 
     const handleElementValueChange = (event, propName) => {
-        element.values[propName] = event.target
+        const { value } = event.target;
+        updateComponentElementValue(element.id, propName, value);
     }
 
     const { position_y, position_x } = element;
@@ -78,7 +80,7 @@ function TextToolbar({ element }) {
                 <Grid item>
                     <FormControl>
                         <InputLabel>Police</InputLabel>
-                        <Select value={police} onChange={(event) => handleElementValueChange(event, 'police')}>
+                        <Select className="police-select" value={police} onChange={(event) => handleElementValueChange(event, 'police')}>
                             <MenuItem value="Arial" selected>Arial</MenuItem>
                             <MenuItem value="Verdana">Verdana</MenuItem>
                             <MenuItem value="Helvetica">Helvetica</MenuItem>

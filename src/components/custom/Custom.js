@@ -40,6 +40,18 @@ function Custom() {
         setComponents(updatedComponents);
     }
 
+    const updateComponentElement = (id, attribut, value) => {
+        const updatedComponents = [...components];
+        updatedComponents[id][attribut] = value;
+        setComponents(updatedComponents);
+    }
+
+    const updateComponentElementValue = (id, attribut, value) => {
+        const updatedComponents = [...components];
+        updatedComponents[id].values[attribut] = value;
+        setComponents(updatedComponents);
+    }
+
     const saveTemplate = async () => {
         // try {
         //     const response = await fetch(environment.apiURL + '/controllers/portfolios/save', {
@@ -80,7 +92,8 @@ function Custom() {
                 <SidebarComponents addComponent={addComponent} />
             </Grid>
             <Grid item xs={10}>
-                <ToolbarComponents selectedElement={selectedElement} modelData={modelData} setModelData={setModelData} saveTemplateHandler={saveTemplateHandler} />
+                <ToolbarComponents selectedElement={selectedElement} updateComponentElement={updateComponentElement} updateComponentElementValue={updateComponentElementValue}  
+                    modelData={modelData} setModelData={setModelData} saveTemplateHandler={saveTemplateHandler} />
                 <Preview components={components} updateComponentText={updateComponentText} setSelectedElement={setSelectedElement} />
             </Grid>
         </Grid>

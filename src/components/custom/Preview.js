@@ -5,10 +5,9 @@ import './Preview.scss';
 // Pré-visualisation du modèle (template ou protfolio) pour la création
 function Preview({ components, updateComponentText, setSelectedElement }) {
 
-	const handleClick = (component) => {
-		// TODO
-		setSelectedElement(component);
-		console.log(component)
+	const handleClick = (index, component) => {
+		const selectedComponent = {...component, id: index};
+		setSelectedElement(selectedComponent);
 	}
 
 	return (
@@ -28,7 +27,7 @@ function Preview({ components, updateComponentText, setSelectedElement }) {
 								type = 'text';
 								break;
 						}
-						return <InputElem key={index} id={index} type={type} component={component} updateComponentText={updateComponentText} onClick={handleClick(component)} />
+						return <InputElem key={index} id={index} type={type} component={component} updateComponentText={updateComponentText} onClick={handleClick} />
 					})}
 				</Card.Body>
 			</Card>
