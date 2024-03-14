@@ -1,20 +1,13 @@
 import { Grid, Toolbar, Typography } from '@mui/material';
 import '../Toolbar.scss';
 
-function ImageToolbar({ imageProps, setImageProps, element }) {
+function ImageToolbar({ element }) {
 
     const handleInputChange = (event, propName) => {
-        const { value } = event.target;
-        setImageProps(prevState => ({
-            ...prevState,
-            [element.id]: {
-                ...prevState[element.id],
-                [propName]: value
-            }
-        }));
+
     };
 
-    const { position_y, position_x, border, borderColor, borderRadius } = imageProps[element.id];
+    const { position_y, position_x, border, borderColor, borderRadius } = element;
 
     return (
         <Toolbar className='toolbar-element'>

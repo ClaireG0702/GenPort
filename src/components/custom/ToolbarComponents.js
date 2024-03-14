@@ -1,3 +1,4 @@
+import { AppBar } from '@mui/material';
 import DefaultToolbar from './toolbars/DefaultToolbar';
 import ElemToolbar from './toolbars/ElemToolbar';
 import TitleToolbar from './toolbars/TitleToolbar';
@@ -5,23 +6,19 @@ import TextToolbar from './toolbars/TextToolbar';
 import ImageToolbar from './toolbars/ImageToolbar';
 import IconToolbar from './toolbars/IconToolbar';
 import './Toolbar.scss';
-import { AppBar } from '@mui/material';
 
 // Affichage de la barre d'outil correspondant à l'élément sélectionné
-function ToolbarComponents({ selectedElement, componentProps, setComponentProps }) {
+function ToolbarComponents({ selectedElement, modelData, setModelData, saveTemplateHandler }) {
 
 	return (
 		<AppBar className="toolbar">
 			{selectedElement ? (
 				<>
-					{selectedElement.tagName.toLowerCase() === 'div' && <ElemToolbar componentProps={componentProps} setComponentProps={setComponentProps} element={selectedElement} />}
-					{selectedElement.tagName.toLowerCase() === 'h1' && <TitleToolbar componentProps={componentProps} setComponentProps={setComponentProps} element={selectedElement} />}
-					{selectedElement.tagName.toLowerCase() === 'span' && <TextToolbar componentProps={componentProps} setComponentProps={setComponentProps} element={selectedElement} />}
-					{selectedElement.tagName.toLowerCase() === 'img' && <ImageToolbar componentProps={componentProps} setComponentProps={setComponentProps} element={selectedElement} />}
-					{selectedElement.tagName.toLowerCase() === 'i' && <IconToolbar componentProps={componentProps} setComponentProps={setComponentProps} element={selectedElement} />}
+					{selectedElement.value_type === 1 && <TextToolbar element={selectedElement} />}
+					{selectedElement.value_type === 2 && <ImageToolbar  element={selectedElement} />}
 				</>
 			) : (
-				<DefaultToolbar />
+				<DefaultToolbar modelData={modelData} setModelData={setModelData} saveTemplateHandler={saveTemplateHandler} />
 			)}
 		</AppBar>
 	);

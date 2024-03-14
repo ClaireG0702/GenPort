@@ -1,10 +1,41 @@
+import { useState, useEffect } from 'react';
 import { Card, Nav } from 'react-bootstrap';
 import './Sidebar.scss';
 
 function SidebarComponents({ addComponent }) {
-    const handleClick = (component) => {
-        addComponent(component);
+    const [initialized, setInitialized] = useState(false);
+    const defaultComponent = {
+        value_type: null,
+        information_type: null,
+        position_x: 1,
+        position_y: 2,
+        width: 20,
+        height: 10,
+        values: {}
     }
+    const [newComponent, setNewComponent] = useState(defaultComponent);
+
+    const handleClick = (newValues) => {
+        setNewComponent({
+            ...defaultComponent,
+            ...newValues,
+            values: {
+                ...defaultComponent.values,
+                ...newValues.values
+            }
+        });
+        
+    }
+
+    useEffect(() => {
+        if(initialized) {
+            console.log('new component')
+            console.log(newComponent);
+            addComponent(newComponent);
+        } else {
+            setInitialized(true)
+        }
+    }, [newComponent])
 
     return (
         <aside className='sidebar'>
@@ -12,13 +43,13 @@ function SidebarComponents({ addComponent }) {
                 <Card className='elements' onClick={() => handleClick({ value_type: 5 })}>
                     <Nav.Item>Forme</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ value_type: 1, information_type: 2, values:{texte: 'Titre'}})}>
+                <Card className='elements' onClick={() => handleClick({ value_type: 1, information_type: 2, position_x: 15, position_y: 1, width: 35, height: 9, values:{texte: 'Titre', police: 'Arial'}})}>
                     <Nav.Item>Titre</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ value_type: 1, information_type: null, values:{texte: 'Zone de texte'} })}>
+                <Card className='elements' onClick={() => handleClick({ value_type: 1, values:{texte: 'Zone de texte', police: 'Arial'} })}>
                     <Nav.Item>Zone de texte</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ value_type: 2 })}>
+                <Card className='elements' onClick={() => handleClick({ value_type: 2, values:{link: ""} })}>
                     <Nav.Item>Image<input className='input-file' type='file' /></Nav.Item>
                 </Card>
                 <Card className='elements' onClick={() => handleClick({ value_type: 1 })}>

@@ -1,13 +1,14 @@
-import './Custom.scss';
-import { useState, useEffect } from 'react';
-import PreviewTemplate from './PreviewTemplate.js';
-import { Grid } from '@mui/material';
-import { useParams } from 'react-router-dom';
-import DefaultToolbar from './toolbars/DefaultToolbar.js';
 import { environment } from '../../environment/environment.developments.js';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Grid } from '@mui/material';
+import DefaultToolbar from './toolbars/DefaultToolbar.js';
+import PreviewTemplate from './PreviewTemplate.js';
+import './Custom.scss';
 
 // Page de modifiaction de template
 function CustomTemplate() {
+    const [initialized, setInitialized] = useState(false);
     const { id } = useParams();
     const [components, setComponents] = useState([]);
     const [templateData, setTemplateData] = useState({
@@ -63,14 +64,14 @@ function CustomTemplate() {
     }
 
     useEffect(() => {
-        saveTemplate();
+        initialized && saveTemplate();
     }, [templateData.components]);
 
     return (
         <>
             <Grid container>
                 <Grid item xs={12}>
-                    <DefaultToolbar templateData={templateData} setTemplateData={setTemplateData} saveTemplateHandler={saveTemplateHandler} />
+                    <DefaultToolbar modelData={templateData} setModelData={setTemplateData} saveTemplateHandler={saveTemplateHandler} />
                 </Grid>
             </Grid>
             <Grid container alignItems="stretch" className='custom'>

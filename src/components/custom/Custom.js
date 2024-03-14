@@ -1,47 +1,78 @@
-import './Custom.scss';
-import { useState } from 'react';
+import { environment } from '../../environment/environment.developments.js';
+import { useState, useEffect } from 'react';
+import { Grid } from '@mui/material';
 import SidebarComponents from './SidebarComponents.js';
 import ToolbarComponents from './ToolbarComponents.js';
 import Preview from './Preview.js';
-import { Grid } from '@mui/material';
+import './Custom.scss';
 
 // Page de création de template
 function Custom() {
-    const [model, setModel] = useState({
+    const [initialized, setInitialized] = useState(false);
+    const [selectedElement, setSelectedElement] = useState(null);
+    const [components, setComponents] = useState([]);
+    const [modelData, setModelData] = useState({
         name: 'Portfolio',
         description: 'Description par défaut',
-        owner_id: null,
-        components: []
+        owner_id: null
     });
-    const [selectedElement, setSelectedElement] = useState(null);
 
-    const addComponent = (component) => {
-        const newComponent = {
-            ...component,
-            values: {
-                ...component.values
-            }
-        };
-        setModel(prevModel => ({
-            ...prevModel,
-            components: [...prevModel.components, newComponent]
-        }));
-        console.log('Portfolio:')
-        console.log(model)
+    const addComponent = (newComponent) => {
+        setComponents(prevState => [...prevState, newComponent]);
     };
 
-    const updateTemplateData = (newData) => {
-        console.log('Step 4 (params to update portfolio data)')
-        console.log(newData)
-        setModel(prevTemplateData => ({
-            ...prevTemplateData,
-            components: newData.components
-        }));
+    useEffect(() => {
+        if(initialized) {
+            setModelData(prevState => ({
+                ...prevState,
+                components: components
+            }));
+            console.log('Portfolio:');
+            console.log(modelData);
+        } else {
+            setInitialized(true);
+        }
+    }, [components])
 
-        console.log(model)
+    const updateComponentText = (id, value) => {
+        const updatedComponents = [...components];
+        updatedComponents[id].values.texte = value;
+        setComponents(updatedComponents);
+    }
+
+    const saveTemplate = async () => {
+        // try {
+        //     const response = await fetch(environment.apiURL + '/controllers/portfolios/save', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify(modelData),
+        //     });
+
+        //     if (!response.ok) {
+        //         throw new Error('Failed to save portfolio');
+        //     }
+
+        //     const responseData = await response.json();
+        //     return responseData;
+        // } catch (error) {
+        //     console.error('Error saving portfolio:', error.message);
+        //     throw error;
+        // }
+        console.log(modelData);
     };
 
-    const [componentProps, setComponentProps] = useState({});
+    const saveTemplateHandler = () => {
+        setModelData(prevState => ({
+            ...prevState,
+            components: components
+        }));
+    }
+
+    useEffect(() => {
+        initialized && saveTemplate();
+    }, [modelData.components]);
 
     return (
         <Grid container alignItems="stretch" className='custom'>
@@ -49,8 +80,8 @@ function Custom() {
                 <SidebarComponents addComponent={addComponent} />
             </Grid>
             <Grid item xs={10}>
-                <ToolbarComponents selectedElement={selectedElement} componentProps={componentProps} setComponentProps={setComponentProps} />
-                <Preview model={model} setSelectedElement={setSelectedElement} componentProps={componentProps} updateTemplateData={updateTemplateData} />
+                <ToolbarComponents selectedElement={selectedElement} modelData={modelData} setModelData={setModelData} saveTemplateHandler={saveTemplateHandler} />
+                <Preview components={components} updateComponentText={updateComponentText} setSelectedElement={setSelectedElement} />
             </Grid>
         </Grid>
     );

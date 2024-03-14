@@ -1,12 +1,12 @@
 import { Toolbar, Button, Input } from "@mui/material";
 import '../Toolbar.scss';
 
-function DefaultToolbar({ templateData, setTemplateData, saveTemplateHandler }) {
-    const name = templateData.name;
+function DefaultToolbar({ modelData, setModelData, saveTemplateHandler }) {
+    const name = modelData.name;
 
     const handleNameChange = (event) => {
         const { value } = event.target;
-        setTemplateData(prevState => ({
+        setModelData(prevState => ({
             ...prevState,
             name: value  
         }));

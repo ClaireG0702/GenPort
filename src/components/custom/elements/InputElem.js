@@ -1,8 +1,7 @@
 
-function InputElem({ id, type, component, updateComponentText }) {
+function InputElem({ id, type, component, updateComponentText, onClick }) {
 	const { position_x, position_y, width, height } = component;
-	const { texte } = component.values;
-	
+	const { texte, police } = component.values;
 
 	const handleChange = (event) => {
 		const { value } = event.target;
@@ -17,9 +16,11 @@ function InputElem({ id, type, component, updateComponentText }) {
 				left: `${position_x}%`,
 				width: `${width}%`,
 				height: `${height}%`,
+				fontFamily: police
 			}}
 			value={type === 'text' ? texte : undefined}
             onChange={type === 'text' ? handleChange : undefined}
+			onClick={onClick}
 		/>
 	)
 }
