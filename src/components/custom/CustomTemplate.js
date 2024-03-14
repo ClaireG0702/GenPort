@@ -27,89 +27,55 @@ function CustomTemplate() {
             .catch(error => console.error('Error fetching templates:', error));
     }, [id]);
 
-    const updateTemplateData = () => {
-        console.log('components')
-        console.log(components)
-        // components.map((component) => {
-        //     setComponents(prevState => ({
-        //         ...prevState,
-        //         values: {
-        //             ...component.values,
-        //             texte: component.values.texte
-        //         }
-        //     }))
-        // })
+    const updateComponentText = (id, value) => {
+        const updatedComponents = [...components];
+        updatedComponents[id].values.texte = value;
+        setComponents(updatedComponents);
     }
 
     const saveTemplate = async () => {
-        // try {
-        // 	const response = await fetch(environment.apiURL+'/controllers/portfolios/save', {
-        // 		method: 'POST',
-        // 		headers: {
-        // 			'Content-Type': 'application/json', 
-        // 		},
-        // 		body: JSON.stringify(templateData),
-        // 	});
+        try {
+            const response = await fetch(environment.apiURL + '/controllers/portfolios/save', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(templateData),
+            });
 
-        // 	if (!response.ok) {
-        // 		throw new Error('Failed to save portfolio');
-        // 	}
+            if (!response.ok) {
+                throw new Error('Failed to save portfolio');
+            }
 
-        // 	const responseData = await response.json();
-        // 	return responseData;
-        // } catch (error) {
-        // 	console.error('Error saving portfolio:', error.message);
-        // 	throw error;
-        // }
-        console.log(templateData);
+            const responseData = await response.json();
+            return responseData;
+        } catch (error) {
+            console.error('Error saving portfolio:', error.message);
+            throw error;
+        }
     };
 
-    // const saveTemplateHandler = async () => {
-    // 	try {
-    //         const updatedComponents = components.map((component, index) => {
-    //             console.log(component.values.texte)
-    //             return {
-    //                 ...component,
-    //                 values: {
-    //                     ...component.values,
-    //                     texte: component.values.texte 
-    //                 }
-    //             };
-    //         });
-
-    //         setTemplateData(prevState => ({
-    //             ...prevState,
-    //             components: updatedComponents
-    //         }));
-
-    // 		const savedTemplate = await saveTemplate();
-    // 		console.log('Saved portfolio:', savedTemplate);
-    // 	} catch (error) {
-    // 		console.error('Error saving portfolio:', error);
-    // 	}
-    // };
-
-    const saveTemplateHandler = (updatedComponents) => {
-        updateTemplateData();
+    const saveTemplateHandler = () => {
         setTemplateData(prevState => ({
             ...prevState,
-            name: updatedComponents.name,
-            // components: templateData
+            components: components
         }));
-
-        saveTemplate()
     }
+
+    useEffect(() => {
+        saveTemplate();
+    }, [templateData.components]);
 
     return (
         <>
             <Grid container>
                 <Grid item xs={12}>
-                    <DefaultToolbar templateData={templateData} saveTemplateHandler={saveTemplateHandler} />
+                    <DefaultToolbar templateData={templateData} setTemplateData={setTemplateData} saveTemplateHandler={saveTemplateHandler} />
                 </Grid>
             </Grid>
             <Grid container alignItems="stretch" className='custom'>
                 <Grid item xs={10} style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-                    <PreviewTemplate className="md-10" components={components} updateTemplateData={updateTemplateData} />
+                    <PreviewTemplate className="md-10" components={components} updateComponentText={updateComponentText} />
                 </Grid>
             </Grid>
         </>

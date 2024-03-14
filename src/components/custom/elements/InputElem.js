@@ -1,13 +1,12 @@
-import { useState } from "react";
 
-function InputElem({ id, type, component }) {
+function InputElem({ id, type, component, updateComponentText }) {
 	const { position_x, position_y, width, height } = component;
 	const { texte } = component.values;
-	const [text, setText] = useState(texte)
+	
 
 	const handleChange = (event) => {
 		const { value } = event.target;
-		setText(value);
+		updateComponentText(id, value);
 	}
 
 	return (
@@ -19,7 +18,7 @@ function InputElem({ id, type, component }) {
 				width: `${width}%`,
 				height: `${height}%`,
 			}}
-			value={type === 'text' ? text : undefined}
+			value={type === 'text' ? texte : undefined}
             onChange={type === 'text' ? handleChange : undefined}
 		/>
 	)

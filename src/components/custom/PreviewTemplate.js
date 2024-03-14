@@ -7,7 +7,7 @@ import { useState } from "react";
 import InputElem from "./elements/InputElem";
 
 // Affichage d'un template existant
-function PreviewTemplate({ components, updateTemplateData }) {
+function PreviewTemplate({ components, updateComponentText }) {
 
 	return (
 		<div className="custom-preview">
@@ -27,7 +27,7 @@ function PreviewTemplate({ components, updateTemplateData }) {
 									type = 'text';
 									break;
 							}
-							return <InputElem key={index} id={index} type={type} component={component} updateTemplateData={updateTemplateData} />
+							return <InputElem key={index} id={index} type={type} component={component} updateComponentText={updateComponentText} />
 						})}
 					</Form>
 				</Card.Body>

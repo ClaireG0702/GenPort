@@ -1,18 +1,19 @@
 import { Toolbar, Button, Input } from "@mui/material";
-import { useState } from "react";
 import '../Toolbar.scss';
 
-function DefaultToolbar({ templateData, saveTemplateHandler }) {
-    const [name, setName] = useState(templateData.name);
+function DefaultToolbar({ templateData, setTemplateData, saveTemplateHandler }) {
+    const name = templateData.name;
 
     const handleNameChange = (event) => {
         const { value } = event.target;
-        setName(value);
+        setTemplateData(prevState => ({
+            ...prevState,
+            name: value  
+        }));
     }
 
     const handleSaveTemplate = () => {
-        const updatedComponents = { ...templateData, name: name };
-        saveTemplateHandler(updatedComponents);
+        saveTemplateHandler();
     };
 
     return (
