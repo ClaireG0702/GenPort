@@ -81,12 +81,12 @@ function TextToolbar({ element, updateComponentElement, updateComponentElementVa
             <Grid container justifyContent="space-between">
                 <Grid item>
                     <Typography variant="subtitle1">Marge en haut :</Typography>
-                    <input type="number" value={position_y} onChange={(event) => handleElementChange(event, 'position_y')} />
+                    <input type="number" value={position_y} min={0} onChange={(event) => handleElementChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="subtitle1">Marge à gauche :</Typography>
-                    <input type="number" value={position_x} onChange={(event) => handleElementChange(event, 'position_x')} />
+                    <input type="number" value={position_x} min={0} onChange={(event) => handleElementChange(event, 'position_x')} />
                 </Grid>
 
                 <Grid item>

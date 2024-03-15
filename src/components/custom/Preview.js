@@ -10,10 +10,16 @@ function Preview({ components, updateComponentText, setSelectedElement }) {
 		setSelectedElement(selectedComponent);
 	}
 
+	const handleClickOutOfComponent = (event) => {
+		const isClickInsideComponent = event.target;
+		const previewComponent = document.getElementsByClassName('card-body')[0];
+		isClickInsideComponent === previewComponent && setSelectedElement(null);
+	}
+
 	return (
 		<div className="custom-preview">
 			<Card className="preview">
-				<Card.Body>
+				<Card.Body onClick={(event) => handleClickOutOfComponent(event)}>
 				{components.map((component, index) => {
 						let type;
 						switch (component.value_type) {
@@ -27,7 +33,7 @@ function Preview({ components, updateComponentText, setSelectedElement }) {
 								type = 'text';
 								break;
 						}
-						return <InputElem key={index} id={index} type={type} component={component} updateComponentText={updateComponentText} onClick={handleClick} />
+						return <InputElem key={index} id={index} className="input-elem" type={type} component={component} updateComponentText={updateComponentText} onClick={handleClick} />
 					})}
 				</Card.Body>
 			</Card>

@@ -46,7 +46,7 @@ function SidebarComponents({ addComponent }) {
                     values:{texte: 'Titre', police: 'Arial', textSize: 24, color: '#000000', alignment: 'center', weight: '', style: '', decoration: ''}})}>
                     <Nav.Item>Titre</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ value_type: 1, 
+                <Card className='elements' onClick={() => handleClick({ value_type: 1, width: 25, height: 20,
                     values:{texte: 'Zone de texte', police: 'Arial', textSize: 14, color: '#000000', alignment: 'left', weight: '', style: '', decoration: ''} })}>
                     <Nav.Item>Zone de texte</Nav.Item>
                 </Card>
