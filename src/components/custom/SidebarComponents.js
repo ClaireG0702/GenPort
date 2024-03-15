@@ -39,7 +39,8 @@ function SidebarComponents({ addComponent }) {
     return (
         <aside className='sidebar'>
             <Nav>
-                <Card className='elements' onClick={() => handleClick({ value_type: 5 })}>
+                <Card className='elements' onClick={() => handleClick({ value_type: 5, zIndex: 2,
+                    values:{ color: '#ffffff', border: 1, borderColor: '#000000', borderRadius: 0 } })}>
                     <Nav.Item>Forme</Nav.Item>
                 </Card>
                 <Card className='elements' onClick={() => handleClick({ value_type: 1, information_type: 2, position_x: 15, position_y: 1, 

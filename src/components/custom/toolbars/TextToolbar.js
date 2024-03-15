@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import '../Toolbar.scss';
 import { Button } from "react-bootstrap";
 
-function TextToolbar({ element, updateComponentElement, updateComponentElementValue, deleteComponent }) {
+function TextToolbar({ element, updateComponentParams, updateComponentValues, deleteComponent }) {
     const [values, setValues] = useState(element);
     const [isBoldCheck, setIsBoldCheck] = useState(false);
     const [isItalicCheck, setIsItalicCheck] = useState(false);
@@ -37,7 +37,7 @@ function TextToolbar({ element, updateComponentElement, updateComponentElementVa
             ...prevValues,
             [propName]: value
         }));
-        updateComponentElement(element.id, propName, parseInt(value));
+        updateComponentParams(element.id, propName, parseInt(value));
     };
 
     // Change les priopriétés de l'élément (alignement, style, police, taille du texte, couleur)
@@ -64,7 +64,7 @@ function TextToolbar({ element, updateComponentElement, updateComponentElementVa
                     [propName]: checked
                 }
             }));
-            updateComponentElementValue(element.id, propName, checked);
+            updateComponentValues(element.id, propName, checked);
         } else {
             const { value } = event.target;
             setValues(prevValues => ({
@@ -74,7 +74,7 @@ function TextToolbar({ element, updateComponentElement, updateComponentElementVa
                     [propName]: value
                 }
             }));
-            updateComponentElementValue(element.id, propName, value);
+            updateComponentValues(element.id, propName, value);
         }
     }
 
@@ -87,12 +87,12 @@ function TextToolbar({ element, updateComponentElement, updateComponentElementVa
             <Grid container justifyContent="space-between">
                 <Grid item>
                     <Typography variant="subtitle1">Position en y :</Typography>
-                    <input type="number" value={position_y} min={0} onChange={(event) => handleElementChange(event, 'position_y')} />
+                    <input type="number" value={position_y} min={0} max={100} onChange={(event) => handleElementChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="subtitle1">Position en x :</Typography>
-                    <input type="number" value={position_x} min={0} onChange={(event) => handleElementChange(event, 'position_x')} />
+                    <input type="number" value={position_x} min={0} max={100} onChange={(event) => handleElementChange(event, 'position_x')} />
                 </Grid>
 
                 <Grid item>

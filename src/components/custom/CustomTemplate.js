@@ -9,6 +9,7 @@ import './Custom.scss';
 // Page de modifiaction de template
 function CustomTemplate() {
     const [initialized, setInitialized] = useState(false);
+    const [selectedElement, setSelectedElement] = useState(null);
     const { id } = useParams();
     const [components, setComponents] = useState([]);
     const [templateData, setTemplateData] = useState({
@@ -76,7 +77,7 @@ function CustomTemplate() {
             </Grid>
             <Grid container alignItems="stretch" className='custom'>
                 <Grid item xs={10} style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-                    <PreviewTemplate className="md-10" components={components} updateComponentText={updateComponentText} />
+                    <PreviewTemplate className="md-10" components={components} updateComponentText={updateComponentText} setSelectedElement={setSelectedElement} />
                 </Grid>
             </Grid>
         </>

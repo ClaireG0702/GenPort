@@ -3,7 +3,12 @@ import InputElem from "./elements/InputElem";
 import './Preview.scss';
 
 // Affichage d'un template existant
-function PreviewTemplate({ components, updateComponentText }) {
+function PreviewTemplate({ components, updateComponentText, setSelectedElement }) {
+
+	const handleClick = (index, component) => {
+		const selectedComponent = {...component, id: index};
+		setSelectedElement(selectedComponent);
+	}
 
 	return (
 		<div className="custom-preview">
@@ -22,7 +27,7 @@ function PreviewTemplate({ components, updateComponentText }) {
 								type = 'text';
 								break;
 						}
-						return <InputElem key={index} id={index} type={type} component={component} updateComponentText={updateComponentText} />
+						return <InputElem key={index} id={index} type={type} component={component} updateComponentText={updateComponentText} onClick={handleClick} />
 					})}
 				</Card.Body>
 			</Card>
