@@ -55,6 +55,7 @@ function Custom() {
     const deleteComponent = (component) => {
         const updatedComponents = components.filter((_, index) => index != component.id);
         setComponents(updatedComponents);
+        setSelectedElement(null);
     }
 
     const saveTemplate = async () => {

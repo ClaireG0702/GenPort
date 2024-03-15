@@ -16,7 +16,7 @@ function ToolbarComponents({ selectedElement, updateComponentParams, updateCompo
 				<>
 					{selectedElement.value_type === 1 && <TextToolbar element={selectedElement} updateComponentParams={updateComponentParams} updateComponentValues={updateComponentValues} deleteComponent={deleteComponent} />}
 					{selectedElement.value_type === 2 && <ImageToolbar  element={selectedElement} />}
-					{selectedElement.value_type === 5 && <ElemToolbar  element={selectedElement} updateComponentParams={updateComponentParams} updateComponentValues={updateComponentValues} />}
+					{selectedElement.value_type === 5 && <ElemToolbar  element={selectedElement} updateComponentParams={updateComponentParams} updateComponentValues={updateComponentValues} deleteComponent={deleteComponent} />}
 				</>
 			) : (
 				<DefaultToolbar modelData={modelData} setModelData={setModelData} saveTemplateHandler={saveTemplateHandler} />

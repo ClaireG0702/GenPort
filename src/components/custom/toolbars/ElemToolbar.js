@@ -1,8 +1,10 @@
 import { Toolbar, Typography, Grid } from '@mui/material';
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Button } from "react-bootstrap";
 import React, { useEffect, useState } from 'react';
 import '../Toolbar.scss';
 
-function ElemToolbar({ element, updateComponentParams, updateComponentValues }) {
+function ElemToolbar({ element, updateComponentParams, updateComponentValues, deleteComponent }) {
     const [values, setValues] = useState(element);
 
     useEffect(() => {
@@ -32,6 +34,10 @@ function ElemToolbar({ element, updateComponentParams, updateComponentValues }) 
         } else {
             updateComponentValues(element.id, propName, value)
         }
+    }
+
+    const handleDeleteClick = () => {
+        deleteComponent(element);
     }
 
     return (
@@ -75,6 +81,10 @@ function ElemToolbar({ element, updateComponentParams, updateComponentValues }) 
                 <Grid item >
                     <Typography variant="subtitle1">Arrondi :</Typography>
                     <input type="number" value={borderRadius} onChange={(event) => handleElementValueChange(event, 'borderRadius')} />
+                </Grid>
+
+                <Grid item justifyContent="flex-end">
+                    <Button variant="danger" onClick={handleDeleteClick}><DeleteIcon /></Button>
                 </Grid>
             </Grid>
         </Toolbar>

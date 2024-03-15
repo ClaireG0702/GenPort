@@ -7,9 +7,9 @@ import FormatBoldIcon from "@mui/icons-material/FormatBold";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import '../Toolbar.scss';
-import { Button } from "react-bootstrap";
 
 function TextToolbar({ element, updateComponentParams, updateComponentValues, deleteComponent }) {
     const [values, setValues] = useState(element);
