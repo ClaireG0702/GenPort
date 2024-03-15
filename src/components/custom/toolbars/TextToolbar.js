@@ -6,26 +6,45 @@ import FormatAlignJustifyIcon from "@mui/icons-material/FormatAlignJustify";
 import FormatBoldIcon from "@mui/icons-material/FormatBold";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import '../Toolbar.scss';
 
 function TextToolbar({ element, updateComponentElement, updateComponentElementValue }) {
+    const [values, setValues] = useState(element);
     const [isBoldCheck, setIsBoldCheck] = useState(false);
     const [isItalicCheck, setIsItalicCheck] = useState(false);
     const [isUnderlineCheck, setIsUnderlineCheck] = useState(false);
 
+    // Initialise la barre d'outil avec les valeurs de l'élément sélectionné
+    useEffect(() => {
+        setValues(element);
+    }, [element]);
+
+    // Change les paramètres de l'élément (position et taille)
     const handleElementChange = (event, propName) => {
         const { value } = event.target;
-        updateComponentElement(element.id, propName, value);
+        setValues(prevValues => ({
+            ...prevValues,
+            [propName]: value
+        }));
+        updateComponentElement(element.id, propName, parseInt(value));
     };
 
+    // Change les priopriétés de l'élément (alignement, style, police, taille du texte, couleur)
     const handleElementValueChange = (event, propName) => {
         const { value } = event.target;
+        setValues(prevValues => ({
+            ...prevValues,
+            values: {
+                ...prevValues.values,
+                [propName]: value
+            }
+        }));
         updateComponentElementValue(element.id, propName, value);
     }
 
-    const { position_y, position_x } = element;
-    const { alignment, police, textSize, color } = element.values
+    const { position_y, position_x } = values;
+    const { alignment, police, textSize, color } = values.values
 
     return (
         <Toolbar className="toolbar-element">
