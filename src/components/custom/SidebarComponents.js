@@ -24,7 +24,6 @@ function SidebarComponents({ addComponent }) {
                 ...newValues.values
             }
         });
-        
     }
 
     useEffect(() => {
@@ -43,10 +42,12 @@ function SidebarComponents({ addComponent }) {
                 <Card className='elements' onClick={() => handleClick({ value_type: 5 })}>
                     <Nav.Item>Forme</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ value_type: 1, information_type: 2, position_x: 15, position_y: 1, values:{texte: 'Titre', police: 'Arial'}})}>
+                <Card className='elements' onClick={() => handleClick({ value_type: 1, information_type: 2, position_x: 15, position_y: 1, 
+                    values:{texte: 'Titre', police: 'Arial', textSize: 24, color: '#000000', alignment: 'center', weight: '', style: '', decoration: ''}})}>
                     <Nav.Item>Titre</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ value_type: 1, values:{texte: 'Zone de texte', police: 'Arial'} })}>
+                <Card className='elements' onClick={() => handleClick({ value_type: 1, 
+                    values:{texte: 'Zone de texte', police: 'Arial', textSize: 14, color: '#000000', alignment: 'left', weight: '', style: '', decoration: ''} })}>
                     <Nav.Item>Zone de texte</Nav.Item>
                 </Card>
                 <Card className='elements' onClick={() => handleClick({ value_type: 2, values:{link: ""} })}>

@@ -18,7 +18,15 @@ function TextToolbar({ element, updateComponentElement, updateComponentElementVa
     // Initialise la barre d'outil avec les valeurs de l'élément sélectionné
     useEffect(() => {
         setValues(element);
+        const { style, weight, decoration } = element.values;
+        setIsBoldCheck(weight !== '');
+        setIsItalicCheck(style !== '');
+        setIsUnderlineCheck(decoration !== '');
     }, [element]);
+
+    const { position_y, position_x } = values;
+    const { alignment, police, textSize, color } = values.values
+    
 
     // Change les paramètres de l'élément (position et taille)
     const handleElementChange = (event, propName) => {
@@ -32,19 +40,41 @@ function TextToolbar({ element, updateComponentElement, updateComponentElementVa
 
     // Change les priopriétés de l'élément (alignement, style, police, taille du texte, couleur)
     const handleElementValueChange = (event, propName) => {
-        const { value } = event.target;
-        setValues(prevValues => ({
-            ...prevValues,
-            values: {
-                ...prevValues.values,
-                [propName]: value
+        if (propName === 'style' || propName === 'weight' || propName === 'decoration') {
+            const { checked } = event.target;
+            switch (propName) {
+                case 'style':
+                    setIsItalicCheck(checked);
+                    break;
+                case 'weight':
+                    setIsBoldCheck(checked);
+                    break;
+                case 'decoration':
+                    setIsUnderlineCheck(checked);
+                    break;
+                default:
+                    break;
             }
-        }));
-        updateComponentElementValue(element.id, propName, value);
+            setValues(prevValues => ({
+                ...prevValues,
+                values: {
+                    ...prevValues.values,
+                    [propName]: checked
+                }
+            }));
+            updateComponentElementValue(element.id, propName, checked);
+        } else {
+            const { value } = event.target;
+            setValues(prevValues => ({
+                ...prevValues,
+                values: {
+                    ...prevValues.values,
+                    [propName]: value
+                }
+            }));
+            updateComponentElementValue(element.id, propName, value);
+        }
     }
-
-    const { position_y, position_x } = values;
-    const { alignment, police, textSize, color } = values.values
 
     return (
         <Toolbar className="toolbar-element">
@@ -77,7 +107,7 @@ function TextToolbar({ element, updateComponentElement, updateComponentElementVa
                 </Grid>
 
                 <Grid item>
-                    <div role="group">
+                    <div className="group">
                         <FormControlLabel
                             control={
                                 <Checkbox className="checkbox" checked={isBoldCheck} onChange={(event) => handleElementValueChange(event, 'weight')}
