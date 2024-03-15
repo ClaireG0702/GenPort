@@ -52,6 +52,11 @@ function Custom() {
         setComponents(updatedComponents);
     }
 
+    const deleteComponent = (component) => {
+        const updatedComponents = components.filter((_, index) => index != component.id);
+        setComponents(updatedComponents);
+    }
+
     const saveTemplate = async () => {
         // try {
         //     const response = await fetch(environment.apiURL + '/controllers/portfolios/save', {
@@ -93,7 +98,7 @@ function Custom() {
             </Grid>
             <Grid item xs={10}>
                 <ToolbarComponents selectedElement={selectedElement} updateComponentElement={updateComponentElement} updateComponentElementValue={updateComponentElementValue}  
-                    modelData={modelData} setModelData={setModelData} saveTemplateHandler={saveTemplateHandler} />
+                    deleteComponent={deleteComponent} modelData={modelData} setModelData={setModelData} saveTemplateHandler={saveTemplateHandler} />
                 <Preview components={components} updateComponentText={updateComponentText} setSelectedElement={setSelectedElement} />
             </Grid>
         </Grid>

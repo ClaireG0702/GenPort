@@ -11,8 +11,8 @@ function Preview({ components, updateComponentText, setSelectedElement }) {
 	}
 
 	const handleClickOutOfComponent = (event) => {
-		const isClickInsideComponent = event.target;
 		const previewComponent = document.getElementsByClassName('card-body')[0];
+		const isClickInsideComponent = event.target;
 		isClickInsideComponent === previewComponent && setSelectedElement(null);
 	}
 

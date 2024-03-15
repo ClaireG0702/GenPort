@@ -6,10 +6,12 @@ import FormatAlignJustifyIcon from "@mui/icons-material/FormatAlignJustify";
 import FormatBoldIcon from "@mui/icons-material/FormatBold";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useEffect, useState } from "react";
 import '../Toolbar.scss';
+import { Button } from "react-bootstrap";
 
-function TextToolbar({ element, updateComponentElement, updateComponentElementValue }) {
+function TextToolbar({ element, updateComponentElement, updateComponentElementValue, deleteComponent }) {
     const [values, setValues] = useState(element);
     const [isBoldCheck, setIsBoldCheck] = useState(false);
     const [isItalicCheck, setIsItalicCheck] = useState(false);
@@ -26,7 +28,7 @@ function TextToolbar({ element, updateComponentElement, updateComponentElementVa
 
     const { position_y, position_x } = values;
     const { alignment, police, textSize, color } = values.values
-    
+
 
     // Change les paramètres de l'élément (position et taille)
     const handleElementChange = (event, propName) => {
@@ -76,16 +78,20 @@ function TextToolbar({ element, updateComponentElement, updateComponentElementVa
         }
     }
 
+    const handleDeleteClick = () => {
+        deleteComponent(element);
+    }
+
     return (
         <Toolbar className="toolbar-element">
             <Grid container justifyContent="space-between">
                 <Grid item>
-                    <Typography variant="subtitle1">Marge en haut :</Typography>
+                    <Typography variant="subtitle1">Position en y :</Typography>
                     <input type="number" value={position_y} min={0} onChange={(event) => handleElementChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
-                    <Typography variant="subtitle1">Marge à gauche :</Typography>
+                    <Typography variant="subtitle1">Position en x :</Typography>
                     <input type="number" value={position_x} min={0} onChange={(event) => handleElementChange(event, 'position_x')} />
                 </Grid>
 
@@ -145,6 +151,9 @@ function TextToolbar({ element, updateComponentElement, updateComponentElementVa
                 <Grid item>
                     <Typography variant="subtitle1">Couleur :</Typography>
                     <input type="color" value={color} onChange={(event) => handleElementValueChange(event, 'color')} />
+                </Grid>
+                <Grid item justifyContent="flex-end">
+                    <Button variant="danger" onClick={handleDeleteClick}><DeleteIcon /></Button>
                 </Grid>
             </Grid>
         </Toolbar>

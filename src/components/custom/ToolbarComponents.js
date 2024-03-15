@@ -8,13 +8,13 @@ import IconToolbar from './toolbars/IconToolbar';
 import './Toolbar.scss';
 
 // Affichage de la barre d'outil correspondant à l'élément sélectionné
-function ToolbarComponents({ selectedElement, updateComponentElement, updateComponentElementValue, modelData, setModelData, saveTemplateHandler }) {
+function ToolbarComponents({ selectedElement, updateComponentElement, updateComponentElementValue, deleteComponent, modelData, setModelData, saveTemplateHandler }) {
 
 	return (
 		<AppBar className="toolbar">
 			{selectedElement ? (
 				<>
-					{selectedElement.value_type === 1 && <TextToolbar element={selectedElement} updateComponentElement={updateComponentElement} updateComponentElementValue={updateComponentElementValue} />}
+					{selectedElement.value_type === 1 && <TextToolbar element={selectedElement} updateComponentElement={updateComponentElement} updateComponentElementValue={updateComponentElementValue} deleteComponent={deleteComponent} />}
 					{selectedElement.value_type === 2 && <ImageToolbar  element={selectedElement} />}
 				</>
 			) : (
