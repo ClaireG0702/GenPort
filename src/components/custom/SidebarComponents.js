@@ -51,7 +51,8 @@ function SidebarComponents({ addComponent }) {
                     values:{texte: 'Zone de texte', police: 'Arial', textSize: 14, color: '#000000', alignment: 'left', weight: '', style: '', decoration: ''} })}>
                     <Nav.Item>Zone de texte</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ value_type: 2, values:{link: ""} })}>
+                <Card className='elements' onClick={() => handleClick({ value_type: 2, position_x: 0, position_y: 0, height: 40, 
+                    values:{link: "", border: 0, borderColor: '#000000', borderRadius: 0} })}>
                     <Nav.Item>Image<input className='input-file' type='file' /></Nav.Item>
                 </Card>
                 <Card className='elements' onClick={() => handleClick({ value_type: 1 })}>

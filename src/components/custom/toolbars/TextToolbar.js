@@ -38,7 +38,7 @@ function TextToolbar({ element, updateComponentParams, updateComponentValues, de
             [propName]: value
         }));
         updateComponentParams(element.id, propName, parseInt(value));
-    };
+    }
 
     // Change les priopriétés de l'élément (alignement, style, police, taille du texte, couleur)
     const handleElementValueChange = (event, propName) => {
@@ -87,12 +87,12 @@ function TextToolbar({ element, updateComponentParams, updateComponentValues, de
             <Grid container justifyContent="space-between">
                 <Grid item>
                     <Typography variant="subtitle1">Position en y :</Typography>
-                    <input type="number" value={position_y} min={0} max={100} onChange={(event) => handleElementChange(event, 'position_y')} />
+                    <input type="number" value={position_y} min={0} max={100-element.height} onChange={(event) => handleElementChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="subtitle1">Position en x :</Typography>
-                    <input type="number" value={position_x} min={0} max={100} onChange={(event) => handleElementChange(event, 'position_x')} />
+                    <input type="number" value={position_x} min={0} max={100-element.width} onChange={(event) => handleElementChange(event, 'position_x')} />
                 </Grid>
 
                 <Grid item>
@@ -152,6 +152,7 @@ function TextToolbar({ element, updateComponentParams, updateComponentValues, de
                     <Typography variant="subtitle1">Couleur :</Typography>
                     <input type="color" value={color} onChange={(event) => handleElementValueChange(event, 'color')} />
                 </Grid>
+
                 <Grid item justifyContent="flex-end">
                     <Button variant="danger" onClick={handleDeleteClick}><DeleteIcon /></Button>
                 </Grid>

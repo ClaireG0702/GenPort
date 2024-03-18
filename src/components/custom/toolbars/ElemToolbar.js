@@ -55,12 +55,12 @@ function ElemToolbar({ element, updateComponentParams, updateComponentValues, de
 
                 <Grid item>
                     <Typography variant="subtitle1">Position en y :</Typography>
-                    <input type="number" value={position_y} onChange={(event) => handleElementParamsChange(event, 'position_y')} />
+                    <input type="number" value={position_y} min={0} max={100-height} onChange={(event) => handleElementParamsChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="subtitle1">Position en x :</Typography>
-                    <input type="number" value={position_x} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
+                    <input type="number" value={position_x} min={0} max={100-width} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
                 </Grid>
 
                 <Grid item>
