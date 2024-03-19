@@ -50,7 +50,14 @@ function InputElem({ id, type, component, updateComponentText, onClick }) {
 			)}
 			{type === 'file' && (
 				<>
-					{!imageSrc && <input type={type} accept="image/*" onChange={handleFileChange} />}
+					{!imageSrc && <input type={type} accept="image/*"
+						style={{
+							position: 'absolute',
+							top: `${position_y}%`,
+							left: `${position_x}%`
+						}}
+						onChange={handleFileChange}
+					/>}
 					{imageSrc &&
 						<img id={id} src={imageSrc}
 							alt='Uploaded image'

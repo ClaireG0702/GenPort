@@ -1,4 +1,5 @@
-import { Toolbar, Button, Input } from "@mui/material";
+import { Toolbar, Input } from "@mui/material";
+import { Button } from "react-bootstrap";
 import '../Toolbar.scss';
 
 function DefaultToolbar({ modelData, setModelData, saveTemplateHandler }) {

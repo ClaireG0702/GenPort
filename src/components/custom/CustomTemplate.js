@@ -2,13 +2,14 @@ import { environment } from '../../environment/environment.developments.js';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Grid } from '@mui/material';
-import DefaultToolbar from './toolbars/DefaultToolbar.js';
-import PreviewTemplate from './PreviewTemplate.js';
+import { addComponent, updateComponentText, updateComponentParams, updateComponentValues, deleteComponent, saveTemplate } from './customUtils.js';
+import ToolbarComponents from './ToolbarComponents.js';
+import SidebarComponents from './SidebarComponents.js';
+import Preview from './Preview.js';
 import './Custom.scss';
 
 // Page de modifiaction de template
 function CustomTemplate() {
-    const [initialized, setInitialized] = useState(false);
     const [selectedElement, setSelectedElement] = useState(null);
     const { id } = useParams();
     const [components, setComponents] = useState([]);
@@ -29,55 +30,35 @@ function CustomTemplate() {
             .catch(error => console.error('Error fetching templates:', error));
     }, [id]);
 
-    const updateComponentText = (id, value) => {
-        const updatedComponents = [...components];
-        updatedComponents[id].values.texte = value;
-        setComponents(updatedComponents);
-    }
-
-    const saveTemplate = async () => {
-        try {
-            const response = await fetch(environment.apiURL + '/controllers/portfolios/save', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(templateData),
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to save portfolio');
-            }
-
-            const responseData = await response.json();
-            return responseData;
-        } catch (error) {
-            console.error('Error saving portfolio:', error.message);
-            throw error;
-        }
-    };
+    useEffect(() => {
+        setTemplateData(prevState => ({
+            ...prevState,
+            components: components
+        }));
+    }, [components]);
 
     const saveTemplateHandler = () => {
         setTemplateData(prevState => ({
             ...prevState,
             components: components
         }));
+        saveTemplate(templateData);
     }
-
-    useEffect(() => {
-        initialized && saveTemplate();
-    }, [templateData.components]);
 
     return (
         <>
-            <Grid container>
-                <Grid item xs={12}>
-                    <DefaultToolbar modelData={templateData} setModelData={setTemplateData} saveTemplateHandler={saveTemplateHandler} />
-                </Grid>
-            </Grid>
+            <ToolbarComponents selectedElement={selectedElement} modelData={templateData} setModelData={setTemplateData} 
+                updateComponentParams={(id, attribut, value) => updateComponentParams(id, attribut, value, components, setComponents)} 
+                updateComponentValues={(id, attribut, value) => updateComponentValues(id, attribut, value, components, setComponents)}
+                deleteComponent={(component) => deleteComponent(component, components, setComponents, setSelectedElement)}
+                saveTemplateHandler={saveTemplateHandler} />
             <Grid container alignItems="stretch" className='custom'>
+                <Grid item xs={2}>
+                    <SidebarComponents addComponent={(newComponent) => addComponent(newComponent, setComponents)} />
+                </Grid>
                 <Grid item xs={10} style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-                    <PreviewTemplate className="md-10" components={components} updateComponentText={updateComponentText} setSelectedElement={setSelectedElement} />
+                    <Preview className="md-10" components={components} setSelectedElement={setSelectedElement} 
+                        updateComponentText={(id, value) => updateComponentText(id, value, components, setComponents)} />
                 </Grid>
             </Grid>
         </>

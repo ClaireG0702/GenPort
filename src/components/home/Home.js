@@ -8,11 +8,11 @@ function Home() {
 	return (
 		<div className="home">
 			<Container>
-				<InputGroup className="my-4 d-flex flex-wrap align-items-stretch w-100 position-relative">
+				<InputGroup className="py-4 d-flex flex-wrap align-items-stretch w-100 position-relative">
 					<Form.Select className="input-group-text col-md-4 select-search" id="searchType">
 						<option>Type de recherche</option>
 						<option value="1">Personne</option>
-						<option value="2">Template</option>
+						<option value="2">Nom de template</option>
 					</Form.Select>
 					<Form.Control type="text" className="search me-2 input-search" id="search"/>
 					<Button type="submit" className="btn-search" >Rechercher</Button>
@@ -29,17 +29,6 @@ function Home() {
 						<Card.Text>
 							GenPort rend la création de portfolios simple et élégante.
 						</Card.Text>
-					</Card.Body>
-				</Card>
-
-				<Card className="text-center home-card">
-					<Card.Body>
-						<Card.Text>
-							Template
-						</Card.Text>
-						<Link to="/templates">
-							<Button>Voir les templates</Button>
-						</Link>
 					</Card.Body>
 				</Card>
 			</div>

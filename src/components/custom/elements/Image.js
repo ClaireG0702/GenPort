@@ -1,12 +1,8 @@
-function Image({ id, component, position_y, position_x, width, height, border, borderColor, borderRadius, onChange, onClick }) {
-    
-    if(component) {
-        position_x = component.position_x;
-        position_y = component.position_y;
-        width = component.width;
-        height = component.height;
-    }
-    
+function Image({ id, component, onClick }) {
+
+    const { position_y, position_x, width, height } = component;
+    const { border, borderColor, borderRadius } = component.values;
+
     return (
         <img id={id}
             src=""
@@ -15,8 +11,8 @@ function Image({ id, component, position_y, position_x, width, height, border, b
                 position: 'absolute',
                 top: `${position_y}%`,
                 left: `${position_x}%`,
-                width: `${width}px`,
-                height: `${height}px`,
+                width: `${width}%`,
+                height: `${height}%`,
                 border: `${border}px solid ${borderColor}`,
                 borderRadius: `${borderRadius}`
             }}
