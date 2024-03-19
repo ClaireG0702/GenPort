@@ -17,6 +17,7 @@
 	
 			&:hover {
 				background-color: var(--light-card-btn-bg-hover);
+				border-color: var(--light-card-btn-bg-hover);
 			}
 		}
 	}
@@ -30,13 +31,15 @@
 .dark-theme {
 
 	.select-search {
-		background-color: var(--dark-navbar-search);
+		background-color: var(--dark-home-search);
+		border-color: var(--dark-home-search-border);
 		color: var(--dark-primary-text);
 	}
 
 	.input-search {
-		background-color: var(--dark-navbar-input);
-		color: aliceblue;
+		background-color: var(--dark-home-input);
+		border-color: var(--dark-home-search-border);
+		color: var(--dark-primary-text);
 	}
 
 	.btn-search {
@@ -51,11 +54,12 @@
 
 	.cards {
 		button {
-			background-color: var(--light-card-btn-bg);
-			border-color: var(--light-card-btn-bg);
+			background-color: var(--dark-card-btn-bg);
+			border-color: var(--dark-card-btn-bg);
 	
 			&:hover {
-				background-color: var(--light-card-btn-bg-hover);
+				background-color: var(--dark-card-btn-bg-hover);
+				border-color: var(--dark-card-btn-bg-hover);
 			}
 		}
 	}

@@ -3,18 +3,19 @@
 	--dark-primary-text: white;
 	--dark-secondary-text: #c7c7c7; 
 	--dark-navbar-bg: #4678c6; 
-	--dark-navbar-input: #3e3e3e;
-	--dark-navbar-search: #484848;
-	--dark-home-card-bg: #92b0dd; 
+	--dark-home-input: #3e3e3e;
+	--dark-home-search: #484848;
+	--dark-home-search-border: #7b7b7b;
+	--dark-home-card-bg: #515151; 
 	--dark-card-btn-bg: #4678c6;
-	--dark-card-btn-bg-hover: ;
+	--dark-card-btn-bg-hover: #3360a6;
 	--dark-border-search: #dfe8f5;
-	--dark-template-card-bg: #92b0dd;
-	--dark-portfolio-card-bg: #92b0dd;
-	--dark-card-text: #3e3e3e;
+	--dark-template-card-bg: #515151;
+	--dark-portfolio-card-bg: #515151;
+	--dark-card-text: #fff;
 	--dark-toolbar-bg: #484848;
-	--dark-sidebar-card-bg: #484848;
-	--dark-sidebar-card-bg-hover: #4678c6;
+	--dark-sidebar-card-bg: #515151;
+	--dark-sidebar-card-bg-hover: #5986cc;
 
 	--light-body-bg: white;
 	--light-primary-text: #333; 
@@ -29,9 +30,7 @@
 	--light-card-text: #484848;
 	--light-toolbar-bg: white;
 	--light-sidebar-card-bg: white;
-	--light-sidebar-card-bg-hover: #4678c6;
-	--light-sidebar-text-hover: white;
-
+	--light-sidebar-card-bg-hover: #cedbf0;
 
 	--navbar-text: #e8e8e8;
 }

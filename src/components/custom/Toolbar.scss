@@ -11,7 +11,7 @@
 .dark-theme {
 	.toolbar {
 		background-color: var(--dark-toolbar-bg);
-		box-shadow: 0px 1px 2px -1px rgba(95,95,95,0.6),0px 2px 3px 0px rgba(95,95,95,0.34),0px 1px 5px 0px rgba(95,95,95,0.32);
+		box-shadow: 0px 1px 2px -1px rgba(10,10,10,0.4),0px 2px 3px 0px rgba(10,10,10,0.28),0px 1px 5px 0px rgba(10,10,10,0.24);
 		color: var(--dark-primary-text);
 	}
 
@@ -37,6 +37,9 @@
 
 .default-toolbar {
 	float: right;
+	display: flex;
+	flex-direction: row;
+	gap: 12px;
 }
 
 .toolbar-element {
