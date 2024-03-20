@@ -15,7 +15,7 @@ function CustomTemplate() {
     const [name, setName] = useState('');
     const [components, setComponents] = useState([]);
     const [templateData, setTemplateData] = useState({
-        id: null,
+        id: model === 'portfolios' ? id : null,
         description: 'Ceci est la description par defaut',
         owner_id: null
     });
