@@ -44,11 +44,11 @@ function SidebarComponents({ addComponent }) {
                     <Nav.Item>Forme</Nav.Item>
                 </Card>
                 <Card className='elements' onClick={() => handleClick({ value_type: 1, information_type: 2, position_x: 15, position_y: 1, 
-                    values:{texte: 'Titre', police: 'Arial', textSize: 24, color: '#000000', alignment: 'center', weight: '', style: '', decoration: ''}})}>
+                    values:{texte: 'Titre', police: 'Arial', textSize: 24, color: '#000000', alignment: 'center', weight: false, style: false, decoration: false}})}>
                     <Nav.Item>Titre</Nav.Item>
                 </Card>
                 <Card className='elements' onClick={() => handleClick({ value_type: 1, width: 25, height: 20,
-                    values:{texte: 'Zone de texte', police: 'Arial', textSize: 14, color: '#000000', alignment: 'left', weight: '', style: '', decoration: ''} })}>
+                    values:{texte: 'Zone de texte', police: 'Arial', textSize: 14, color: '#000000', alignment: 'left', weight: false, style: false, decoration: false} })}>
                     <Nav.Item>Zone de texte</Nav.Item>
                 </Card>
                 <Card className='elements' onClick={() => handleClick({ value_type: 2, position_x: 0, position_y: 0, height: 40, 

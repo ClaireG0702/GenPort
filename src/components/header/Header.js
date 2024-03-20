@@ -18,7 +18,7 @@ function Header() {
                 <Navbar.Brand>GenPort</Navbar.Brand>
                 <Navbar.Collapse>
                     <Nav className='me-auto'>
-                        <Nav.Link as={Link} to="/home" >Accueil</Nav.Link>
+                        <Nav.Link as={Link} to="/home">Accueil</Nav.Link>
                         <Nav.Link as={Link} to="/templates">Templates</Nav.Link>
                         <Nav.Link as={Link} to="/portfolios">Portfolios</Nav.Link>
                     </Nav>

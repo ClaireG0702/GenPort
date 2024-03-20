@@ -21,9 +21,9 @@ function TextToolbar({ element, updateComponentParams, updateComponentValues, de
     useEffect(() => {
         setValues(element);
         const { style, weight, decoration } = element.values;
-        setIsBoldCheck(weight !== '');
-        setIsItalicCheck(style !== '');
-        setIsUnderlineCheck(decoration !== '');
+        setIsBoldCheck(weight);
+        setIsItalicCheck(style);
+        setIsUnderlineCheck(decoration);
     }, [element]);
 
     const { position_y, position_x } = values;

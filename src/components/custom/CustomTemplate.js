@@ -11,28 +11,31 @@ import './Custom.scss';
 // Page de modifiaction de template
 function CustomTemplate() {
     const [selectedElement, setSelectedElement] = useState(null);
-    const { id } = useParams();
+    const { model, id } = useParams();
+    const [name, setName] = useState('');
     const [components, setComponents] = useState([]);
     const [templateData, setTemplateData] = useState({
         id: null,
-        name: 'Portfolio',
         description: 'Ceci est la description par defaut',
         owner_id: null
     });
 
     useEffect(() => {
-        fetch(environment.apiURL + `/controllers/templates/get?id=${id}`)
+        fetch(environment.apiURL + `/controllers/${model}/get?id=${id}`)
             .then(response => response.json())
             .then(data => {
+                const {name: portfolioName} = data;
+                setName(portfolioName);
                 const { components: componentsData } = data;
                 setComponents(componentsData);
             })
             .catch(error => console.error('Error fetching templates:', error));
-    }, [id]);
+    }, [id, model]);
 
     useEffect(() => {
         setTemplateData(prevState => ({
             ...prevState,
+            name: name,
             components: components
         }));
     }, [components]);

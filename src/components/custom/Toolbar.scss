@@ -1,18 +1,18 @@
 .light-theme {
-	.MuiPaper-root {
-		background: var(--bg-primary-light);
-	}
-
+	.preview-toolbar,
 	.toolbar {
+		background: var(--light-toolbar-bg);
+		color: var(--light-primary-text);
 		box-shadow: 0px 1px 2px -1px rgba(0,0,0,0.2),0px 2px 3px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
 	}
 }
 
 .dark-theme {
+	.preview-toolbar,
 	.toolbar {
 		background-color: var(--dark-toolbar-bg);
-		box-shadow: 0px 1px 2px -1px rgba(10,10,10,0.4),0px 2px 3px 0px rgba(10,10,10,0.28),0px 1px 5px 0px rgba(10,10,10,0.24);
 		color: var(--dark-primary-text);
+		box-shadow: 0px 1px 2px -1px rgba(10,10,10,0.4),0px 2px 3px 0px rgba(10,10,10,0.28),0px 1px 5px 0px rgba(10,10,10,0.24);
 	}
 
 	svg {
@@ -21,8 +21,18 @@
 
 	button[aria-pressed="true"] {
 		svg {
-			color: #777;
+			color: #7b7b7b;
 		}
+	}
+}
+
+.preview-toolbar {
+	justify-content: space-between;
+
+	.preview-toolbar-buttons {
+		display: flex;
+		flex-direction: row;
+		gap: 6px;
 	}
 }
 
@@ -47,10 +57,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-	}
-
-	h6 {
-		color: black;
 	}
 
 	input {
@@ -88,7 +94,6 @@
 	.checkbox:has(input:checked) {
 		color: rgba(0, 0, 0, 0.87);
 		background-color: rgba(0, 0, 0, 0.08);
-
 	}
 
 	.police-select {

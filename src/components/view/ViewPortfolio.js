@@ -24,11 +24,15 @@ function ViewPortfolio() {
             .catch(error => console.error('Error fetching templates:', error));
     }, [id]);
 
+    const deletePortfolio = () => {
+        // TODO
+    }
+
 	return (
 		<>
             <Grid container>
                 <Grid item xs={12}>
-                    <PreviewToolbar name={name} />
+                    <PreviewToolbar id={id} name={name} deletePortfolio={deletePortfolio} />
                 </Grid>
             </Grid>
             <Grid container alignItems="stretch" className='custom'>

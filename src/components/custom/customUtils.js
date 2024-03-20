@@ -50,4 +50,5 @@ export function saveTemplate(modelData) {
 	//     throw error;
 	// }
 	console.log(modelData);
+	console.log(JSON.stringify(modelData))
 }

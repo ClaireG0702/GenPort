@@ -22,7 +22,7 @@ function Template() {
                 <Row xs={4} className="my-4">
                     {templates.map(template => 
                     <Col key={template.id} className="my-2">
-                        <Card style={{height: '150px'}} as={Link} to={'/custom/'+template.id} className="template-card"> {/** Redirection modif template */}
+                        <Card style={{height: '150px'}} as={Link} to={'/custom/templates/'+template.id} className="template-card"> {/** Redirection modif template */}
                             <Card.Body>
                                 <Card.Title>{template.name}</Card.Title>
                                 <Card.Subtitle>{template.description}</Card.Subtitle>
