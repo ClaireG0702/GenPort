@@ -22,7 +22,6 @@ function InputElem({ id, type, component, updateComponentText, onClick }) {
 		};
 		reader.readAsDataURL(file);
 		console.log(file);
-
 	}
 
 	return (

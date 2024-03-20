@@ -1,7 +1,13 @@
 import { environment } from '../../environment/environment.developments.js';
 
+
+let idComponent = 0;
+
 export function addComponent(newComponent, setComponents) {
+	newComponent = {...newComponent, component_id:idComponent};
 	setComponents(prevState => [...prevState, newComponent]);
+
+	idComponent += 1;
 }
 
 export function updateComponentText(id, value, components, setComponents) {
@@ -28,27 +34,27 @@ export function deleteComponent(component, components, setComponents, setSelecte
 	setSelectedElement(null);
 }
 
-export function saveTemplate(modelData) {
-	// try {
-	//     const response = await fetch(environment.apiURL + '/controllers/portfolios/save', {
-	//         method: 'POST',
-	//         headers: {
-	//             'Content-Type': 'application/json',
-	//         },
-	//         body: JSON.stringify(modelData),
-	//     });
-
-	//     if (!response.ok) {
-	//         throw new Error('Failed to save portfolio');
-	//     }
-
-	//		alert('Le portfolio a bien été sauvegardé');
-	//     const responseData = await response.json();
-	//     return responseData;
-	// } catch (error) {
-	//     console.error('Error saving portfolio:', error.message);
-	//     throw error;
-	// }
+export async function saveTemplate(modelData) {
 	console.log(modelData);
-	console.log(JSON.stringify(modelData))
+	try {
+		const response = await fetch(environment.apiURL + '/controllers/portfolios/save', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(modelData),
+		});
+
+		if (!response.ok) {
+			throw new Error('Failed to save portfolio');
+		}
+
+		alert('Le portfolio a bien été sauvegardé');
+		window.location.href = '/portfolios';
+		const responseData = await response.json();
+		return responseData;
+	} catch (error) {
+		console.error('Error saving portfolio:', error.message);
+		throw error;
+	}
 }

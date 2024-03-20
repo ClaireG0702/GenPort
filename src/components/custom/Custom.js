@@ -11,6 +11,7 @@ function Custom() {
     const [selectedElement, setSelectedElement] = useState(null);
     const [components, setComponents] = useState([]);
     const [modelData, setModelData] = useState({
+        id: null,
         name: 'Portfolio',
         description: 'Description par défaut',
         owner_id: null

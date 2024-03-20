@@ -8,40 +8,54 @@ import { environment } from "../../environment/environment.developments";
 
 // Page de visualisation d'un portfolio
 function ViewPortfolio() {
-	const { id } = useParams();
+    const { id } = useParams();
     const [name, setName] = useState('');
     const [components, setComponents] = useState([]);
 
-	useEffect(() => {
-        fetch(environment.apiURL+`/controllers/portfolios/get?id=${id}`)
+    useEffect(() => {
+        fetch(environment.apiURL + `/controllers/portfolios/get?id=${id}`)
             .then(response => response.json())
             .then(data => {
-                const {name: portfolioName} = data;
+                const { name: portfolioName } = data;
                 setName(portfolioName);
-                const {components: componentsData} = data;
+                const { components: componentsData } = data;
                 setComponents(componentsData);
             })
             .catch(error => console.error('Error fetching templates:', error));
     }, [id]);
 
-    const deletePortfolio = () => {
-        // TODO
+    const deletePortfolio = async () => {
+        try {
+            const response = await fetch(environment.apiURL + `/controllers/portfolios/remove?id=${id}`, {
+                method: 'GET',
+            });
+
+            if (response.ok) {
+                console.log('Portfolio deleted successfully');
+                alert('Le portfolio a bien été supprimé');
+                window.location.href = '/portfolios';
+            } else {
+                console.error('Failed to delete portfolio');
+            }
+        } catch (error) {
+            console.error('Error deleting portfolio:', error);
+        }
     }
 
-	return (
-		<>
+    return (
+        <>
             <Grid container>
                 <Grid item xs={12}>
                     <PreviewToolbar id={id} name={name} deletePortfolio={deletePortfolio} />
                 </Grid>
             </Grid>
             <Grid container alignItems="stretch" className='custom'>
-                <Grid item xs={10} style={{marginLeft:'auto', marginRight:'auto'}}>
+                <Grid item xs={10} style={{ marginLeft: 'auto', marginRight: 'auto' }}>
                     <PreviewPortfolio className="md-10" components={components} />
                 </Grid>
             </Grid>
         </>
-	);
+    );
 }
 
 export default ViewPortfolio;
