@@ -10,17 +10,10 @@
 	}
 }
 
-.custom-preview {
-	position: relative;
-	height: 100%;
-}
-
-swiper-container {
-	height: inherit;
-}
-
 .preview {
+	position: relative;
 	width: 95%;
 	height: 75%;
 	margin: 20px auto;
+	display: block;
 }
