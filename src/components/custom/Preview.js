@@ -21,7 +21,7 @@ function Preview({ components, updateComponentText, setSelectedElement }) {
 	return (
 		<div className="custom-preview">
 			<Card className="preview">
-				<Card.Body onClick={(event) => handleClickOutOfComponent(event)}>
+				<Card.Body style={{height: '100%'}} onClick={(event) => handleClickOutOfComponent(event)}>
 				{components.map((component, index) => {
 						let type;
 						if(component.value_type !== 5) {

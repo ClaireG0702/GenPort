@@ -1,9 +1,10 @@
+import { environment } from "../../environment/environment.developments";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
+import { PDFViewer } from "@react-pdf/renderer";
 import PreviewToolbar from "./PreviewToolbar";
 import PreviewPortfolio from "./PreviewPortfolio";
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { environment } from "../../environment/environment.developments";
 
 
 // Page de visualisation d'un portfolio
@@ -46,12 +47,14 @@ function ViewPortfolio() {
         <>
             <Grid container>
                 <Grid item xs={12}>
-                    <PreviewToolbar id={id} name={name} deletePortfolio={deletePortfolio} />
+                    <PreviewToolbar id={id} name={name} components={components} deletePortfolio={deletePortfolio} />
                 </Grid>
             </Grid>
             <Grid container alignItems="stretch" className='custom'>
                 <Grid item xs={10} style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-                    <PreviewPortfolio className="md-10" components={components} />
+                    <PDFViewer className="preview">
+                        <PreviewPortfolio className="md-10" components={components} />
+                    </PDFViewer>
                 </Grid>
             </Grid>
         </>

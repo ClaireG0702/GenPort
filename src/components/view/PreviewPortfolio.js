@@ -1,31 +1,47 @@
-import { Card } from "react-bootstrap";
-import Title from "../custom/elements/Title";
-import TextZone from "../custom/elements/TextZone";
-import Image from "../custom/elements/Image";
+import { Document, Page, View, Text, Image, StyleSheet, Font } from "@react-pdf/renderer";
+import '@fontsource/roboto';
+
+// TODO: gestion des polices
+Font.register({
+	family: "Roboto",
+});
 
 function PreviewPortfolio({ components }) {
 
 	return (
-		<div className="custom-preview">
-			<Card className="preview">
-				<Card.Body>
-					{components.map((component, index) => {
-						switch (component.value_type) {
-							case 1:
-								if (component.information_type === 2) {
-									return <Title key={index} id={index} component={component} />
-								} else {
-									return <TextZone key={index} id={index} component={component} />
+		<Document className="doc">
+			<Page size="A4" orientation="landscape">
+				{components.map((component, index) => {
+					switch (component.value_type) {
+						case 1:
+							let textStyle = component.values.style ? 'italic' : '';
+							let textWeight = component.values.weight ? '600' : '';
+							let textDecoration = component.values.decoration ? 'underline' : '';
+
+							const styles = StyleSheet.create({
+								text: {
+									position: 'absolute',
+									top: `${component.position_y}%`,
+									left: `${component.position_x}%`,
+									// fontFamily: 'Roboto',
+									fontSize: `${component.values.textSize}px`,
+									color: component.values.color,
+									textAlign: component.values.alignment,
+									fontWeight: textWeight,
+									fontStyle: textStyle,
+									textDecoration: textDecoration
 								}
-							case 2:
-								return <Image key={index} id={index} component={component} />
-							default:
-								return null;
-						}
-					})}
-				</Card.Body>
-			</Card>
-		</div>
+							})
+
+							return <View key={index} style={styles.text}><Text>{component.values.texte}</Text></View>
+						case 2:
+							return <View key={index}><Image src={component.values.link} /></View>
+						default:
+							return null;
+					}
+				})}
+			</Page>
+		</Document>
 	);
 }
 
