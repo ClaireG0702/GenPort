@@ -4,7 +4,6 @@ import { addComponent, updateComponentText, updateComponentParams, updateCompone
 import SidebarComponents from './SidebarComponents.js';
 import ToolbarComponents from './ToolbarComponents.js';
 import Preview from './Preview.js';
-import './Custom.scss';
 
 // Page de création de template
 function Custom() {
@@ -39,7 +38,7 @@ function Custom() {
                 updateComponentValues={(id, attribut, value) => updateComponentValues(id, attribut, value, components, setComponents)}
                 deleteComponent={(component) => deleteComponent(component, components, setComponents, setSelectedElement)}
                 saveTemplateHandler={saveTemplateHandler} />
-            <Grid container alignItems="stretch" className='custom'>
+            <Grid container alignItems="stretch">
                 <Grid item xs={2}>
                     <SidebarComponents addComponent={(newComponent) => addComponent(newComponent, setComponents)} />
                 </Grid>

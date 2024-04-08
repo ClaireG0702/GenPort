@@ -9,7 +9,6 @@ function Preview({ components, updateComponentText, setSelectedElement }) {
 	const handleClick = (index, component) => {
 		const selectedComponent = {...component, id: index};
 		setSelectedElement(selectedComponent);
-		console.log(selectedComponent)
 	}
 
 	const handleClickOutOfComponent = (event) => {

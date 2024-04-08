@@ -28,8 +28,6 @@ function SidebarComponents({ addComponent }) {
 
     useEffect(() => {
         if(initialized) {
-            console.log('new component')
-            console.log(newComponent);
             addComponent(newComponent);
         } else {
             setInitialized(true)

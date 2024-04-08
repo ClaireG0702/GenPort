@@ -35,7 +35,6 @@ export function deleteComponent(component, components, setComponents, setSelecte
 }
 
 export async function saveTemplate(modelData) {
-	console.log(modelData);
 	try {
 		const response = await fetch(environment.apiURL + '/controllers/portfolios/save', {
 			method: 'POST',
