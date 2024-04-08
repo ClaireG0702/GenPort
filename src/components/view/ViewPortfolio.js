@@ -5,6 +5,7 @@ import { Grid } from "@mui/material";
 import { PDFViewer } from "@react-pdf/renderer";
 import PreviewToolbar from "./PreviewToolbar";
 import PreviewPortfolio from "./PreviewPortfolio";
+import PdfDocument from './PdfDocument';
 
 
 // Page de visualisation d'un portfolio
@@ -12,6 +13,7 @@ function ViewPortfolio() {
     const { id } = useParams();
     const [name, setName] = useState('');
     const [components, setComponents] = useState([]);
+    const [isPdfView, setIsPdfView] = useState(false);
 
     useEffect(() => {
         fetch(environment.apiURL + `/controllers/portfolios/get?id=${id}`)
@@ -47,14 +49,20 @@ function ViewPortfolio() {
         <>
             <Grid container>
                 <Grid item xs={12}>
-                    <PreviewToolbar id={id} name={name} components={components} deletePortfolio={deletePortfolio} />
+                    <PreviewToolbar id={id} name={name} components={components} deletePortfolio={deletePortfolio} isPdfView={isPdfView} setIsPdfView={setIsPdfView} />
                 </Grid>
             </Grid>
             <Grid container alignItems="stretch" className='custom'>
                 <Grid item xs={10} style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-                    <PDFViewer className="preview">
-                        <PreviewPortfolio className="md-10" components={components} />
-                    </PDFViewer>
+                    {!isPdfView ? (
+                        <div>
+                            <PreviewPortfolio className="md-10" components={components} />
+                        </div>
+                    ) : (
+                        <PDFViewer className="preview">
+                            <PdfDocument components={components} />
+                        </PDFViewer>
+                    )}
                 </Grid>
             </Grid>
         </>
