@@ -4,14 +4,21 @@
 	}
 }
 
-.body {
-	position: relative;
-	height: 90%;
-	display: flex;
-	justify-content: center;
-
+.container-registration-form {
+	padding: 60px;
+	
 	.registration-card {
 		width: 50%;
 		margin: auto;
+
+		.form-group {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+
+			.half-width {
+				width: 49%;
+			}
+		}
 	}
 }
