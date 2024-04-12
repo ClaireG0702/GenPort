@@ -32,8 +32,20 @@
 	.preview-toolbar-buttons {
 		display: flex;
 		flex-direction: row;
-		gap: 6px;
+		gap: 16px;
+
+		div {
+			display: flex;
+			flex-direction: row;
+			gap: 6px;
+			
+			.download-btn {
+				color: white;
+				text-decoration: none;
+			}
+		}
 	}
+
 }
 
 .MuiPaper-root {
