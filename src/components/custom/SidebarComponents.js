@@ -37,7 +37,7 @@ function SidebarComponents({ addComponent }) {
     return (
         <aside className='sidebar'>
             <Nav>
-                <Card className='elements' onClick={() => handleClick({ value_type: 5, zIndex: 2,
+                <Card className='elements' onClick={() => handleClick({ value_type: 5, zIndex: 1,
                     values:{ color: '#ffffff', border: 1, borderColor: '#000000', borderRadius: 0 } })}>
                     <Nav.Item>Forme</Nav.Item>
                 </Card>
@@ -53,8 +53,10 @@ function SidebarComponents({ addComponent }) {
                     values:{link: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficon-library.com%2Fimages%2Fpicture-icon-png%2Fpicture-icon-png-4.jpg&f=1&nofb=1&ipt=ec3caf8102b1202b59fcb92b34b9de6c1105390a7b24b177c720b1b4e5b947b0&ipo=images", border: 0, borderColor: '#000000', borderRadius: 0} })}>
                     <Nav.Item>Image</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ value_type: 1 })}>
-                    <Nav.Item>Icon</Nav.Item>
+                <Card className='elements' onClick={() => handleClick({ value_type: 3,  position_x: 10, position_y: 2,
+                    values: {texte: 'Bouton', link: '', police: 'Arial', textSize: 16, color: '#ffffff', weight: false, style: false, decoration: false, 
+                        border: 0, borderColor: '#000000', borderRadius: 10, backgroundColor: '#4678c6'}})}>
+                    <Nav.Item>Bouton / Lien</Nav.Item>
                 </Card>
             </Nav>
         </aside>

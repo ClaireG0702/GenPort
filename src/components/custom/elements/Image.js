@@ -11,10 +11,10 @@ function Image({ id, component, onClick }) {
                 position: 'absolute',
                 top: `${position_y}%`,
                 left: `${position_x}%`,
-                width: `${width}%`,
+                // width: `${height}%`,
                 height: `${height}%`,
                 border: `${border}px solid ${borderColor}`,
-                borderRadius: `${borderRadius}`
+                borderRadius: `${borderRadius}px`
             }}
             onClick={() => onClick(id, component)}></img>
     );

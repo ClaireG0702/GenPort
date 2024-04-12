@@ -15,7 +15,7 @@ function Shape({ id, component, onClick }) {
                 height: `${height}%`,
                 backgroundColor: color,
                 border: `${border}px solid ${borderColor}`,
-                borderRadius: `${borderRadius}`
+                borderRadius: `${borderRadius}px`
             }} 
             onClick={() => onClick(id, component)} ></div>
     );
