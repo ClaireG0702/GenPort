@@ -38,7 +38,6 @@ function ViewPortfolio() {
             });
 
             if (response.ok) {
-                console.log('Portfolio deleted successfully');
                 alert('Le portfolio a bien été supprimé');
                 window.location.href = '/portfolios';
             } else {

@@ -37,7 +37,7 @@ function TextToolbar({ element, updateComponentParams, updateComponentValues, de
             ...prevValues,
             [propName]: value
         }));
-        updateComponentParams(element.id, propName, parseInt(value));
+        updateComponentParams(element.id, propName, value);
     }
 
     // Change les priopriétés de l'élément (alignement, style, police, taille du texte, couleur)

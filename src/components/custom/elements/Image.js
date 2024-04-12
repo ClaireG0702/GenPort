@@ -1,11 +1,11 @@
 function Image({ id, component, onClick }) {
 
     const { position_y, position_x, width, height } = component;
-    const { border, borderColor, borderRadius } = component.values;
+    const { link, border, borderColor, borderRadius } = component.values;
 
     return (
         <img id={id}
-            src=""
+            src={link}
             alt={'upload-'+id}
             style={{
                 position: 'absolute',
@@ -16,7 +16,7 @@ function Image({ id, component, onClick }) {
                 border: `${border}px solid ${borderColor}`,
                 borderRadius: `${borderRadius}`
             }}
-            onClick={onClick}></img>
+            onClick={() => onClick(id, component)}></img>
     );
 }
 

@@ -67,8 +67,6 @@ function Registration() {
 			register(userData)
 		}
 		setValidated(true)
-
-		console.log(userData)
 	}
 
 	return (

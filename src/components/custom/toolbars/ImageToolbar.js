@@ -12,7 +12,7 @@ function ImageToolbar({ element, updateComponentParams, updateComponentValues, d
     }, [element]);
 
     const { position_y, position_x, width, height } = values;
-    const { border, borderColor, borderRadius } = values.values;
+    const { link, border, borderColor, borderRadius } = values.values;
 
     const handleElementParamsChange = (event, propName) => {
         const { value } = event.target;
@@ -32,11 +32,12 @@ function ImageToolbar({ element, updateComponentParams, updateComponentValues, d
                 [propName]: value
             }
         }));
-        if(propName === 'borderColor') {
-            updateComponentValues(element.id, propName, value);
-        } else {
-            updateComponentValues(element.id, propName, parseInt(value));
-        }
+        // if(propName === 'borderColor' || propName === 'link') {
+        //     updateComponentValues(element.id, propName, value);
+        // } else {
+        //     updateComponentValues(element.id, propName, parseInt(value));
+        // }
+        updateComponentValues(element.id, propName, value);
     }
 
     const handleDeleteClick = () => {
@@ -47,13 +48,18 @@ function ImageToolbar({ element, updateComponentParams, updateComponentValues, d
         <Toolbar className='toolbar-element'>
             <Grid container justifyContent="space-between">
                 <Grid item>
+                    <Typography variant='h6'>Lien de l'image :</Typography>
+                    <input type="url" value={link} onChange={(event) => handleElementValuesChange(event, 'link')} />
+                </Grid>
+
+                <Grid item>
                     <Typography variant="h6">Marge en haut :</Typography>
-                    <input type="number" value={position_y} min={0} max={100-height} onChange={(event) => handleElementParamsChange(event, 'position_y')} />
+                    <input type="number" value={position_y} min={0} max={toString(100-parseInt(height))} onChange={(event) => handleElementParamsChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="h6">Marge à gauche :</Typography>
-                    <input type="number" value={position_x} min={0} max={100-width} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
+                    <input type="number" value={position_x} min={0} max={toString(100-parseInt(width))} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
                 </Grid>
 
                 <Grid item>

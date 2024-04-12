@@ -20,7 +20,7 @@ function ElemToolbar({ element, updateComponentParams, updateComponentValues, de
             ...prevParams,
             [propName]: value
         }));
-        updateComponentParams(element.id, propName, parseInt(value));
+        updateComponentParams(element.id, propName, value);
     };
 
     const handleElementValueChange = (event, propName) => {
@@ -29,11 +29,7 @@ function ElemToolbar({ element, updateComponentParams, updateComponentValues, de
             ...prevValues,
             [propName]: value
         }));
-        if(propName === 'border' || propName === 'borderRadius') {
-            updateComponentValues(element.id, propName, parseInt(value));
-        } else {
-            updateComponentValues(element.id, propName, value)
-        }
+        updateComponentValues(element.id, propName, value)
     }
 
     const handleDeleteClick = () => {

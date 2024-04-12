@@ -6,7 +6,7 @@ function SidebarComponents({ addComponent }) {
     const [initialized, setInitialized] = useState(false);
     const defaultComponent = {
         value_type: null,
-        information_type: null,
+        information_type: 7,
         position_x: 1,
         position_y: 2,
         width: 20,
@@ -45,13 +45,13 @@ function SidebarComponents({ addComponent }) {
                     values:{texte: 'Titre', police: 'Arial', textSize: 24, color: '#000000', alignment: 'center', weight: false, style: false, decoration: false}})}>
                     <Nav.Item>Titre</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ value_type: 1, width: 25, height: 20,
+                <Card className='elements' onClick={() => handleClick({ value_type: 1, information_type: 3, width: 25, height: 20,
                     values:{texte: 'Zone de texte', police: 'Arial', textSize: 14, color: '#000000', alignment: 'left', weight: false, style: false, decoration: false} })}>
                     <Nav.Item>Zone de texte</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ value_type: 2, position_x: 0, position_y: 0, height: 40, 
-                    values:{link: "", border: 0, borderColor: '#000000', borderRadius: 0} })}>
-                    <Nav.Item>Image<input className='input-file' type='file' /></Nav.Item>
+                <Card className='elements' onClick={() => handleClick({ value_type: 2, position_x: 0, position_y: 0, width: 'auto !important', height: 25, 
+                    values:{link: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficon-library.com%2Fimages%2Fpicture-icon-png%2Fpicture-icon-png-4.jpg&f=1&nofb=1&ipt=ec3caf8102b1202b59fcb92b34b9de6c1105390a7b24b177c720b1b4e5b947b0&ipo=images", border: 0, borderColor: '#000000', borderRadius: 0} })}>
+                    <Nav.Item>Image</Nav.Item>
                 </Card>
                 <Card className='elements' onClick={() => handleClick({ value_type: 1 })}>
                     <Nav.Item>Icon</Nav.Item>
