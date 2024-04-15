@@ -11,7 +11,7 @@ function ImageToolbar({ element, updateComponentParams, updateComponentValues, d
         setValues(element);
     }, [element]);
 
-    const { position_y, position_x, width, height } = values;
+    const { position_y, position_x, z_index, width, height } = values;
     const { link, border, borderColor, borderRadius } = values.values;
 
     const handleElementParamsChange = (event, propName) => {
@@ -32,11 +32,6 @@ function ImageToolbar({ element, updateComponentParams, updateComponentValues, d
                 [propName]: value
             }
         }));
-        // if(propName === 'borderColor' || propName === 'link') {
-        //     updateComponentValues(element.id, propName, value);
-        // } else {
-        //     updateComponentValues(element.id, propName, parseInt(value));
-        // }
         updateComponentValues(element.id, propName, value);
     }
 
@@ -60,6 +55,11 @@ function ImageToolbar({ element, updateComponentParams, updateComponentValues, d
                 <Grid item>
                     <Typography variant="h6">Marge à gauche :</Typography>
                     <input type="number" value={position_x} min={0} max={toString(100-parseInt(width))} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
+                </Grid>
+
+                <Grid item>
+                    <Typography>Calque :</Typography>
+                    <input type="number" value={z_index} onChange={(event) => handleElementParamsChange(event, 'z_index')} />
                 </Grid>
 
                 <Grid item>

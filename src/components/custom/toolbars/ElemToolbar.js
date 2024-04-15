@@ -11,7 +11,7 @@ function ElemToolbar({ element, updateComponentParams, updateComponentValues, de
         setValues(element);
     }, [element]);
     
-    const { position_y, position_x, width, height, zIndex } = values;
+    const { position_y, position_x, z_index, width, height } = values;
     const { color, border, borderColor, borderRadius } = values.values;
     
     const handleElementParamsChange = (event, propName) => {
@@ -57,6 +57,11 @@ function ElemToolbar({ element, updateComponentParams, updateComponentValues, de
                 <Grid item>
                     <Typography variant="subtitle1">Position en x :</Typography>
                     <input type="number" value={position_x} min={0} max={100-width} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
+                </Grid>
+
+                <Grid item>
+                    <Typography>Calque :</Typography>
+                    <input type="number" value={z_index} onChange={(event) => handleElementParamsChange(event, 'z_index')} />
                 </Grid>
 
                 <Grid item>

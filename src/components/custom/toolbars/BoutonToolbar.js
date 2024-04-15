@@ -21,7 +21,7 @@ function BoutonToolbar({ element, updateComponentParams, updateComponentValues, 
         setIsUnderlineCheck(decoration);
     }, [element]);
     
-    const { position_y, position_x, zIndex } = values;
+    const { position_y, position_x, z_index } = values;
     const { link, color, police, textSize, border, borderColor, borderRadius, backgroundColor } = values.values;
 
     const handleElementParamsChange = (event, propName) => {
@@ -62,6 +62,11 @@ function BoutonToolbar({ element, updateComponentParams, updateComponentValues, 
                 <Grid item>
                     <Typography>Position en x :</Typography>
                     <input type="number" value={position_x} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
+                </Grid>
+
+                <Grid item>
+                    <Typography>Calque :</Typography>
+                    <input type="number" value={z_index} onChange={(event) => handleElementParamsChange(event, 'z_index')} />
                 </Grid>
 
                 <Grid item>

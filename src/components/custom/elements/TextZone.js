@@ -1,6 +1,6 @@
 
 function TextZone({ id, component }) {
-    const { position_x, position_y } = component;
+    const { position_x, position_y, z_index } = component;
     const { texte, alignment, police, textSize, color, style, weight, decoration } = component.values;
 
     let textStyle = style ? 'italic' : '';
@@ -13,6 +13,7 @@ function TextZone({ id, component }) {
                 position: 'absolute',
                 top: `${position_y}%`,
                 left: `${position_x}%`,
+                zIndex: z_index,
                 textAlign: alignment,
                 fontFamily: police,
                 fontSize: `${textSize}px`,

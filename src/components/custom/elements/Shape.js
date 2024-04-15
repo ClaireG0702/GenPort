@@ -1,7 +1,7 @@
 
 function Shape({ id, component, onClick }) {
     
-    const { position_x, position_y, width, height, zIndex } = component;
+    const { position_x, position_y, z_index, width, height } = component;
 	const { color, border, borderColor, borderRadius } = component.values;
     
     return (
@@ -10,7 +10,7 @@ function Shape({ id, component, onClick }) {
                 position: 'absolute',
                 top: `${position_y}%`,
                 left: `${position_x}%`,
-                zIndex: zIndex,
+                zIndex: z_index,
                 width: `${width}%`,
                 height: `${height}%`,
                 backgroundColor: color,

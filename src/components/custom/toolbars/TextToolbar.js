@@ -26,12 +26,12 @@ function TextToolbar({ element, updateComponentParams, updateComponentValues, de
         setIsUnderlineCheck(decoration);
     }, [element]);
 
-    const { position_y, position_x } = values;
+    const { position_y, position_x, z_index } = values;
     const { alignment, police, textSize, color } = values.values
 
 
     // Change les paramètres de l'élément (position et taille)
-    const handleElementChange = (event, propName) => {
+    const handleElementParamsChange = (event, propName) => {
         const { value } = event.target;
         setValues(prevValues => ({
             ...prevValues,
@@ -87,12 +87,17 @@ function TextToolbar({ element, updateComponentParams, updateComponentValues, de
             <Grid container justifyContent="space-between">
                 <Grid item>
                     <Typography variant="subtitle1">Position en y :</Typography>
-                    <input type="number" value={position_y} min={0} max={100-element.height} onChange={(event) => handleElementChange(event, 'position_y')} />
+                    <input type="number" value={position_y} min={0} max={100-element.height} onChange={(event) => handleElementParamsChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="subtitle1">Position en x :</Typography>
-                    <input type="number" value={position_x} min={0} max={100-element.width} onChange={(event) => handleElementChange(event, 'position_x')} />
+                    <input type="number" value={position_x} min={0} max={100-element.width} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
+                </Grid>
+
+                <Grid item>
+                    <Typography>Calque :</Typography>
+                    <input type="number" value={z_index} onChange={(event) => handleElementParamsChange(event, 'z_index')} />
                 </Grid>
 
                 <Grid item>

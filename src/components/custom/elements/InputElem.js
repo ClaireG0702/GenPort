@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function InputElem({ id, component, elem, updateComponentText, onClick }) {
-	const { position_x, position_y } = component;
+	const { position_x, position_y, z_index } = component;
 	const { texte, police, textSize, weight, style, decoration, color } = component.values;
 
 	const handleChange = (event) => {
@@ -32,6 +32,7 @@ function InputElem({ id, component, elem, updateComponentText, onClick }) {
 					position: 'absolute',
 					top: `${position_y}%`,
 					left: `${position_x}%`,
+					zIndex: z_index,
 					fontFamily: police,
 					fontSize: `${textSize}px`,
 					color: color,
