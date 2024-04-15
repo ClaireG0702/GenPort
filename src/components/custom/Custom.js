@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Grid } from '@mui/material';
 import { addComponent, updateComponentText, updateComponentParams, updateComponentValues, deleteComponent, saveTemplate } from './customUtils.js';
 import SidebarComponents from './SidebarComponents.js';
@@ -7,6 +8,7 @@ import Preview from './Preview.js';
 
 // Page de création de template
 function Custom() {
+    const { model } = useParams();
     const [selectedElement, setSelectedElement] = useState(null);
     const [components, setComponents] = useState([]);
     const [modelData, setModelData] = useState({
@@ -28,7 +30,7 @@ function Custom() {
             ...prevState,
             components: components
         }));
-        saveTemplate(modelData);
+        saveTemplate(model, modelData);
     }
 
     return (

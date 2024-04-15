@@ -31,7 +31,7 @@ function Portfolio() {
                         </Card>
                     </Col>)}
                     <Col className="my-2">
-                        <Card style={{height: '150px'}} as={Link} to="/custom" className="portfolio-card">
+                        <Card style={{height: '150px'}} as={Link} to="/custom/portfolios" className="portfolio-card">
                             <Card.Body className="d-flex align-items-center justify-content-center">
                                 <BsPlusSquare className="add-portfolio" />
                             </Card.Body>

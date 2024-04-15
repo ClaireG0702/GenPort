@@ -33,7 +33,7 @@ function App() {
 				<Route path="/home" index exact element={<Home />} />
 				<Route path='/templates' exact element={<Template />} />
 				<Route path='/portfolios' exact element={<Portfolio />} />
-				<Route path='/custom' exact element={<Custom />} />
+				<Route path='/custom/:model' exact element={<Custom />} />
 				<Route path='/custom/:model/:id' element={<CustomTemplate />} />
 				<Route path='/view/:id' element={<ViewPortfolio />} />
 				<Route path="*" element={<Navigate to="/home" replace />} />

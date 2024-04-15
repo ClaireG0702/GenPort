@@ -34,9 +34,9 @@ export function deleteComponent(component, components, setComponents, setSelecte
 	setSelectedElement(null);
 }
 
-export async function saveTemplate(modelData) {
+export async function saveTemplate(model, modelData) {
 	try {
-		const response = await fetch(environment.apiURL + '/controllers/portfolios/save', {
+		const response = await fetch(environment.apiURL + `/controllers/${model}/save`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

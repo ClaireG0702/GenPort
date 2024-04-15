@@ -31,7 +31,7 @@ function Template() {
                         </Card>
                     </Col>)}
                     <Col className="my-2">
-                        <Card style={{height: '150px'}} as={Link} to="/custom" className="template-card"> {/** Redirection création template */}
+                        <Card style={{height: '150px'}} as={Link} to="/custom/templates" className="template-card"> {/** Redirection création template */}
                             <Card.Body className="d-flex align-items-center justify-content-center">
                                 <BsPlusSquare className="add-template" />
                             </Card.Body>
