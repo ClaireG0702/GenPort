@@ -35,30 +35,55 @@ export function deleteComponent(component, components, setComponents, setSelecte
 }
 
 export async function saveTemplate(model, modelData) {
-	try {
-		const response = await fetch(environment.apiURL + `/controllers/${model}/save`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(modelData),
-		});
-
-		if (!response.ok) {
-			throw new Error(`Failed to save ${model}`);
+	if(model != null) {
+		try {
+			const response = await fetch(environment.apiURL + `/controllers/${model}/save`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(modelData),
+			});
+	
+			if (!response.ok) {
+				throw new Error(`Failed to save ${model}`);
+			}
+	
+			if(model === 'templates') {
+				alert('Le template a bien été sauvegardé');
+				window.location.href = '/templates';
+			} else {
+				alert('Le portfolio a bien été sauvegardé');
+				window.location.href = '/portfolios';
+			}
+			const responseData = await response.json();
+			return responseData;
+		} catch (error) {
+			console.error(`Error saving ${model}:`, error.message);
+			throw error;
 		}
-
-		if(model === 'templates') {
-			alert('Le template a bien été sauvegardé');
-			window.location.href = '/templates';
-		} else {
+	} else {
+		try {
+			const response = await fetch(environment.apiURL + `/controllers/portfolios/save`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(modelData),
+			});
+	
+			if (!response.ok) {
+				throw new Error(`Failed to save portfolio`);
+			}
+			
 			alert('Le portfolio a bien été sauvegardé');
 			window.location.href = '/portfolios';
+			
+			const responseData = await response.json();
+			return responseData;
+		} catch (error) {
+			console.error(`Error saving portfolio:`, error.message);
+			throw error;
 		}
-		const responseData = await response.json();
-		return responseData;
-	} catch (error) {
-		console.error('Error saving portfolio:', error.message);
-		throw error;
 	}
 }

@@ -40,7 +40,7 @@ function ElemToolbar({ element, updateComponentParams, updateComponentValues, de
         <Toolbar className='toolbar-element'>
             <Grid container justifyContent="space-between">
                 <Grid item>
-                    <Typography variant="subtitle1">Longueur :</Typography>
+                    <Typography variant="subtitle1">Largeur :</Typography>
                     <input type="number" value={width} min={0} max={100} onChange={(event) => handleElementParamsChange(event, 'width')} />
                 </Grid>
 

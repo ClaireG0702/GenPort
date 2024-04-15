@@ -44,7 +44,11 @@ function CustomTemplate() {
             ...prevState,
             components: components
         }));
-        saveTemplate(templateData);
+        if(model === 'portfolios') {
+            saveTemplate(model, templateData);
+        } else {
+            saveTemplate(null, templateData);
+        }
     }
 
     return (

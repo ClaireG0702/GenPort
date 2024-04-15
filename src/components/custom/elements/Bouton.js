@@ -1,5 +1,5 @@
 function Icon({ id, component, onClick }) {
-    const { position_x, position_y, z_index } = component;
+    const { position_x, position_y, z_index, height, width } = component;
     const { texte, link, police, color, textSize, weight, style, decoration, border, borderColor, borderRadius, backgroundColor } = component.values;
     
     let textStyle = style ? 'italic' : '';
@@ -13,6 +13,8 @@ function Icon({ id, component, onClick }) {
                 top: `${position_y}%`,
                 left: `${position_x}%`,
                 zIndex: z_index,
+                height: `${height}px`,
+                width: `${width}px`,
                 padding: '2px',
                 color: color,
                 fontFamily: police,

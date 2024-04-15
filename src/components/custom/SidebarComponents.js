@@ -10,8 +10,8 @@ function SidebarComponents({ addComponent }) {
         position_x: 1,
         position_y: 2,
         z_index: 1,
-        width: 'fit-content',
-        height: 'fit-content',
+        width: 10,
+        height: 7,
         values: {}
     }
     const [newComponent, setNewComponent] = useState(defaultComponent);

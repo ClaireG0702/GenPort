@@ -21,15 +21,9 @@ function BoutonToolbar({ element, updateComponentParams, updateComponentValues, 
         setIsUnderlineCheck(decoration);
     }, [element]);
     
-    const { position_y, position_x, z_index } = values;
+    const { position_y, position_x, z_index, height, width } = values;
     const { link, color, police, textSize, border, borderColor, borderRadius, backgroundColor } = values.values;
-    const initialHeight = document.getElementsByClassName('card-body')[0].clientHeight;
-    const initialWidth = document.getElementsByClassName('card-body')[0].clientWidth;
-    const elementHeight = document.getElementById(element.id).clientHeight;
-    const elementWidth = document.getElementById(element.id).clientWidth;
 
-    const height = Math.round((elementHeight / initialHeight) * 100);
-    const width = Math.round((elementWidth / initialWidth) * 100);
 
     const handleElementParamsChange = (event, propName) => {
         const { value } = event.target;
@@ -102,6 +96,16 @@ function BoutonToolbar({ element, updateComponentParams, updateComponentValues, 
                 <Grid item>
                     <Typography>Calque :</Typography>
                     <input type="number" value={z_index} onChange={(event) => handleElementParamsChange(event, 'z_index')} />
+                </Grid>
+
+                <Grid item>
+                    <Typography>Largeur :</Typography>
+                    <input type="number" value={width} onChange={(event) => handleElementParamsChange(event, 'width')} />
+                </Grid>
+
+                <Grid item>
+                    <Typography>Hauteur :</Typography>
+                    <input type="number" value={height} onChange={(event) => handleElementParamsChange(event, 'height')} />
                 </Grid>
 
                 <Grid item>

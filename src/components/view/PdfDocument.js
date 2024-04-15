@@ -13,39 +13,39 @@ import SedanRegular from '../../assets/fonts/Sedan/Sedan-Regular.ttf';
 import SedanItalic from '../../assets/fonts/Sedan/Sedan-Italic.ttf';
 
 Font.register({
-    family: 'Roboto',
-    fonts: [
-        { src: RobotoRegular, fontWeight: 400 },
-        { src: RobotoItalic, fontWeight: 400, fontStyle: 'italic' },
-        { src: RobotoBold, fontWeight: 700 },
-        { src: RobotoBoldItalic, fontWeight: 700, fontStyle: 'italic' }
-    ]
+	family: 'Roboto',
+	fonts: [
+		{ src: RobotoRegular, fontWeight: 400 },
+		{ src: RobotoItalic, fontWeight: 400, fontStyle: 'italic' },
+		{ src: RobotoBold, fontWeight: 700 },
+		{ src: RobotoBoldItalic, fontWeight: 700, fontStyle: 'italic' }
+	]
 });
 
 Font.register({
-    family: 'Open Sans',
-    fonts: [
-        { src: OpenSansRegular, fontWeight: 400 },
-        { src: OpenSansItalic, fontWeight: 400, fontStyle: 'italic' },
-        { src: OpenSansBold, fontWeight: 700 },
-        { src: OpenSansBoldItalic, fontWeight: 700, fontStyle: 'italic' }
-    ]
+	family: 'Open Sans',
+	fonts: [
+		{ src: OpenSansRegular, fontWeight: 400 },
+		{ src: OpenSansItalic, fontWeight: 400, fontStyle: 'italic' },
+		{ src: OpenSansBold, fontWeight: 700 },
+		{ src: OpenSansBoldItalic, fontWeight: 700, fontStyle: 'italic' }
+	]
 });
 
 Font.register({
-    family: 'Oswald',
-    fonts: [
-        { src: OswaldRegular, fontWeight: 400 },
-        { src: OswaldBold, fontWeight: 700 }
-    ]
+	family: 'Oswald',
+	fonts: [
+		{ src: OswaldRegular, fontWeight: 400 },
+		{ src: OswaldBold, fontWeight: 700 }
+	]
 });
 
 Font.register({
-    family: 'Sedan',
-    fonts: [
-        { src: SedanRegular, fontWeight: 400 },
-        { src: SedanItalic, fontWeight: 400, fontStyle: 'italic' }
-    ]
+	family: 'Sedan',
+	fonts: [
+		{ src: SedanRegular, fontWeight: 400 },
+		{ src: SedanItalic, fontWeight: 400, fontStyle: 'italic' }
+	]
 });
 
 
@@ -62,16 +62,20 @@ function PdfDocument({ components }) {
 							let textWeight = component.values.weight ? 700 : 400;
 							let textDecoration = component.values.decoration ? 'underline' : '';
 
-							console.log(component.values.police)
 							const styleText = StyleSheet.create({
-								text: {
+								view: {
 									position: 'absolute',
 									top: `${component.position_y}%`,
 									left: `${component.position_x}%`,
+									zIndex: component.z_index + 10,
+									height: `${component.height}px`,
+									width: `${component.width}px`,
+								},
+								text: {
 									fontFamily: component.values.police,
-									color: component.values.color,
 									textAlign: component.values.alignment,
 									fontSize: `${component.values.textSize}px`,
+									color: `${component.values.color} !important`,
 									fontWeight: textWeight,
 									fontStyle: textStyle,
 									textDecoration: textDecoration,
@@ -85,6 +89,7 @@ function PdfDocument({ components }) {
 									position: 'absolute',
 									top: `${component.position_y}%`,
 									left: `${component.position_x}%`,
+									zIndex: component.z_index + 10,
 									height: `${component.height}%`,
 									border: `${component.values.border}px solid ${component.values.borderColor}`,
 									borderRadius: `${component.values.borderRadius}px`
@@ -103,6 +108,9 @@ function PdfDocument({ components }) {
 									position: 'absolute',
 									top: `${component.position_y}%`,
 									left: `${component.position_x}%`,
+									zIndex: component.z_index + 10,
+									height: `${component.height}px`,
+									width: `${component.width}px`,
 									color: component.values.color,
 									fontFamily: component.values.police,
 									textSize: `${component.values.textSize}px`,
@@ -122,7 +130,7 @@ function PdfDocument({ components }) {
 									position: 'absolute',
 									top: `${component.position_y}%`,
 									left: `${component.position_x}%`,
-									zIndex: component.zIndex,
+									zIndex: component.z_index + 10,
 									width: `${component.width}%`,
 									height: `${component.height}%`,
 									backgroundColor: component.values.color,

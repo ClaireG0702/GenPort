@@ -11,15 +11,8 @@ function ImageToolbar({ element, updateComponentParams, updateComponentValues, d
         setValues(element);
     }, [element]);
 
-    const { position_y, position_x, z_index, height } = values;
+    const { position_y, position_x, z_index, height, width } = values;
     const { link, border, borderColor, borderRadius } = values.values;
-    const initialHeight = document.getElementsByClassName('card-body')[0].clientHeight;
-    const initialWidth = document.getElementsByClassName('card-body')[0].clientWidth;
-    const elementHeight = document.getElementById(element.id).clientHeight;
-    const elementWidth = document.getElementById(element.id).clientWidth;
-
-    const maxHeight = Math.round((elementHeight / initialHeight) * 100);
-    const width = Math.round((elementWidth / initialWidth) * 100);
 
     const handleElementParamsChange = (event, propName) => {
         const { value } = event.target;
@@ -56,7 +49,7 @@ function ImageToolbar({ element, updateComponentParams, updateComponentValues, d
 
                 <Grid item>
                     <Typography variant="h6">Marge en haut :</Typography>
-                    <input type="number" value={position_y} min={0} max={100-maxHeight} onChange={(event) => handleElementParamsChange(event, 'position_y')} />
+                    <input type="number" value={position_y} min={0} max={100-height} onChange={(event) => handleElementParamsChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
