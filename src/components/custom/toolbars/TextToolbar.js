@@ -136,9 +136,10 @@ function TextToolbar({ element, updateComponentParams, updateComponentValues, de
                     <FormControl>
                         <InputLabel>Police</InputLabel>
                         <Select className="police-select" value={police} onChange={(event) => handleElementValueChange(event, 'police')}>
-                            <MenuItem value="Arial" selected>Arial</MenuItem>
-                            <MenuItem value="Verdana">Verdana</MenuItem>
-                            <MenuItem value="Helvetica">Helvetica</MenuItem>
+                            <MenuItem value="Open Sans">Open Sans</MenuItem>
+                            <MenuItem value="Oswald">Oswald</MenuItem>
+                            <MenuItem value="Roboto">Roboto</MenuItem>
+                            <MenuItem value="Sedan">Sedan</MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>

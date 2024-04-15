@@ -1,3 +1,10 @@
+
+@import url('https://fonts.cdnfonts.com/css/open-sans');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.cdnfonts.com/css/roboto');
+@import url('https://fonts.cdnfonts.com/css/sedan');
+
+
 :root {
 	--dark-body-bg: #282828; 
 	--dark-primary-text: white;
@@ -54,5 +61,5 @@ body,
 	height: 100vh;
 	margin: 0;
 	font-family: Roboto, "Helvetica Neue", sans-serif;
-	font-weight: normal;
+	font-weight: 400;
 }

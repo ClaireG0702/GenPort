@@ -1,10 +1,54 @@
 import { Document, Page, View, Text, Image, StyleSheet, Font, Link } from "@react-pdf/renderer";
-import '@fontsource/roboto';
+import RobotoRegular from '../../assets/fonts/Roboto/Roboto-Regular.ttf';
+import RobotoItalic from '../../assets/fonts/Roboto/Roboto-Italic.ttf';
+import RobotoBold from '../../assets/fonts/Roboto/Roboto-Bold.ttf';
+import RobotoBoldItalic from '../../assets/fonts/Roboto/Roboto-BoldItalic.ttf';
+import OpenSansRegular from '../../assets/fonts/OpenSans/OpenSans-Regular.ttf';
+import OpenSansItalic from '../../assets/fonts/OpenSans/OpenSans-Italic.ttf';
+import OpenSansBold from '../../assets/fonts/OpenSans/OpenSans-Bold.ttf';
+import OpenSansBoldItalic from '../../assets/fonts/OpenSans/OpenSans-BoldItalic.ttf';
+import OswaldRegular from '../../assets/fonts/Oswald/Oswald-Regular.ttf';
+import OswaldBold from '../../assets/fonts/Oswald/Oswald-Bold.ttf';
+import SedanRegular from '../../assets/fonts/Sedan/Sedan-Regular.ttf';
+import SedanItalic from '../../assets/fonts/Sedan/Sedan-Italic.ttf';
 
-// TODO: gestion des polices
 Font.register({
-	family: "Roboto",
+    family: 'Roboto',
+    fonts: [
+        { src: RobotoRegular, fontWeight: 400 },
+        { src: RobotoItalic, fontWeight: 400, fontStyle: 'italic' },
+        { src: RobotoBold, fontWeight: 700 },
+        { src: RobotoBoldItalic, fontWeight: 700, fontStyle: 'italic' }
+    ]
 });
+
+Font.register({
+    family: 'Open Sans',
+    fonts: [
+        { src: OpenSansRegular, fontWeight: 400 },
+        { src: OpenSansItalic, fontWeight: 400, fontStyle: 'italic' },
+        { src: OpenSansBold, fontWeight: 700 },
+        { src: OpenSansBoldItalic, fontWeight: 700, fontStyle: 'italic' }
+    ]
+});
+
+Font.register({
+    family: 'Oswald',
+    fonts: [
+        { src: OswaldRegular, fontWeight: 400 },
+        { src: OswaldBold, fontWeight: 700 }
+    ]
+});
+
+Font.register({
+    family: 'Sedan',
+    fonts: [
+        { src: SedanRegular, fontWeight: 400 },
+        { src: SedanItalic, fontWeight: 400, fontStyle: 'italic' }
+    ]
+});
+
+
 
 function PdfDocument({ components }) {
 
@@ -14,22 +58,23 @@ function PdfDocument({ components }) {
 				{components.map((component, index) => {
 					switch (component.value_type) {
 						case 1:
-							let textStyle = component.values.style ? 'italic' : '';
-							let textWeight = component.values.weight ? '600' : '';
+							let textStyle = component.values.style ? 'italic' : 'normal';
+							let textWeight = component.values.weight ? 700 : 400;
 							let textDecoration = component.values.decoration ? 'underline' : '';
 
+							console.log(component.values.police)
 							const styleText = StyleSheet.create({
 								text: {
 									position: 'absolute',
 									top: `${component.position_y}%`,
 									left: `${component.position_x}%`,
-									// fontFamily: 'Roboto',
-									fontSize: `${component.values.textSize}px`,
+									fontFamily: component.values.police,
 									color: component.values.color,
 									textAlign: component.values.alignment,
+									fontSize: `${component.values.textSize}px`,
 									fontWeight: textWeight,
 									fontStyle: textStyle,
-									textDecoration: textDecoration
+									textDecoration: textDecoration,
 								}
 							})
 
@@ -49,15 +94,15 @@ function PdfDocument({ components }) {
 							return <View key={index} style={styleImage.img}><Image src={component.values.link} /></View>
 						case 3:
 
-							let buttonStyle = component.values.style ? 'italic' : '';
-							let buttonWeight = component.values.weight ? '600' : '';
+							let buttonStyle = component.values.style ? 'italic' : 'normal';
+							let buttonWeight = component.values.weight ? 700 : 400;
 							let buttonDecoration = component.values.decoration ? 'underline' : '';
 
 							const styleButton = StyleSheet.create({
 								button: {
 									position: 'absolute',
-									top: `${component.position_y}px`,
-									left: `${component.position_x}px`,
+									top: `${component.position_y}%`,
+									left: `${component.position_x}%`,
 									color: component.values.color,
 									fontFamily: component.values.police,
 									textSize: `${component.values.textSize}px`,

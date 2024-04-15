@@ -4,7 +4,7 @@ function TextZone({ id, component }) {
     const { texte, alignment, police, textSize, color, style, weight, decoration } = component.values;
 
     let textStyle = style ? 'italic' : '';
-    let textWeight = weight ? 'bold' : '';
+    let textWeight = weight ? 700 : 400;
     let textDecoration = decoration ? 'underline' : '';
 
     return (

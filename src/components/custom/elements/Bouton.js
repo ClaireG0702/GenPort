@@ -10,11 +10,13 @@ function Icon({ id, component, onClick }) {
         <a id={id}
             style={{
                 position: 'absolute',
-                top: `${position_y}px`,
-                left: `${position_x}px`,
+                top: `${position_y}%`,
+                left: `${position_x}%`,
+                padding: '2px',
                 color: color,
                 fontFamily: police,
                 textSize: `${textSize}px`,
+                textAlign: 'center',
                 fontStyle: textStyle,
                 fontWeight: textWeight,
                 textDecoration: textDecoration,
