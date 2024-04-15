@@ -23,6 +23,13 @@ function BoutonToolbar({ element, updateComponentParams, updateComponentValues, 
     
     const { position_y, position_x, z_index } = values;
     const { link, color, police, textSize, border, borderColor, borderRadius, backgroundColor } = values.values;
+    const initialHeight = document.getElementsByClassName('card-body')[0].clientHeight;
+    const initialWidth = document.getElementsByClassName('card-body')[0].clientWidth;
+    const elementHeight = document.getElementById(element.id).clientHeight;
+    const elementWidth = document.getElementById(element.id).clientWidth;
+
+    const height = Math.round((elementHeight / initialHeight) * 100);
+    const width = Math.round((elementWidth / initialWidth) * 100);
 
     const handleElementParamsChange = (event, propName) => {
         const { value } = event.target;
@@ -34,12 +41,40 @@ function BoutonToolbar({ element, updateComponentParams, updateComponentValues, 
     };
 
     const handleElementValueChange = (event, propName) => {
-        const { value } = event.target;
-        setValues(prevValues => ({
-            ...prevValues,
-            [propName]: value
-        }));
-        updateComponentValues(element.id, propName, value)
+        if (propName === 'style' || propName === 'weight' || propName === 'decoration') {
+            const { checked } = event.target;
+            switch (propName) {
+                case 'style':
+                    setIsItalicCheck(checked);
+                    break;
+                case 'weight':
+                    setIsBoldCheck(checked);
+                    break;
+                case 'decoration':
+                    setIsUnderlineCheck(checked);
+                    break;
+                default:
+                    break;
+            }
+            setValues(prevValues => ({
+                ...prevValues,
+                values: {
+                    ...prevValues.values,
+                    [propName]: checked
+                }
+            }));
+            updateComponentValues(element.id, propName, checked);
+        } else {
+            const { value } = event.target;
+            setValues(prevValues => ({
+                ...prevValues,
+                values: {
+                    ...prevValues.values,
+                    [propName]: value
+                }
+            }));
+            updateComponentValues(element.id, propName, value);
+        }
     }
 
     const handleDeleteClick = () => {
@@ -56,12 +91,12 @@ function BoutonToolbar({ element, updateComponentParams, updateComponentValues, 
 
                 <Grid item>
                     <Typography>Position en y :</Typography>
-                    <input type="number" value={position_y} onChange={(event) => handleElementParamsChange(event, 'position_y')} />
+                    <input type="number" value={position_y} min={0} max={100-height} onChange={(event) => handleElementParamsChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
                     <Typography>Position en x :</Typography>
-                    <input type="number" value={position_x} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
+                    <input type="number" value={position_x} min={0} max={100-width} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
                 </Grid>
 
                 <Grid item>
@@ -98,9 +133,10 @@ function BoutonToolbar({ element, updateComponentParams, updateComponentValues, 
                     <FormControl>
                         <InputLabel>Police</InputLabel>
                         <Select className="police-select" value={police} onChange={(event) => handleElementValueChange(event, 'police')}>
-                            <MenuItem value="Arial" selected>Arial</MenuItem>
-                            <MenuItem value="Verdana">Verdana</MenuItem>
-                            <MenuItem value="Helvetica">Helvetica</MenuItem>
+                            <MenuItem value="Open Sans">Open Sans</MenuItem>
+                            <MenuItem value="Oswald">Oswald</MenuItem>
+                            <MenuItem value="Roboto">Roboto</MenuItem>
+                            <MenuItem value="Sedan">Sedan</MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>

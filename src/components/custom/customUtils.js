@@ -45,11 +45,16 @@ export async function saveTemplate(model, modelData) {
 		});
 
 		if (!response.ok) {
-			throw new Error('Failed to save portfolio');
+			throw new Error(`Failed to save ${model}`);
 		}
 
-		alert('Le portfolio a bien été sauvegardé');
-		window.location.href = '/portfolios';
+		if(model === 'templates') {
+			alert('Le template a bien été sauvegardé');
+			window.location.href = '/templates';
+		} else {
+			alert('Le portfolio a bien été sauvegardé');
+			window.location.href = '/portfolios';
+		}
 		const responseData = await response.json();
 		return responseData;
 	} catch (error) {

@@ -28,7 +28,13 @@ function TextToolbar({ element, updateComponentParams, updateComponentValues, de
 
     const { position_y, position_x, z_index } = values;
     const { alignment, police, textSize, color } = values.values
+    const initialHeight = document.getElementsByClassName('card-body')[0].clientHeight;
+    const initialWidth = document.getElementsByClassName('card-body')[0].clientWidth;
+    const elementHeight = document.getElementById(element.id).clientHeight;
+    const elementWidth = document.getElementById(element.id).clientWidth;
 
+    const height = Math.round((elementHeight / initialHeight) * 100);
+    const width = Math.round((elementWidth / initialWidth) * 100);
 
     // Change les paramètres de l'élément (position et taille)
     const handleElementParamsChange = (event, propName) => {
@@ -87,12 +93,12 @@ function TextToolbar({ element, updateComponentParams, updateComponentValues, de
             <Grid container justifyContent="space-between">
                 <Grid item>
                     <Typography variant="subtitle1">Position en y :</Typography>
-                    <input type="number" value={position_y} min={0} max={100-element.height} onChange={(event) => handleElementParamsChange(event, 'position_y')} />
+                    <input type="number" value={position_y} min={0} max={100-height} onChange={(event) => handleElementParamsChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="subtitle1">Position en x :</Typography>
-                    <input type="number" value={position_x} min={0} max={100-element.width} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
+                    <input type="number" value={position_x} min={0} max={100-width} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
                 </Grid>
 
                 <Grid item>

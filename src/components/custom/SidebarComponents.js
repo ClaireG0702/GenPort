@@ -10,8 +10,8 @@ function SidebarComponents({ addComponent }) {
         position_x: 1,
         position_y: 2,
         z_index: 1,
-        width: 20,
-        height: 10,
+        width: 'fit-content',
+        height: 'fit-content',
         values: {}
     }
     const [newComponent, setNewComponent] = useState(defaultComponent);
@@ -38,7 +38,7 @@ function SidebarComponents({ addComponent }) {
     return (
         <aside className='sidebar'>
             <Nav>
-                <Card className='elements' onClick={() => handleClick({ value_type: 5, z_index: 0,
+                <Card className='elements' onClick={() => handleClick({ value_type: 5, z_index: 0, width: 20, height: 10,
                     values:{ color: '#ffffff', border: 1, borderColor: '#000000', borderRadius: 0 } })}>
                     <Nav.Item>Forme</Nav.Item>
                 </Card>
@@ -46,7 +46,7 @@ function SidebarComponents({ addComponent }) {
                     values:{texte: 'Titre', police: 'Open Sans', textSize: 24, color: '#000000', alignment: 'center', weight: false, style: false, decoration: false}})}>
                     <Nav.Item>Titre</Nav.Item>
                 </Card>
-                <Card className='elements' onClick={() => handleClick({ value_type: 1, information_type: 3, width: 25, height: 20,
+                <Card className='elements' onClick={() => handleClick({ value_type: 1, information_type: 3,
                     values:{texte: 'Zone de texte', police: 'Open Sans', textSize: 14, color: '#000000', alignment: 'left', weight: false, style: false, decoration: false} })}>
                     <Nav.Item>Zone de texte</Nav.Item>
                 </Card>

@@ -13,15 +13,23 @@ function Preview({ components, updateComponentText, setSelectedElement }) {
 	}
 
 	const handleClickOutOfComponent = (event) => {
-		const previewComponent = document.getElementsByClassName('card-body')[0];
+		const previewComponent = document.getElementsByClassName('custom-preview')[0];
+		const cardComponent = document.getElementsByClassName('card-body')[0];
 		const isClickInsideComponent = event.target;
-		isClickInsideComponent === previewComponent && setSelectedElement(null);
+		switch (isClickInsideComponent) {
+			case previewComponent:
+			case cardComponent:
+				setSelectedElement(null);
+				break;
+			default:
+				break;
+		}
 	}
 
 	return (
-		<div className="custom-preview">
+		<div className="custom-preview" onClick={(event) => handleClickOutOfComponent(event)}>
 			<Card className="preview">
-				<Card.Body style={{height: '100%'}} onClick={(event) => handleClickOutOfComponent(event)}>
+				<Card.Body style={{height: '100%'}}>
 				{components.map((component, index) => {
 						switch(component.value_type) {
 							case 2:

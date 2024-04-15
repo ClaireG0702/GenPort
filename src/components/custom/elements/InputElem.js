@@ -14,9 +14,8 @@ function InputElem({ id, component, elem, updateComponentText, onClick }) {
 	let textDecoration = decoration ? 'underline' : '';
 
 	const componentStyle = elem === 'text' ? {
-		width: `${component.width}%`,
-		height: `${component.height}%`,
 		textAlign: component.values.alignment,
+		backgroundColor: 'transparent'
 	} : {
 		padding: '2px',
 		textAlign: 'center',
@@ -27,24 +26,46 @@ function InputElem({ id, component, elem, updateComponentText, onClick }) {
 
 	return (
 		<>
-			<input id={id} type="text"
-				style={{
-					position: 'absolute',
-					top: `${position_y}%`,
-					left: `${position_x}%`,
-					zIndex: z_index,
-					fontFamily: police,
-					fontSize: `${textSize}px`,
-					color: color,
-					fontWeight: textWeight,
-					fontStyle: textStyle,
-					textDecoration: textDecoration,
-					...componentStyle,
-				}}
-				value={texte}
-				onChange={handleChange}
-				onClick={() => onClick(id, component)}
-			/>
+			{component.information_type === 2 || elem === 'button' ?
+				<input id={id} type="text"
+					style={{
+						position: 'absolute',
+						top: `${position_y}%`,
+						left: `${position_x}%`,
+						zIndex: z_index,
+						fontFamily: police,
+						fontSize: `${textSize}px`,
+						color: color,
+						fontWeight: textWeight,
+						fontStyle: textStyle,
+						textDecoration: textDecoration,
+						...componentStyle,
+					}}
+					value={texte}
+					onChange={handleChange}
+					onClick={() => onClick(id, component)}
+				/>
+				:
+				<textarea id={id}
+					style={{
+						position: 'absolute',
+						top: `${position_y}%`,
+						left: `${position_x}%`,
+						zIndex: z_index,
+						fontFamily: police,
+						fontSize: `${textSize}px`,
+						color: color,
+						fontWeight: textWeight,
+						fontStyle: textStyle,
+						textDecoration: textDecoration,
+						resize: 'both',
+						...componentStyle,
+					}}
+					value={texte}
+					onChange={handleChange}
+					onClick={() => onClick(id, component)}
+				></textarea>
+			}
 		</>
 	)
 }
