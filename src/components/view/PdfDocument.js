@@ -49,15 +49,28 @@ Font.register({
 });
 
 
-
 function PdfDocument({ components }) {
+
+	const sortedComponents = [...components].sort((a, b) => {
+		if (a.value_type === 5 && b.value_type !== 5) {
+			return -1;
+		} else if (a.value_type !== 5 && b.value_type === 5) {
+			return 1;
+		} else {
+			return 0;
+		}
+	});
 
 	return (
 		<Document className="doc">
 			<Page size="A4" orientation="landscape">
-				{components.map((component, index) => {
+				{sortedComponents.map((component, index) => {
 					switch (component.value_type) {
 						case 1:
+							let widthText = Math.round((component.width / 1072) * 100);
+							let heightText = Math.round((component.height / 760) * 100);
+							let sizeText = Math.round((component.values.textSize / 1072) * 841);
+
 							let textStyle = component.values.style ? 'italic' : 'normal';
 							let textWeight = component.values.weight ? 700 : 400;
 							let textDecoration = component.values.decoration ? 'underline' : '';
@@ -67,29 +80,25 @@ function PdfDocument({ components }) {
 									position: 'absolute',
 									top: `${component.position_y}%`,
 									left: `${component.position_x}%`,
-									zIndex: component.z_index + 10,
-									height: `${component.height}px`,
-									width: `${component.width}px`,
-								},
-								text: {
-									fontFamily: component.values.police,
+									width: `${widthText}%`,
+									height: `${heightText}%`,
 									textAlign: component.values.alignment,
-									fontSize: `${component.values.textSize}px`,
-									color: `${component.values.color} !important`,
+									fontFamily: component.values.police,
+									fontSize: `${sizeText}px`,
+									color: component.values.color,
 									fontWeight: textWeight,
 									fontStyle: textStyle,
 									textDecoration: textDecoration,
 								}
 							})
 
-							return <View key={index} style={styleText.text}><Text>{component.values.texte}</Text></View>
+							return <View key={index} style={styleText.view}><Text>{component.values.texte}</Text></View>
 						case 2:
 							const styleImage = StyleSheet.create({
 								img: {
 									position: 'absolute',
 									top: `${component.position_y}%`,
 									left: `${component.position_x}%`,
-									zIndex: component.z_index + 10,
 									height: `${component.height}%`,
 									border: `${component.values.border}px solid ${component.values.borderColor}`,
 									borderRadius: `${component.values.borderRadius}px`
@@ -98,6 +107,9 @@ function PdfDocument({ components }) {
 
 							return <View key={index} style={styleImage.img}><Image src={component.values.link} /></View>
 						case 3:
+							let widthButton = Math.round((component.width / 1072) * 100);
+							let heightButton = Math.round((component.height / 760) * 100);
+							let sizeButtonText = Math.round((component.values.textSize / 1072) * 841);
 
 							let buttonStyle = component.values.style ? 'italic' : 'normal';
 							let buttonWeight = component.values.weight ? 700 : 400;
@@ -108,35 +120,43 @@ function PdfDocument({ components }) {
 									position: 'absolute',
 									top: `${component.position_y}%`,
 									left: `${component.position_x}%`,
-									zIndex: component.z_index + 10,
-									height: `${component.height}px`,
-									width: `${component.width}px`,
+									width: `${widthButton}%`,
+									height: `${heightButton}%`,
+								}, 
+								text: {
+									position: 'relative',
+									top: 0,
+									left: 0,
+									width: `100%`,
+									height: `100%`,
+									padding: '2px',
+									textAlign: 'center',
 									color: component.values.color,
+									fontSize: `${sizeButtonText}px`,
 									fontFamily: component.values.police,
-									textSize: `${component.values.textSize}px`,
 									fontStyle: buttonStyle,
 									fontWeight: buttonWeight,
 									textDecoration: buttonDecoration,
 									border: `${component.values.border}px solid ${component.values.borderColor}`,
 									borderRadius: `${component.values.borderRadius}px`,
-									backgroundColor: component.values.backgroundColor
+									backgroundColor: component.values.backgroundColor,
 								}
 							})
 
-							return <View key={index} style={styleButton.button}><Link src={component.values.link}><Text>{component.values.texte}</Text></Link></View>
+							return <View key={index} style={styleButton.button}><Link src={component.values.link} style={styleButton.text}>{component.values.texte}</Link></View>
 						case 5:
 							const styleShape = StyleSheet.create({
 								shape: {
 									position: 'absolute',
 									top: `${component.position_y}%`,
 									left: `${component.position_x}%`,
-									zIndex: component.z_index + 10,
 									width: `${component.width}%`,
 									height: `${component.height}%`,
 									backgroundColor: component.values.color,
 									border: `${component.values.border}px solid ${component.values.borderColor}`,
 									borderRadius: `${component.values.borderRadius}px`
 								}
+
 							})
 
 							return <View key={index} style={styleShape.shape}></View>

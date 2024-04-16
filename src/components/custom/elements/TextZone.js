@@ -1,3 +1,4 @@
+import React from "react";
 
 function TextZone({ id, component }) {
     const { position_x, position_y, z_index, height, width } = component;
@@ -23,7 +24,12 @@ function TextZone({ id, component }) {
                 fontStyle: textStyle,
                 fontWeight: textWeight,
                 textDecoration: textDecoration
-            }}>{texte}</span>
+            }}>{texte.split('\n').map((textPart, index) => (
+                <React.Fragment key={index}>
+                    {textPart}
+                    {index !== texte.split('\n').length - 1 && <br />}
+                </React.Fragment>
+            ))}</span>
     );
 }
 
