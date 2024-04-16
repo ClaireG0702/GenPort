@@ -95,17 +95,23 @@ function PdfDocument({ components }) {
 							return <View key={index} style={styleText.view}><Text>{component.values.texte}</Text></View>
 						case 2:
 							const styleImage = StyleSheet.create({
-								img: {
+								view: {
 									position: 'absolute',
 									top: `${component.position_y}%`,
 									left: `${component.position_x}%`,
 									height: `${component.height}%`,
+								}, 
+								img: {
+									position: 'relative',
+									top: 0,
+									left: 0,
+									height: `100%`,
 									border: `${component.values.border}px solid ${component.values.borderColor}`,
 									borderRadius: `${component.values.borderRadius}px`
 								}
 							})
 
-							return <View key={index} style={styleImage.img}><Image src={component.values.link} /></View>
+							return <View key={index} style={styleImage.view}><Image src={component.values.link} style={styleImage.img}/></View>
 						case 3:
 							let widthButton = Math.round((component.width / 1072) * 100);
 							let heightButton = Math.round((component.height / 760) * 100);
