@@ -1,6 +1,6 @@
 .light-theme {
 	.preview {
-		box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+		// box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
 	}
 }
 
@@ -10,10 +10,20 @@
 	}
 }
 
+.custom-view {
+	position: relative;
+	flex-grow: 1;
+}
+
 .preview {
 	position: relative;
+	margin: 20px auto;
 	width: 1072px;
 	height: 760px;
-	margin: 20px auto;
 	display: block;
+	border: none;
+}
+
+.custom-preview {
+	height: max-content;
 }

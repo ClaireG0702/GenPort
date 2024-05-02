@@ -1,14 +1,16 @@
-import { Button, Card, Form } from "react-bootstrap"
+import { Button, Card, Form } from "react-bootstrap";
 import './Registration.scss';
 import { useState } from "react";
-import { register } from "../Service/register-service";
+import { useAuth } from "../Context/AuthContext";
 
 function Registration() {
+	const { register } = useAuth();
+
 	const [validated, setValidated] = useState(false)
 	const [isFieldValid, setIsFieldValid] = useState({
 		first_name: null,
 		last_name: null,
-		username: null,
+		user_name: null,
 		email: null,
 		password: null,
 		confirm_password: null
@@ -16,7 +18,7 @@ function Registration() {
 	const [userData, setUserData] = useState({
 		first_name: '',
 		last_name: '',
-		username: '',
+		user_name: '',
 		email: '',
 		password: '',
 		confirm_password: ''
@@ -35,7 +37,7 @@ function Registration() {
 		let isValid
 
 		switch (name) {
-			case 'username':
+			case 'user_name':
 				isValid = /^[a-zA-Z0-9]+$/.test(value)
 				break
 			case 'email':
@@ -45,7 +47,7 @@ function Registration() {
 				isValid = value.length >= 8
 				break
 			case 'confirm_password':
-				isValid = value === userData.password
+				isValid = value === userData.password && value.length >= 8
 				break
 			default:
 				break
@@ -95,13 +97,13 @@ function Registration() {
 								</Form.Control.Feedback>
 							</Form.Group>
 						</div>
-						<Form.Group controlId="username" className='mb-3'>
+						<Form.Group controlId="user_name" className='mb-3'>
 							<Form.Label>Pseudo</Form.Label>
-							<Form.Control type="text" name="username" value={userData.username}
+							<Form.Control type="text" name="user_name" value={userData.user_name}
 								onChange={handleValueChanges} required pattern="^[a-zA-Z0-9]+$"
-								onBlur={handleVerificationValue} isInvalid={isFieldValid.username === false}
-								isValid={isFieldValid.username}></Form.Control>
-							{userData.username === '' ? (
+								onBlur={handleVerificationValue} isInvalid={isFieldValid.user_name === false}
+								isValid={isFieldValid.user_name}></Form.Control>
+							{userData.user_name === '' ? (
 								<Form.Control.Feedback type="invalid">
 									Ce champs est requis
 								</Form.Control.Feedback>) : (
@@ -146,14 +148,18 @@ function Registration() {
 								onChange={handleValueChanges} required
 								onBlur={handleVerificationValue} isInvalid={isFieldValid.confirm_password === false}
 								isValid={isFieldValid.confirm_password}></Form.Control>
-							{userData.confirm_password === '' ? (
+							{userData.confirm_password === '' &&
 								<Form.Control.Feedback type="invalid">
 									Ce champs est requis
-								</Form.Control.Feedback>) : (
+								</Form.Control.Feedback>}
+							{userData.confirm_password.length < 8 &&
+								<Form.Control.Feedback type="invalid">
+									Votre mot de passe doit contenir au moins 8 caractères
+								</Form.Control.Feedback>}
+							{userData.confirm_password !== userData.password &&
 								<Form.Control.Feedback type="invalid">
 									Les mots de passes ne sont pas identiques
-								</Form.Control.Feedback>
-							)}
+								</Form.Control.Feedback>}
 						</Form.Group>
 						<Button type='button' onClick={handleSubmit}>S'inscrire</Button>
 						<Form.Text className='mx-2'>déjà un compte ?</Form.Text>

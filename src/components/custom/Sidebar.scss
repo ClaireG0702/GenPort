@@ -1,38 +1,38 @@
 .light-theme {
 	.elements {
-		background: var(--light-sidebar-card-bg);
-		color: var(--light-card-text);
+		border: 1px solid var(--light-border);
+		color: var(--light-primary-text);
+		background: white;
 
 		&:hover {
-			background: var(--light-sidebar-card-bg-hover);
+			border: 1px solid var(--main-blue);
 		}
 	}
 }
 
 .dark-theme {
 	.elements {
-		background: var(--dark-sidebar-card-bg);
+		border: 1px solid var(--dark-border);
 		color: var(--dark-primary-text);
+		background: var(--dark-card-bg);
 
 		&:hover {
-			background: var(--dark-sidebar-card-bg-hover);
-			color: var(--dark-card-text-hover);
+			border: 1px solid var(--main-blue);
 		}
 	}
 }
 
 .nav {
+	margin-top: 8px;
+	margin-inline: auto;
+	width: 95%;
 	display: flex;
 	flex-direction: column;
+	gap: 8px;
+	
+	.elements {
+		padding: 6px 12px;
+		border-radius: 10px;
+	}
 }
 
-.elements {
-	margin-top: 4px;
-	margin-inline: 4px;
-	padding: 4px;
-	font-weight: bold;
-}
-
-.input-file {
-	display: none;
-}

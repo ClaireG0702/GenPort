@@ -2,6 +2,24 @@
 .light-theme {
 	.navbar {
 		background: var(--light-navbar-bg);
+
+		.nav-link {
+			color: var(--light-primary-text);
+
+			&:hover {
+				color: var(--light-secondary-text);
+			}
+		}
+	}
+
+	.register-btn {
+		color: var(--light-primary-text);
+	}
+
+	.connection-btn {
+		border-color: var(--light-border);
+		color: var(--light-primary-text);
+		background-color: var(--light-btn-bg);
 	}
 }
 
@@ -9,31 +27,54 @@
 .dark-theme {
 	.navbar {
 		background: var(--dark-navbar-bg);
+
+		.nav-link {
+			color: var(--dark-secondary-text);
+
+			&:hover {
+				color: var(--dark-primary-text);
+			}
+		}
+	}
+
+	.register-btn {
+		color: var(--dark-primary-text);
+	}
+
+	.connection-btn {
+		border-color: var(--dark-border);
+		color: var(--dark-primary-text);
+		background-color: var(--dark-btn-bg);
 	}
 }
 
-/* General */
-header {
-	position: relative;
-}
 
-.navbar,
-.navbar-brand,
-.nav-link,
-.btn-link {
-	color: var(--navbar-text);
-
-	&:hover {
-		color: var(--navbar-text);
+.header {
+	.form-switch {
+		margin-top: auto;
+		margin-bottom: auto;
+	
+		.form-check-input {
+			border-color: var(--main-blue);
+	
+			&:checked {
+				background-color: var(--main-blue);
+			}
+		}
 	}
-}
 
-a:hover {
-	text-decoration: underline;
-}
+	.register-btn:hover {
+		color: var(--main-blue);
+	}
 
-/* Switch theme */
-.form-switch {
-	margin-top: auto;
-	margin-bottom: auto;
+	.connection-btn {
+		border-radius: 50px;
+		border-style: solid solid none;
+	
+		&:hover {
+			border-color: var(--light-secondary-text);
+			color: white;
+			background-color: var(--main-blue);
+		}
+	}
 }

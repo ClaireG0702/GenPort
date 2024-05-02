@@ -1,0 +1,26 @@
+.light-theme {
+	.footer {
+		background-color: var(--light-footer-bg);
+
+		.copyright {
+			color: var(--light-primary-text);
+		}
+	}
+}
+
+.dark-theme {
+	.footer {
+		background-color: var(--dark-footer-bg);
+
+		.copyright {
+			color: var(--dark-primary-text);
+		}
+	}
+}
+
+.footer {
+	position: relative;
+	padding: 30px;
+	text-align: center;
+	font-size: small;
+}

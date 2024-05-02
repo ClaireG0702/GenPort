@@ -29,7 +29,7 @@ function Preview({ components, updateComponentText, setSelectedElement }) {
 	return (
 		<div className="custom-preview" onClick={(event) => handleClickOutOfComponent(event)}>
 			<Card className="preview">
-				<Card.Body style={{height: '100%'}}>
+				<Card.Body>
 				{components.map((component, index) => {
 						switch(component.value_type) {
 							case 2:

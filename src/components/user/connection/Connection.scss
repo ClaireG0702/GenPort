@@ -4,14 +4,19 @@
 	}
 }
 
-.body {
+.container-connection-form {
 	position: relative;
-	height: 90%;
-	display: flex;
-	justify-content: center;
+	flex-grow: 1;
+	padding: 60px;
 
 	.connection-card {
 		width: 50%;
 		margin: auto;
+
+		.form-group {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
 	}
 }

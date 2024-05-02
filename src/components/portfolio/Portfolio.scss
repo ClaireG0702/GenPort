@@ -1,23 +1,26 @@
 .light-theme {
     .portfolio-card {
-        background: var(--light-portfolio-card-bg);
-        color: var(--light-card-text);
+        border: 1px solid #bdbdbd;
+        color: var(--light-primary-text);
+        background: #f4f4f4;
     }
 }
 
 .dark-theme {
     .portfolio-card {
-        background-color: var(--dark-portfolio-card-bg);
-        color: var(--dark-card-text);
+        border: 1px solid #242424;
+        color: var(--dark-primary-text);
+        background: var(--dark-card-bg);
     }
 }
 
 .portfolios {
     position: relative;
+    flex-grow: 1;
 }
 
 .portfolio-card {
-    border: none;
+    border-radius: 16px;
     text-decoration: none;
 
     &:hover {

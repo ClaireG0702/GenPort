@@ -5,11 +5,20 @@
 }
 
 .container-registration-form {
+	position: relative;
+	flex-grow: 1;
 	padding: 60px;
 	
 	.registration-card {
-		width: 50%;
 		margin: auto;
+		width: 50%;
+		border-radius: 20px;
+
+		.card-header {
+			margin: 4px;
+			border-radius: 20px;
+			text-align: center;
+		}
 
 		.form-group {
 			display: flex;

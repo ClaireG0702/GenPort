@@ -34,13 +34,13 @@ function Custom() {
     }
 
     return (
-        <>
+        <div className='custom-view'>
             <ToolbarComponents selectedElement={selectedElement} modelData={modelData} setModelData={setModelData}
                 updateComponentParams={(id, attribut, value) => updateComponentParams(id, attribut, value, components, setComponents)}
                 updateComponentValues={(id, attribut, value) => updateComponentValues(id, attribut, value, components, setComponents)}
                 deleteComponent={(component) => deleteComponent(component, components, setComponents, setSelectedElement)}
                 saveTemplateHandler={saveTemplateHandler} />
-            <Grid container alignItems="stretch">
+            <Grid container >
                 <Grid item xs={2}>
                     <SidebarComponents addComponent={(newComponent) => addComponent(newComponent, setComponents)} />
                 </Grid>
@@ -49,7 +49,7 @@ function Custom() {
                         updateComponentText={(id, value) => updateComponentText(id, value, components, setComponents)} />
                 </Grid>
             </Grid>
-        </>
+        </div>
     );
 }
 

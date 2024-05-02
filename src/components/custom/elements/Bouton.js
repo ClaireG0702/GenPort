@@ -4,7 +4,7 @@ function Icon({ id, component, onClick }) {
     
     let textStyle = style ? 'italic' : '';
     let textWeight = weight ? 'bold' : '';
-    let textDecoration = decoration ? 'underline' : '';
+    let textDecoration = decoration ? 'underline' : 'none';
 
     return (
         <a id={id}
