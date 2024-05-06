@@ -14,6 +14,7 @@ import ViewPortfolio from './components/view/ViewPortfolio.js';
 import Footer from './components/footer/Footer.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import LinkedInRedirectPage from './components/view/LinkedInRedirectPage.js';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
 					<Route path='/custom/:model' exact element={<Custom />} />
 					<Route path='/custom/:model/:id' element={<CustomTemplate />} />
 					<Route path='/view/:id' element={<ViewPortfolio />} />
+					<Route path='/linkedinredirect' element={<LinkedInRedirectPage />} />
 					<Route path="*" element={<Navigate to="/home" replace />} />
 				</Routes>
 				<Outlet />

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PdfDocument from "./PdfDocument";
 
-function PreviewToolbar({ id, name, components, deletePortfolio, isPdfView, setIsPdfView, exportSite }) {
+function PreviewToolbar({ id, name, components, deletePortfolio, isPdfView, setIsPdfView, exportSite, importLinkedinData }) {
 
     return (
         <AppBar>
@@ -22,9 +22,10 @@ function PreviewToolbar({ id, name, components, deletePortfolio, isPdfView, setI
                             Télécharger le pdf
                         </PDFDownloadLink>
                     </Button>
+                    <Button onClick={importLinkedinData}>Importer profil LinkedIn</Button>
                     </div>
                     <div>
-                        <Button variant="warning" as={Link} to={'/custom/portfolios/' + id}>Modifer le portfolio</Button>
+                        <Button variant="warning" as={Link} to={'/custom/portfolios/' + id}>Modifier le portfolio</Button>
                         <Button variant="danger" onClick={deletePortfolio}>Supprimer le portfolio</Button>
                     </div>
                 </div>

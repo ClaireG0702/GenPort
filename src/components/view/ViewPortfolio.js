@@ -83,11 +83,18 @@ function ViewPortfolio() {
             });
     }
 
+		const importLinkedinData = () => {
+			let redirect_uri = "http://localhost:3000/linkedinredirect?portfolio_id=" + id;
+				window.open('https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=77lhydyntc3x2x&state=DCEeFWf45A53sdfKef424&redirect_uri=' + redirect_uri + '&scope=profile%20openid%20email', '_self');
+		}
+
+
+
     return (
         <>
             <Grid container>
                 <Grid item xs={12}>
-                    <PreviewToolbar id={id} name={name} components={components} deletePortfolio={deletePortfolio} isPdfView={isPdfView} setIsPdfView={setIsPdfView} exportSite={exportSite} />
+                    <PreviewToolbar id={id} name={name} components={components} deletePortfolio={deletePortfolio} isPdfView={isPdfView} setIsPdfView={setIsPdfView} exportSite={exportSite} importLinkedinData={importLinkedinData} />
                 </Grid>
             </Grid>
             <Grid container alignItems="stretch" className='custom'>
