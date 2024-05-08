@@ -9,6 +9,7 @@ import { PDFViewer } from "@react-pdf/renderer";
 import PreviewToolbar from "./PreviewToolbar";
 import PreviewPortfolio from "./PreviewPortfolio";
 import PdfDocument from './PdfDocument';
+import "./LinkedInRedirectPage.scss";
 
 
 // Page de visualisation d'un portfolio
@@ -48,6 +49,7 @@ function LinkedInRedirectPage() {
 				console.error('Erreur de redirection après LinkedIn : pas d\'id de portfolio dans l\'url');
 				alert('Impossible d\'atteindre le portfolio. Vous allez être redirigé vers la liste des portfolios.');
 				window.location.href = '/portfolios';
+				return;
 			}
 			
 			const id = params.get('portfolio_id');
@@ -56,17 +58,20 @@ function LinkedInRedirectPage() {
 				console.error('Erreur de redirection après LinkedIn : pas de code dans l\'url');
 				alert('Une erreur s\'est produite lors de la connexion à LinkedIn. Vous allez être redirigé vers votre portfolio.');
 				window.location.href = '/view/' + id;
+				return;
 			}
 
 			const code = params.get('code');
 			insertLinkedInData(id, code);
 		};
 
-		initial();
+		useEffect(() => {
+			initial();
+		}, []);
 
     return (
-        <div>
-						<h1>Redirection depuis LinkedIn</h1>
+        <div className="loading_div">
+						<h1>Importation des données LinkedIn</h1>
 						<p>Vous allez être redirigé vers le portfolio...</p>
 				</div>
     );
