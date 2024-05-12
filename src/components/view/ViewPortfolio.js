@@ -100,9 +100,7 @@ function ViewPortfolio() {
             <Grid container alignItems="stretch" className='custom'>
                 <Grid item xs={10} style={{ marginLeft: 'auto', marginRight: 'auto' }}>
                     {!isPdfView ? (
-                        <div>
-                            <PreviewPortfolio className="md-10" components={components} />
-                        </div>
+                      <PreviewPortfolio className="md-10" components={components} />
                     ) : (
                         <PDFViewer className="preview">
                             <PdfDocument components={components} />

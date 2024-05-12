@@ -10,21 +10,20 @@
 	}
 }
 
-.custom-view {
+.preview {
 	position: relative;
-	flex-grow: 1;
-
-	.preview {
-		position: relative;
-		margin: 20px auto;
-		width: 1072px;
-		height: 760px;
-		display: block;
-		border: none;
-	}
+	display: block;
+	height: calc(100% - 40px);
+	margin: 20px auto;
+	width: 1072px;
+	border: none;
+	overflow: auto;
 }
 
-
 .custom-preview {
-	height: max-content;
+	height: 800px;
+}
+
+.preview .card-body {
+	height: 800px;
 }

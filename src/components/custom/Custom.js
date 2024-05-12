@@ -5,6 +5,7 @@ import { addComponent, updateComponentText, updateComponentParams, updateCompone
 import SidebarComponents from './SidebarComponents.js';
 import ToolbarComponents from './ToolbarComponents.js';
 import Preview from './Preview.js';
+import './Custom.scss';
 
 // Page de création de template
 function Custom() {
