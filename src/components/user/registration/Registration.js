@@ -1,7 +1,7 @@
-import { Button, Card, Form } from "react-bootstrap";
-import './Registration.scss';
 import { useState } from "react";
+import { Button, Card, Form } from "react-bootstrap";
 import { useAuth } from "../Context/AuthContext";
+import './Registration.scss';
 
 function Registration() {
 	const { register } = useAuth();
@@ -161,9 +161,9 @@ function Registration() {
 									Les mots de passes ne sont pas identiques
 								</Form.Control.Feedback>}
 						</Form.Group>
-						<Button type='button' onClick={handleSubmit}>S'inscrire</Button>
-						<Form.Text className='mx-2'>déjà un compte ?</Form.Text>
-						<Button href='/connection' variant='link' className='btn-connection'>Se connecter</Button>
+						<Button type='button' className="btn-registration" onClick={handleSubmit}>S'inscrire</Button>
+						<Form.Text className='mx-2 secondary-text'>déjà un compte ?</Form.Text>
+						<Button href='/login' variant='link' className='btn-connection'>Se connecter</Button>
 					</Form>
 				</Card.Body>
 			</Card>

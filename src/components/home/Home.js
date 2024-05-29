@@ -1,14 +1,12 @@
-import { Container, Form, Button, Card, InputGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import svgTemplate from "../../assets/images/undraw_website_builder.svg"
-import SearchIcon from '@mui/icons-material/Search';
+import { Card } from "react-bootstrap";
+import svgTemplate from "../../assets/images/undraw_website_builder.svg";
 import './Home.scss';
 
 function Home() {
 
 	return (
 		<div className="home">
-			<Container>
+			{/* <Container>
 				<InputGroup className="search-bar">
 					<Form.Select className="input-group-text col-md-4 select-search" id="searchType">
 						<option>Type de recherche</option>
@@ -18,10 +16,10 @@ function Home() {
 					<Form.Control type="text" className="search input-search" id="search"/>
 					<Button type="button" className="btn-search"><SearchIcon /></Button>
 				</InputGroup>
-			</Container>
+			</Container> */}
 
 			<div className="cards">
-				<Card className="text-center mb-4 home-card slogan">
+				<Card className="text-center mt-4 mb-4 home-card slogan">
 					<Card.Body>
 						<Card.Text>
 							Affichez vos compétences, partagez vos passions.

@@ -1,4 +1,4 @@
-import { Toolbar, Input } from "@mui/material";
+import { Input, Toolbar } from "@mui/material";
 import { Button } from "react-bootstrap";
 import '../Toolbar.scss';
 
@@ -20,7 +20,7 @@ function DefaultToolbar({ modelData, setModelData, saveTemplateHandler }) {
     return (
         <Toolbar className="default-toolbar">
             <Input name='modele_name' value={name} onChange={(event) => handleNameChange(event)} placeholder='Nom du modèle' />
-            <Button onClick={handleSaveTemplate}>Enregistrer</Button>
+            <Button className="save-btn" onClick={handleSaveTemplate}>Enregistrer</Button>
         </Toolbar>
     );
 }

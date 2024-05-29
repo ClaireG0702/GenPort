@@ -1,7 +1,7 @@
-import { Grid, Toolbar, Typography } from '@mui/material';
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Button } from "react-bootstrap";
+import { Grid, Toolbar, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { Button } from "react-bootstrap";
 import '../Toolbar.scss';
 
 function ImageToolbar({ element, updateComponentParams, updateComponentValues, deleteComponent }) {
@@ -44,42 +44,42 @@ function ImageToolbar({ element, updateComponentParams, updateComponentValues, d
             <Grid container justifyContent="space-between">
                 <Grid item>
                     <Typography variant='h6'>Lien de l'image :</Typography>
-                    <input type="url" value={link} onChange={(event) => handleElementValuesChange(event, 'link')} />
+                    <input type="url" value={link} className='form-control' onChange={(event) => handleElementValuesChange(event, 'link')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="h6">Marge en haut :</Typography>
-                    <input type="number" value={position_y} min={0} max={100-height} onChange={(event) => handleElementParamsChange(event, 'position_y')} />
+                    <input type="number" value={position_y} min={0} max={100-height} className='form-control' onChange={(event) => handleElementParamsChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="h6">Marge à gauche :</Typography>
-                    <input type="number" value={position_x} min={0} max={100-width} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
+                    <input type="number" value={position_x} min={0} max={100-width} className='form-control' onChange={(event) => handleElementParamsChange(event, 'position_x')} />
                 </Grid>
 
                 <Grid item>
                     <Typography>Calque :</Typography>
-                    <input type="number" value={z_index} onChange={(event) => handleElementParamsChange(event, 'z_index')} />
+                    <input type="number" value={z_index} className='form-control' onChange={(event) => handleElementParamsChange(event, 'z_index')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="h6">Taille:</Typography>
-                    <input type="number" value={height} min={0} max={100} onChange={(event) => handleElementParamsChange(event, 'height')} />
+                    <input type="number" value={height} min={0} max={100} className='form-control' onChange={(event) => handleElementParamsChange(event, 'height')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="h6">Bordure :</Typography>
-                    <input type="number" value={border} min={0} onChange={(event) => handleElementValuesChange(event, 'border')} />
+                    <input type="number" value={border} min={0} className='form-control' onChange={(event) => handleElementValuesChange(event, 'border')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="h6">Couleur de bordure :</Typography>
-                    <input type="color" value={borderColor} onChange={(event) => handleElementValuesChange(event, 'borderColor')} />
+                    <input type="color" value={borderColor} className='form-control' onChange={(event) => handleElementValuesChange(event, 'borderColor')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="h6">Arrondi :</Typography>
-                    <input type="number" value={borderRadius} min={0} onChange={(event) => handleElementValuesChange(event, 'borderRadius')} />
+                    <input type="number" value={borderRadius} min={0} className='form-control' onChange={(event) => handleElementValuesChange(event, 'borderRadius')} />
                 </Grid>
 
                 <Grid item justifyContent="flex-end">

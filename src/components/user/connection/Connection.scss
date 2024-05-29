@@ -1,6 +1,58 @@
 .light-theme {
-	.btn-registration {
-		color: #333;
+	.connection-card {
+		.btn-connection {
+			border-color: var(--light-border);
+			background-color: var(--main-blue);
+			color: white;
+	
+			&:hover {
+				border-color: var(--light-border);
+				background-color: var(--light-body-bg);
+				color: var(--main-blue);
+			}
+		}
+	
+		.btn-registration {
+			background-color: transparent;
+			border: none;
+			color: #333 !important;
+		}
+	}
+}
+
+.dark-theme {
+	.connection-card {
+		background-color: var(--dark-card-bg);
+		color: var(--dark-primary-text);
+
+		.card-header {
+			background-color: var(--dark-body-bg);
+		}
+
+		input {
+			background-color: #242424;
+			border-color: var(--dark-border);
+		}
+
+		.btn-connection {
+			border-color: var(--dark-border);
+			background-color: var(--main-blue);
+			color: white;
+
+			&:hover {
+				border-color: var(--dark-border);
+				background-color: var(--dark-body-bg);
+				color: var(--main-blue);
+			}
+		}
+
+		.secondary-text {
+			color: var(--dark-secondary-text);
+		}
+
+		.btn-registration {
+			color: var(--dark-primary-text);
+		}
 	}
 }
 
@@ -12,11 +64,28 @@
 	.connection-card {
 		width: 50%;
 		margin: auto;
+		border-radius: 20px;
+
+		.card-header {
+			margin: 6px;
+			border-radius: 20px;
+			text-align: center;
+			font-size: large;
+		}
 
 		.form-group {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
+		}
+
+		.btn-connection {
+			border-radius: 50px;
+			border-style: solid solid none;
+		}
+
+		.btn-registration:hover {
+			color: var(--main-blue) !important;
 		}
 	}
 }

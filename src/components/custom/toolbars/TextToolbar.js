@@ -1,14 +1,14 @@
-import { ToggleButtonGroup, ToggleButton, Toolbar, MenuItem, Select, InputLabel, FormControl, Typography, FormControlLabel, Checkbox, Grid } from "@mui/material";
-import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
+import DeleteIcon from "@mui/icons-material/Delete";
 import FormatAlignCenterIcon from "@mui/icons-material/FormatAlignCenter";
-import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
 import FormatAlignJustifyIcon from "@mui/icons-material/FormatAlignJustify";
+import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
+import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
 import FormatBoldIcon from "@mui/icons-material/FormatBold";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { Button } from "react-bootstrap";
+import { Checkbox, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Select, ToggleButton, ToggleButtonGroup, Toolbar, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import '../Toolbar.scss';
 
 function TextToolbar({ element, updateComponentParams, updateComponentValues, deleteComponent }) {
@@ -87,28 +87,28 @@ function TextToolbar({ element, updateComponentParams, updateComponentValues, de
         <Toolbar className="toolbar-element">
             <Grid container justifyContent="space-between">
                 <Grid item>
-                    <Typography variant="subtitle1">Position en y :</Typography>
-                    <input type="number" value={position_y} min={0} max={initialHeight-height} onChange={(event) => handleElementParamsChange(event, 'position_y')} />
+                    <Typography variant="subtitle1" className="form-label">Position en y :</Typography>
+                    <input type="number" value={position_y} min={0} max={initialHeight - height} className="form-control" onChange={(event) => handleElementParamsChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="subtitle1">Position en x :</Typography>
-                    <input type="number" value={position_x} min={0} max={initialWidth-width} onChange={(event) => handleElementParamsChange(event, 'position_x')} />
+                    <input type="number" value={position_x} min={0} max={initialWidth - width} className="form-control" onChange={(event) => handleElementParamsChange(event, 'position_x')} />
                 </Grid>
 
                 <Grid item>
                     <Typography>Calque :</Typography>
-                    <input type="number" value={z_index} onChange={(event) => handleElementParamsChange(event, 'z_index')} />
+                    <input type="number" value={z_index} className="form-control" onChange={(event) => handleElementParamsChange(event, 'z_index')} />
                 </Grid>
 
                 <Grid item>
                     <Typography>Largeur :</Typography>
-                    <input type="number" value={width} onChange={(event) => handleElementParamsChange(event, 'width')} />
+                    <input type="number" value={width} className="form-control" onChange={(event) => handleElementParamsChange(event, 'width')} />
                 </Grid>
 
                 <Grid item>
                     <Typography>Hauteur :</Typography>
-                    <input type="number" value={height} onChange={(event) => handleElementParamsChange(event, 'height')} />
+                    <input type="number" value={height} className="form-control" onChange={(event) => handleElementParamsChange(event, 'height')} />
                 </Grid>
 
                 <Grid item>
@@ -162,12 +162,12 @@ function TextToolbar({ element, updateComponentParams, updateComponentValues, de
 
                 <Grid item>
                     <Typography variant="subtitle1">Taille de texte :</Typography>
-                    <input type="number" value={textSize} onChange={(event) => handleElementValueChange(event, 'textSize')} />
+                    <input type="number" value={textSize} className="form-control" onChange={(event) => handleElementValueChange(event, 'textSize')} />
                 </Grid>
 
                 <Grid item>
                     <Typography variant="subtitle1">Couleur :</Typography>
-                    <input type="color" value={color} onChange={(event) => handleElementValueChange(event, 'color')} />
+                    <input type="color" className="form-control" value={color} onChange={(event) => handleElementValueChange(event, 'color')} />
                 </Grid>
 
                 <Grid item justifyContent="flex-end">

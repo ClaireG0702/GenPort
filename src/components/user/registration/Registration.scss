@@ -1,6 +1,56 @@
 .light-theme {
-	.btn-connection {
-		color: #333;
+	.registration-card {
+		.btn-registration {
+			border-color: var(--light-border);
+			color: white !important;
+			background-color: var(--main-blue);
+			
+			&:hover {
+				border-color: var(--light-border);
+				background-color: var(--light-body-bg);
+				color: var(--main-blue) !important;
+			}
+		}
+		
+		.btn-connection {
+			color: #333;
+		}
+	}
+}
+
+.dark-theme {
+	.registration-card {
+		background-color: var(--dark-card-bg);
+		color: var(--dark-primary-text);
+	
+		.card-header {
+			background-color: var(--dark-body-bg);
+		}
+
+		input {
+			background-color: #242424;
+			border-color: var(--dark-border);
+		}
+
+		.btn-registration {
+			border-color: var(--dark-border);
+			color: white !important;
+			background-color: var(--main-blue);
+
+			&:hover {
+				border-color: var(--dark-border);
+				background-color: var(--dark-body-bg);
+				color: var(--main-blue) !important;
+			}
+		}
+
+		.secondary-text {
+			color: var(--dark-secondary-text);
+		}
+
+		.btn-connection {
+			color: var(--dark-primary-text);
+		}
 	}
 }
 
@@ -8,16 +58,17 @@
 	position: relative;
 	flex-grow: 1;
 	padding: 60px;
-	
+
 	.registration-card {
 		margin: auto;
 		width: 50%;
 		border-radius: 20px;
 
 		.card-header {
-			margin: 4px;
+			margin: 6px;
 			border-radius: 20px;
 			text-align: center;
+			font-size: large;
 		}
 
 		.form-group {
@@ -28,6 +79,15 @@
 			.half-width {
 				width: 49%;
 			}
+		}
+
+		.btn-registration {
+			border-radius: 50px;
+			border-style: solid solid none;
+		}
+
+		.btn-connection:hover {
+			color: var(--main-blue) !important;
 		}
 	}
 }

@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Button, Card, Form } from "react-bootstrap";
 import { useAuth } from "../Context/AuthContext";
-import { Button, Card, Form, Nav } from "react-bootstrap";
 import "./Connection.scss";
 
 function Connection() {
@@ -44,9 +43,9 @@ function Connection() {
 							</Form.Group>
 							{/* <Nav.Link as={Link} to='/connection/forgot-password'>Mot de passe oublié</Nav.Link> */}
 						</div>
-						<Button type='button' onClick={handleSubmit}>Se connecter</Button>
-						<Form.Text className='mx-2'>pas encore de compte ?</Form.Text>
-						<Button href='/registration' variant='link' className='btn-connection'>S'inscrire</Button>
+						<Button type='button' className="btn-connection" onClick={handleSubmit}>Se connecter</Button>
+						<Form.Text className='mx-2 secondary-text'>pas encore de compte ?</Form.Text>
+						<Button href='/register' variant='link' className='btn-registration'>S'inscrire</Button>
 					</Form>
 				</Card.Body>
 			</Card>

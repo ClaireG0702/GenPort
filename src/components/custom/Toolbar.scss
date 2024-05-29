@@ -3,7 +3,30 @@
 	.toolbar {
 		background: var(--light-card-bg);
 		color: var(--light-primary-text);
-		box-shadow: 0px 1px 2px -1px rgba(0,0,0,0.2),0px 2px 3px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+		box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.2), 0px 2px 3px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+
+		.main-btn,
+		.main-btn > a {
+			border-color: var(--light-border);
+			background-color: var(--light-btn-bg);
+			color: var(--light-primary-text);
+		}
+
+		.edit-btn,
+		.delete-btn {
+			border-color: var(--light-border);
+		}
+	}
+
+	.default-toolbar {
+		.save-btn {
+			border-color: var(--light-border);
+
+			&:hover {
+				background-color: var(--light-btn-bg);
+				color: var(--main-blue);
+			}
+		}
 	}
 }
 
@@ -12,16 +35,39 @@
 	.toolbar {
 		background-color: var(--dark-card-bg);
 		color: var(--dark-primary-text);
-		box-shadow: 0px 1px 2px -1px rgba(10,10,10,0.4),0px 2px 3px 0px rgba(10,10,10,0.28),0px 1px 5px 0px rgba(10,10,10,0.24);
+		box-shadow: 0px 1px 2px -1px rgba(10, 10, 10, 0.4), 0px 2px 3px 0px rgba(10, 10, 10, 0.28), 0px 1px 5px 0px rgba(10, 10, 10, 0.24);
 
 		input {
 			color: var(--dark-primary-text);
+		}
+
+		.main-btn,
+		.main-btn > a {
+			border-color: var(--dark-border);
+			background-color: var(--dark-btn-bg);
+			color: var(--dark-primary-text);
+		}
+
+		.edit-btn,
+		.delete-btn {
+			border-color: var(--dark-border);
 		}
 	}
 
 	button[aria-pressed="true"] {
 		svg {
 			color: #7b7b7b;
+		}
+	}
+
+	.default-toolbar {
+		.save-btn {
+			border-color: var(--dark-border);
+
+			&:hover {
+				background-color: var(--dark-btn-bg);
+				color: var(--main-blue);
+			}
 		}
 	}
 }
@@ -38,14 +84,41 @@
 			display: flex;
 			flex-direction: row;
 			gap: 6px;
-			
+
 			.download-btn {
-				color: white;
 				text-decoration: none;
 			}
 		}
 	}
 
+	.btn-toolbar-preview {
+		border-radius: 50px;
+	}
+
+	.main-btn:hover,
+	.main-btn:hover>a {
+		background-color: var(--main-blue);
+		color: white !important;
+	}
+
+	.edit-btn {
+		background-color: #f8d15b;
+		color: var(--light-primary-text);
+
+		&:hover {
+			background-color: #f6bd17;
+		}
+	}
+
+	.delete-btn {
+		background-color: #db5e6a;
+		color: var(--light-primary-text);
+
+		&:hover {
+			background-color: #d33e4d;
+			color: white;
+		}
+	}
 }
 
 .MuiPaper-root {
@@ -55,10 +128,6 @@
 
 .toolbar {
 	border-bottom-left-radius: 5px;
-
-	button {
-		border-radius: 50px;
-	}
 }
 
 .default-toolbar {
@@ -67,8 +136,14 @@
 	flex-direction: row;
 	gap: 12px;
 
-	> div::after {
+	>div::after {
 		border-bottom: 2px solid var(--main-blue);
+	}
+
+	.save-btn {
+		border-radius: 50px;
+		background-color: var(--main-blue);
+		border-style: solid solid none;
 	}
 }
 
@@ -86,11 +161,12 @@
 	label {
 		margin: 0;
 	}
-	
+
 	.group label:first-child span {
 		border-top-left-radius: 4px;
 		border-bottom-left-radius: 4px;
 	}
+
 	.group label:last-child span {
 		border-top-right-radius: 4px;
 		border-bottom-right-radius: 4px;
