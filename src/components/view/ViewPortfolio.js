@@ -1,19 +1,21 @@
-import { environment } from "../../environment/environment.developments";
-import React, { useState, useEffect } from "react";
-import ReactDOMServer from "react-dom/server";
-import { useParams } from "react-router-dom";
-import JSZip from 'jszip';
-import { saveAs } from 'file-saver';
 import { Grid } from "@mui/material";
 import { PDFViewer } from "@react-pdf/renderer";
-import PreviewToolbar from "./PreviewToolbar";
-import PreviewPortfolio from "./PreviewPortfolio";
+import { saveAs } from 'file-saver';
+import JSZip from 'jszip';
+import React, { useEffect, useState } from "react";
+import ReactDOMServer from "react-dom/server";
+import { useParams } from "react-router-dom";
+import { environment } from "../../environment/environment.developments";
+import { useCustomNavigate } from "../../hooks/useCustomNavigate";
 import PdfDocument from './PdfDocument';
+import PreviewPortfolio from "./PreviewPortfolio";
+import PreviewToolbar from "./PreviewToolbar";
 
 
 // Page de visualisation d'un portfolio
 function ViewPortfolio() {
     const { id } = useParams();
+    const { navigateToPortfolios } = useCustomNavigate();
     const [name, setName] = useState('');
     const [components, setComponents] = useState([]);
     const [isPdfView, setIsPdfView] = useState(false);
@@ -39,7 +41,7 @@ function ViewPortfolio() {
 
             if (response.ok) {
                 alert('Le portfolio a bien été supprimé');
-                window.location.href = '/portfolios';
+                navigateToPortfolios();
             } else {
                 console.error('Failed to delete portfolio');
             }

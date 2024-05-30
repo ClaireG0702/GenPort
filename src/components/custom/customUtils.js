@@ -1,6 +1,5 @@
 import { environment } from '../../environment/environment.developments.js';
 
-
 let idComponent = 0;
 
 export function addComponent(newComponent, setComponents) {
@@ -34,7 +33,7 @@ export function deleteComponent(component, components, setComponents, setSelecte
 	setSelectedElement(null);
 }
 
-export async function saveTemplate(model, modelData) {
+export async function saveTemplate(model, modelData, navigateToTemplates, navigateToPortfolios) {
 	if(model != null) {
 		try {
 			const response = await fetch(environment.apiURL + `/controllers/${model}/save`, {
@@ -51,10 +50,10 @@ export async function saveTemplate(model, modelData) {
 	
 			if(model === 'templates') {
 				alert('Le template a bien été sauvegardé');
-				window.location.href = '/templates';
+				navigateToTemplates();
 			} else {
 				alert('Le portfolio a bien été sauvegardé');
-				window.location.href = '/portfolios';
+				navigateToPortfolios();
 			}
 			const responseData = await response.json();
 			return responseData;
@@ -77,7 +76,7 @@ export async function saveTemplate(model, modelData) {
 			}
 			
 			alert('Le portfolio a bien été sauvegardé');
-			window.location.href = '/portfolios';
+			navigateToPortfolios();
 			
 			const responseData = await response.json();
 			return responseData;

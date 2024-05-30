@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { environment } from "../../environment/environment.developments";
 import "./LinkedInRedirectPage.scss";
 
 
 // Page de visualisation d'un portfolio
 function LinkedInRedirectPage() {
+	const { navigate } = useNavigate();
 	const params = new URLSearchParams(window.location.search);
 
 
@@ -26,12 +28,12 @@ function LinkedInRedirectPage() {
 			})
 			.then(data => {
 				alert('Les données LinkedIn ont bien été insérées. Vous allez être redirigé vers votre portfolio.');
-				window.location.href = '/view/' + id;
+				navigate('/view/' + id);
 			})
 			.catch(error => {
 				console.error('Error inserting LinkedIn data:', error.message);
 				alert('Une erreur s\'est produite lors de l\'insertion des données LinkedIn. Vous allez être redirigé vers votre portfolio.');
-				window.location.href = '/view/' + id;
+				navigate('/view/' + id);
 			});
 	}
 
@@ -39,7 +41,7 @@ function LinkedInRedirectPage() {
 		if (!params.has('portfolio_id')) {
 			console.error('Erreur de redirection après LinkedIn : pas d\'id de portfolio dans l\'url');
 			alert('Impossible d\'atteindre le portfolio. Vous allez être redirigé vers la liste des portfolios.');
-			window.location.href = '/portfolios';
+			navigate("/portfolios")
 			return;
 		}
 
@@ -48,7 +50,7 @@ function LinkedInRedirectPage() {
 		if (!params.has('code')) {
 			console.error('Erreur de redirection après LinkedIn : pas de code dans l\'url');
 			alert('Une erreur s\'est produite lors de la connexion à LinkedIn. Vous allez être redirigé vers votre portfolio.');
-			window.location.href = '/view/' + id;
+			navigate('/view/' + id);
 			return;
 		}
 

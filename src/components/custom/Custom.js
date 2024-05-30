@@ -1,22 +1,26 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { Grid } from '@mui/material';
-import { addComponent, updateComponentText, updateComponentParams, updateComponentValues, deleteComponent, saveTemplate } from './customUtils.js';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useCustomNavigate } from '../../hooks/useCustomNavigate.js';
+import { useAuth } from '../user/Context/AuthContext';
+import './Custom.scss';
+import Preview from './Preview.js';
 import SidebarComponents from './SidebarComponents.js';
 import ToolbarComponents from './ToolbarComponents.js';
-import Preview from './Preview.js';
-import './Custom.scss';
+import { addComponent, deleteComponent, saveTemplate, updateComponentParams, updateComponentText, updateComponentValues } from './customUtils.js';
 
 // Page de création de template
 function Custom() {
+    const { user } = useAuth();
     const { model } = useParams();
+    const { navigateToTemplates, navigateToPortfolios } = useCustomNavigate();
     const [selectedElement, setSelectedElement] = useState(null);
     const [components, setComponents] = useState([]);
     const [modelData, setModelData] = useState({
         id: null,
         name: 'Portfolio',
         description: 'Description par défaut',
-        owner_id: null
+        owner_id: user.id
     });
 
     useEffect(() => {
@@ -31,7 +35,7 @@ function Custom() {
             ...prevState,
             components: components
         }));
-        saveTemplate(model, modelData);
+        saveTemplate(model, modelData, navigateToTemplates, navigateToPortfolios);
     }
 
     return (

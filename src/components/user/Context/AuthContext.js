@@ -32,7 +32,7 @@ export const AuthProvider = ({children}) => {
 			}
 
 			alert('Votre compte a été créé avec succès');
-			// window.location.href = '/login';
+			navigate("/login");
 		} catch(error) {
 			console.error('Error while trying to create account:', error.message);
 			throw(error);
