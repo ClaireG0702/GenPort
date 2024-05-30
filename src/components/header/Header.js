@@ -27,14 +27,16 @@ function Header() {
                     <Nav className='me-auto'>
                         <Nav.Link as={Link} to="/home">Accueil</Nav.Link>
                         <Nav.Link as={Link} to="/templates">Templates</Nav.Link>
-                        <Nav.Link as={Link} to="/portfolios">Portfolios</Nav.Link>
+                        {user && (
+                            <Nav.Link as={Link} to="/portfolios">Portfolios</Nav.Link>
+                        )}
                     </Nav>
                     <Nav>
                         <Form.Switch id="theme-switch" onChange={() => setTheme(isDarktheme ? "light-theme" : "dark-theme")} checked={isDarktheme} />
                         {user === undefined ? (
                             <>
-                                <Button href='/register' variant='link' className='me-2 register-btn'>Inscription</Button>
-                                <Button href='/login' className="connection-btn">Connexion</Button>
+                                <Button as={Link} to='/register' variant='link' className='me-2 register-btn'>Inscription</Button>
+                                <Button as={Link} to='/login' className="connection-btn">Connexion</Button>
                             </>
                         ) : (
                             <>

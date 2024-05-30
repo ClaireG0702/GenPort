@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 import './Registration.scss';
 
@@ -163,7 +164,7 @@ function Registration() {
 						</Form.Group>
 						<Button type='button' className="btn-registration" onClick={handleSubmit}>S'inscrire</Button>
 						<Form.Text className='mx-2 secondary-text'>déjà un compte ?</Form.Text>
-						<Button href='/login' variant='link' className='btn-connection'>Se connecter</Button>
+						<Button as={Link} to='/login' variant='link' className='btn-connection'>Se connecter</Button>
 					</Form>
 				</Card.Body>
 			</Card>
