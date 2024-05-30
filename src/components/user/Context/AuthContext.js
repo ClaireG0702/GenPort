@@ -1,5 +1,6 @@
+import React, { createContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { environment } from '../../../environment/environment.developments';
-import React, { createContext, useContext, useState } from 'react';
 
 const initState = {
 	user: undefined
@@ -13,6 +14,7 @@ const AuthContext = createContext({
 });
 
 export const AuthProvider = ({children}) => {
+	const navigate = useNavigate();
 	const [userLogged, setUserLogged] = useState(initState);
 
 	const register = async (registerForm) => {
@@ -52,8 +54,8 @@ export const AuthProvider = ({children}) => {
 			}
 
 			const responseData = await response.json();
-			setUserLogged(responseData);
-			// window.location.href = '/home';
+			setUserLogged({user: responseData.user});
+			navigate("/home");
 		} catch(error) {
 			console.error('Error while trying to connect:', error.message);
 			throw(error);
@@ -71,4 +73,6 @@ export const AuthProvider = ({children}) => {
 	)
 }
 
-export const useAuth = () => useContext(AuthContext);
+export function useAuth() {
+	return React.useContext(AuthContext);
+}

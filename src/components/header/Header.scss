@@ -16,7 +16,8 @@
 		color: var(--light-primary-text);
 	}
 
-	.connection-btn {
+	.connection-btn,
+	.deconnection-btn {
 		border-color: var(--light-border);
 		color: var(--light-primary-text);
 		background-color: var(--light-btn-bg);
@@ -41,7 +42,8 @@
 		color: var(--dark-primary-text);
 	}
 
-	.connection-btn {
+	.connection-btn,
+	.deconnection-btn {
 		border-color: var(--dark-border);
 		color: var(--dark-primary-text);
 		background-color: var(--dark-btn-bg);
@@ -75,6 +77,17 @@
 			border-color: var(--light-secondary-text);
 			color: white;
 			background-color: var(--main-blue);
+		}
+	}
+
+	.deconnection-btn {
+		border-radius: 50px;
+		border-style: solid solid none;
+	
+		&:hover {
+			border-color: var(--light-secondary-text);
+			color: white;
+			background-color: #D64957;
 		}
 	}
 }

@@ -1,9 +1,9 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Button, Form, Nav, Navbar } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import { Button, Nav, Navbar, Form } from 'react-bootstrap';
 import { ThemeContext } from "../../Theme";
-import { useAuth } from "../user/Context/AuthContext";
 import logo from '../../assets/images/logo.jpg';
+import { useAuth } from "../user/Context/AuthContext";
 import './Header.scss';
 
 function Header() {
@@ -18,8 +18,6 @@ function Header() {
     const handleLogout = () => {
         logout();
     }
-
-    console.log(user);
 
     return (
         <div className="header">
@@ -40,7 +38,7 @@ function Header() {
                             </>
                         ) : (
                             <>
-                                <Button onClick={handleLogout}>Déconnexion</Button>
+                                <Button className="deconnection-btn" onClick={handleLogout}>Déconnexion</Button>
                             </>
                         )
                         }

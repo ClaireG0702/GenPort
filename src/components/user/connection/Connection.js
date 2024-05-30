@@ -38,9 +38,9 @@ function Connection() {
 							<Form.Control type="password" name="password" value={loginForm.password} onChange={handleValueChanges}></Form.Control>
 						</Form.Group>
 						<div className="form-group">
-							<Form.Group controlId="stayConnected" className="mb-3">
+							{/* <Form.Group controlId="stayConnected" className="mb-3">
 								<Form.Check type="checkbox" label="Rester connecté" />
-							</Form.Group>
+							</Form.Group> */}
 							{/* <Nav.Link as={Link} to='/connection/forgot-password'>Mot de passe oublié</Nav.Link> */}
 						</div>
 						<Button type='button' className="btn-connection" onClick={handleSubmit}>Se connecter</Button>
