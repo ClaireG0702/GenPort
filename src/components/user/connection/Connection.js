@@ -31,7 +31,7 @@ function Connection() {
 				<Card.Body>
 					<Form className="connection-form">
 						<Form.Group controlId="email" className='mb-3'>
-							<Form.Label>Identifiant</Form.Label>
+							<Form.Label>Identifiant (adresse email)</Form.Label>
 							<Form.Control type="text" name="email" value={loginForm.email} onChange={handleValueChanges}></Form.Control>
 						</Form.Group>
 						<Form.Group controlId="password" className='mb-3'>

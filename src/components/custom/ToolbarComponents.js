@@ -7,7 +7,7 @@ import './Toolbar.scss';
 import BoutonToolbar from './toolbars/BoutonToolbar';
 
 // Affichage de la barre d'outil correspondant à l'élément sélectionné
-function ToolbarComponents({ selectedElement, updateComponentParams, updateComponentValues, deleteComponent, modelData, setModelData, saveTemplateHandler }) {
+function ToolbarComponents({ selectedElement, updateComponentParams, updateComponentValues, deleteComponent, modelData, setModelData, saveTemplateHandler, model }) {
 
 	return (
 		<AppBar className="toolbar">
@@ -19,7 +19,7 @@ function ToolbarComponents({ selectedElement, updateComponentParams, updateCompo
 					{selectedElement.value_type === 5 && <ElemToolbar  element={selectedElement} updateComponentParams={updateComponentParams} updateComponentValues={updateComponentValues} deleteComponent={deleteComponent} />}
 				</>
 			) : (
-				<DefaultToolbar modelData={modelData} setModelData={setModelData} saveTemplateHandler={saveTemplateHandler} />
+				<DefaultToolbar modelData={modelData} setModelData={setModelData} saveTemplateHandler={saveTemplateHandler} model={model} />
 			)}
 		</AppBar>
 	);

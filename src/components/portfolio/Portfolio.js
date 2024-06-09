@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import './Portfolio.scss';
 import { useEffect, useState } from "react";
 import { environment } from "../../environment/environment.developments";
+import { useAuth } from "../user/Context/AuthContext";
 
 // Affichage des portfolios
 function Portfolio() {
+    const { user } = useAuth();
     const [portfolios, setPortfolios] = useState([]);
 
     useEffect(() => {
@@ -20,13 +22,12 @@ function Portfolio() {
         <div className="portfolios">
             <Container>
                 <Row xs={4} className="my-4">
-                    {portfolios.map(portfolio => 
+                    {portfolios.filter(portfolio => portfolio.owner_id === user.id).map(portfolio => 
                     <Col key={portfolio.id} className="my-2">
                         <Card style={{height: '150px'}} as={Link} to={'/view/'+portfolio.id} className="portfolio-card">
                             <Card.Body>
                                 <Card.Title>{portfolio.name}</Card.Title>
                                 <Card.Subtitle>{portfolio.description}</Card.Subtitle>
-                                <Card.Text>De : {portfolio.owner_id}</Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>)}

@@ -6,17 +6,22 @@ import { addComponent, updateComponentText, updateComponentParams, updateCompone
 import ToolbarComponents from './ToolbarComponents.js';
 import SidebarComponents from './SidebarComponents.js';
 import Preview from './Preview.js';
+import { useAuth } from '../user/Context/AuthContext.js';
+import { useCustomNavigate } from '../../hooks/useCustomNavigate.js';
 
 // Page de modifiaction de template
 function CustomTemplate() {
+    const { user } = useAuth();
+    const { navigateToTemplates, navigateToPortfolios } = useCustomNavigate();
     const [selectedElement, setSelectedElement] = useState(null);
     const { model, id } = useParams();
     const [name, setName] = useState('');
     const [components, setComponents] = useState([]);
     const [templateData, setTemplateData] = useState({
         id: model === 'portfolios' ? id : null,
-        description: 'Ceci est la description par defaut',
-        owner_id: null
+        description: 'Description par défaut',
+        owner_id: user.id,
+        is_public: true
     });
 
     useEffect(() => {
@@ -45,9 +50,9 @@ function CustomTemplate() {
             components: components
         }));
         if(model === 'portfolios') {
-            saveTemplate(model, templateData);
+            saveTemplate(model, templateData, navigateToTemplates, navigateToPortfolios);
         } else {
-            saveTemplate(null, templateData);
+            saveTemplate(null, templateData, navigateToTemplates, navigateToPortfolios);
         }
     }
 
@@ -57,7 +62,7 @@ function CustomTemplate() {
                 updateComponentParams={(id, attribut, value) => updateComponentParams(id, attribut, value, components, setComponents)} 
                 updateComponentValues={(id, attribut, value) => updateComponentValues(id, attribut, value, components, setComponents)}
                 deleteComponent={(component) => deleteComponent(component, components, setComponents, setSelectedElement)}
-                saveTemplateHandler={saveTemplateHandler} />
+                saveTemplateHandler={saveTemplateHandler} model={model} />
             <Grid container alignItems="stretch">
                 <Grid item xs={2}>
                     <SidebarComponents addComponent={(newComponent) => addComponent(newComponent, setComponents)} />

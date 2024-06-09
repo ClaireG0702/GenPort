@@ -20,7 +20,8 @@ function Custom() {
         id: null,
         name: 'Portfolio',
         description: 'Description par défaut',
-        owner_id: user.id
+        owner_id: user.id,
+        is_public: false
     });
 
     useEffect(() => {
@@ -44,7 +45,7 @@ function Custom() {
                 updateComponentParams={(id, attribut, value) => updateComponentParams(id, attribut, value, components, setComponents)}
                 updateComponentValues={(id, attribut, value) => updateComponentValues(id, attribut, value, components, setComponents)}
                 deleteComponent={(component) => deleteComponent(component, components, setComponents, setSelectedElement)}
-                saveTemplateHandler={saveTemplateHandler} />
+                saveTemplateHandler={saveTemplateHandler} model={model} />
             <Grid container >
                 <Grid item xs={2}>
                     <SidebarComponents addComponent={(newComponent) => addComponent(newComponent, setComponents)} />
