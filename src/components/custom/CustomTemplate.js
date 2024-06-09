@@ -17,10 +17,10 @@ function CustomTemplate() {
     const { model, id } = useParams();
     const [documentType, setDocumentType] = useState(model);
     const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
     const [components, setComponents] = useState([]);
     const [templateData, setTemplateData] = useState({
         id: documentType === 'portfolios' || documentType === 'templates' ? id : null,
-        description: 'Description par défaut',
         owner_id: user.id,
         is_public: true
     });
@@ -31,6 +31,8 @@ function CustomTemplate() {
             .then(data => {
                 const {name: portfolioName} = data;
                 setName(portfolioName);
+                const {description: portfolioDescription} = data;
+                setDescription(portfolioDescription);
                 const { components: componentsData } = data;
                 setComponents(componentsData);
             })
@@ -41,6 +43,7 @@ function CustomTemplate() {
         setTemplateData(prevState => ({
             ...prevState,
             name: name,
+            description: description,
             components: components
         }));
     }, [components]);

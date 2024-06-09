@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, InputGroup, Form, Button } from "react-bootstrap";
 import { BsPlusSquare } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { environment } from "../../environment/environment.developments";
 import { useAuth } from '../user/Context/AuthContext';
 import './Template.scss';
 import DeleteIcon from "@mui/icons-material/Delete";
+import SearchIcon from "@mui/icons-material/Search";
 
 // Affichage des templates
 function Template() {
     const { user } = useAuth();
     const [templates, setTemplates] = useState([]);
-    const [authors, setAuthors] = useState({})
+    const [authors, setAuthors] = useState({});
+    const [searchType, setSearchType] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredTemplates, setFilteredTemplates] = useState([]);
 
     useEffect(() => {
         fetch(environment.apiURL + '/controllers/templates/get_all')
@@ -25,6 +29,10 @@ function Template() {
             getAuthor(template.owner_id);
         });
     }, [templates]);
+
+    useEffect(() => {
+        handleSearch();
+    }, [searchType, searchTerm, templates]);
 
     function getAuthor(id) {
         fetch(environment.apiURL + `/controllers/user/get_author?id=${id}`)
@@ -57,11 +65,40 @@ function Template() {
         }
     }
 
+    const handleSearchTypeChange = (event) => {
+        setSearchType(event.target.value);
+    }
+
+    const handleSearchTermChange = (event) => {
+        setSearchTerm(event.target.value);
+    }
+
+    const handleSearch = () => {
+        if (searchType === '1') {
+            setFilteredTemplates(templates.filter(template => authors[template.owner_id]?.toLowerCase().includes(searchTerm.toLowerCase())));
+        } else if (searchType === '2') {
+            setFilteredTemplates(templates.filter(template => template.name.toLowerCase().includes(searchTerm.toLowerCase())));
+        } else {
+            setFilteredTemplates(templates);
+        }
+    }
+
     return (
         <div className="templates">
             <Container>
+                <InputGroup className="search-bar">
+                    <Form.Select className="input-group-text col-md-4 select-search" id="searchType" onChange={handleSearchTypeChange}>
+                        <option value="">Type de recherche</option>
+                        <option value="1">Personne</option>
+                        <option value="2">Nom de template</option>
+                    </Form.Select>
+                    <Form.Control type="text" className="search input-search" id="search" value={searchTerm} onChange={handleSearchTermChange} />
+                    <Button type="button" className="btn-search" onClick={handleSearch}><SearchIcon /></Button>
+                </InputGroup>
+            </Container>
+            <Container>
                 <Row xs={4} className="my-4">
-                    {templates.filter(template => template.isPublic || (user &&template.owner_id === user.id)).map(template =>
+                    {filteredTemplates.filter(template => template.isPublic || (user && template.owner_id === user.id)).map(template =>
                         <Col key={template.id} className="my-2">
                             <Card style={{ height: '150px' }} as={Link} to={'/custom/templates/' + template.id} className="template-card"> {/** Redirection modif template */}
                                 <Card.Body>
@@ -92,4 +129,4 @@ function Template() {
     )
 }
 
-export default Template
+export default Template;
