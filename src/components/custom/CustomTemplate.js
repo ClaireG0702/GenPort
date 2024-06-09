@@ -15,10 +15,11 @@ function CustomTemplate() {
     const { navigateToTemplates, navigateToPortfolios } = useCustomNavigate();
     const [selectedElement, setSelectedElement] = useState(null);
     const { model, id } = useParams();
+    const [documentType, setDocumentType] = useState(model);
     const [name, setName] = useState('');
     const [components, setComponents] = useState([]);
     const [templateData, setTemplateData] = useState({
-        id: model === 'portfolios' ? id : null,
+        id: documentType === 'portfolios' || documentType === 'templates' ? id : null,
         description: 'Description par défaut',
         owner_id: user.id,
         is_public: true
@@ -49,11 +50,12 @@ function CustomTemplate() {
             ...prevState,
             components: components
         }));
-        if(model === 'portfolios') {
-            saveTemplate(model, templateData, navigateToTemplates, navigateToPortfolios);
+        if(documentType === 'portfolios' || documentType === 'templates') {
+            saveTemplate(documentType, templateData, navigateToTemplates, navigateToPortfolios);
         } else {
             saveTemplate(null, templateData, navigateToTemplates, navigateToPortfolios);
         }
+        console.log(documentType);
     }
 
     return (
@@ -62,10 +64,10 @@ function CustomTemplate() {
                 updateComponentParams={(id, attribut, value) => updateComponentParams(id, attribut, value, components, setComponents)} 
                 updateComponentValues={(id, attribut, value) => updateComponentValues(id, attribut, value, components, setComponents)}
                 deleteComponent={(component) => deleteComponent(component, components, setComponents, setSelectedElement)}
-                saveTemplateHandler={saveTemplateHandler} model={model} />
+                saveTemplateHandler={saveTemplateHandler} documentType={documentType} setDocumentType={setDocumentType} />
             <Grid container alignItems="stretch">
                 <Grid item xs={2}>
-                    <SidebarComponents addComponent={(newComponent) => addComponent(newComponent, setComponents)} />
+                    <SidebarComponents addComponent={(newComponent) => addComponent(newComponent, setComponents)} modelData={templateData} setModelData={setTemplateData} />
                 </Grid>
                 <Grid item xs={10} style={{ marginLeft: 'auto', marginRight: 'auto' }}>
                     <Preview className="md-10" components={components} setSelectedElement={setSelectedElement} 

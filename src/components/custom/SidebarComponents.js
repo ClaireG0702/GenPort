@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Card, Nav } from 'react-bootstrap';
 import './Sidebar.scss';
+import { FormLabel } from '@mui/material';
 
-function SidebarComponents({ addComponent }) {
+function SidebarComponents({ addComponent, modelData, setModelData }) {
     const [initialized, setInitialized] = useState(false);
     const defaultComponent = {
         value_type: null,
@@ -15,6 +16,7 @@ function SidebarComponents({ addComponent }) {
         values: {}
     }
     const [newComponent, setNewComponent] = useState(defaultComponent);
+    const description = modelData.description
 
     const handleClick = (newValues) => {
         setNewComponent({
@@ -34,6 +36,14 @@ function SidebarComponents({ addComponent }) {
             setInitialized(true)
         }
     }, [newComponent])
+
+    const handleDescriptionChange = (event) => {
+        const { value } = event.target;
+        setModelData(prevState => ({   
+            ...prevState,
+            description: value
+        }));
+    }
 
     return (
         <aside className='sidebar'>
@@ -59,6 +69,10 @@ function SidebarComponents({ addComponent }) {
                         border: 0, borderColor: '#000000', borderRadius: 10, backgroundColor: '#4678c6'}})}>
                     <Nav.Item>Bouton / Lien</Nav.Item>
                 </Card>
+                
+                <hr/>
+                <FormLabel>Ajouter une description</FormLabel>
+                <textarea value={description} onChange={(event) => handleDescriptionChange(event)}></textarea>
             </Nav>
         </aside>
     )

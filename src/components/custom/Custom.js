@@ -13,6 +13,7 @@ import { addComponent, deleteComponent, saveTemplate, updateComponentParams, upd
 function Custom() {
     const { user } = useAuth();
     const { model } = useParams();
+    const [documentType, setDocumentType] = useState(model);
     const { navigateToTemplates, navigateToPortfolios } = useCustomNavigate();
     const [selectedElement, setSelectedElement] = useState(null);
     const [components, setComponents] = useState([]);
@@ -36,7 +37,7 @@ function Custom() {
             ...prevState,
             components: components
         }));
-        saveTemplate(model, modelData, navigateToTemplates, navigateToPortfolios);
+        saveTemplate(documentType, modelData, navigateToTemplates, navigateToPortfolios);
     }
 
     return (
@@ -45,10 +46,10 @@ function Custom() {
                 updateComponentParams={(id, attribut, value) => updateComponentParams(id, attribut, value, components, setComponents)}
                 updateComponentValues={(id, attribut, value) => updateComponentValues(id, attribut, value, components, setComponents)}
                 deleteComponent={(component) => deleteComponent(component, components, setComponents, setSelectedElement)}
-                saveTemplateHandler={saveTemplateHandler} model={model} />
+                saveTemplateHandler={saveTemplateHandler} documentType={documentType} setDocumentType={setDocumentType} />
             <Grid container >
                 <Grid item xs={2}>
-                    <SidebarComponents addComponent={(newComponent) => addComponent(newComponent, setComponents)} />
+                    <SidebarComponents addComponent={(newComponent) => addComponent(newComponent, setComponents)} modelData={modelData} setModelData={setModelData} />
                 </Grid>
                 <Grid item xs={10}>
                     <Preview components={components} setSelectedElement={setSelectedElement}
