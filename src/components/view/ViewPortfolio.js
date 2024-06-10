@@ -10,6 +10,7 @@ import { useCustomNavigate } from "../../hooks/useCustomNavigate";
 import PdfDocument from './PdfDocument';
 import PreviewPortfolio from "./PreviewPortfolio";
 import PreviewToolbar from "./PreviewToolbar";
+import Loader from "../loader/Loader";
 
 
 // Page de visualisation d'un portfolio
@@ -19,6 +20,7 @@ function ViewPortfolio() {
     const [name, setName] = useState('');
     const [components, setComponents] = useState([]);
     const [isPdfView, setIsPdfView] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     // Récupération des éléments du portfolio
     useEffect(() => {
@@ -29,8 +31,12 @@ function ViewPortfolio() {
                 setName(portfolioName);
                 const { components: componentsData } = data;
                 setComponents(componentsData);
+                setLoading(false);
             })
-            .catch(error => console.error('Error fetching templates:', error));
+            .catch(error => {
+                console.error('Error fetching templates:', error)
+                setLoading(false);
+            });
     }, [id]);
 
     const deletePortfolio = async () => {
@@ -85,10 +91,10 @@ function ViewPortfolio() {
             });
     }
 
-		const importLinkedinData = () => {
-			let redirect_uri = "http://localhost:3000/linkedinredirect?portfolio_id=" + id;
-				window.open('https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=77lhydyntc3x2x&state=DCEeFWf45A53sdfKef424&redirect_uri=' + redirect_uri + '&scope=profile%20openid%20email', '_self');
-		}
+    const importLinkedinData = () => {
+        let redirect_uri = "http://localhost:3000/linkedinredirect?portfolio_id=" + id;
+        window.open('https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=77lhydyntc3x2x&state=DCEeFWf45A53sdfKef424&redirect_uri=' + redirect_uri + '&scope=profile%20openid%20email', '_self');
+    }
 
 
 
@@ -101,13 +107,16 @@ function ViewPortfolio() {
             </Grid>
             <Grid container alignItems="stretch" className='custom'>
                 <Grid item xs={10} style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-                    {!isPdfView ? (
-                      <PreviewPortfolio className="md-10" components={components} />
-                    ) : (
-                        <PDFViewer className="preview">
-                            <PdfDocument components={components} />
-                        </PDFViewer>
-                    )}
+                    {loading ? (
+                        <Loader />
+                    ) :
+                        !isPdfView ? (
+                            <PreviewPortfolio className="md-10" components={components} />
+                        ) : (
+                            <PDFViewer className="preview">
+                                <PdfDocument components={components} />
+                            </PDFViewer>
+                        )}
                 </Grid>
             </Grid>
         </>

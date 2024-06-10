@@ -7,6 +7,7 @@ import { useAuth } from '../user/Context/AuthContext';
 import './Template.scss';
 import DeleteIcon from "@mui/icons-material/Delete";
 import SearchIcon from "@mui/icons-material/Search";
+import Loader from "../loader/Loader";
 
 // Affichage des templates
 function Template() {
@@ -16,12 +17,19 @@ function Template() {
     const [searchType, setSearchType] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredTemplates, setFilteredTemplates] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(environment.apiURL + '/controllers/templates/get_all')
             .then(response => response.json())
-            .then(data => setTemplates(data))
-            .catch(error => console.error('Error fetching templates:', error));
+            .then(data => {
+                setTemplates(data)
+                // setLoading(false)
+            })
+            .catch(error => {
+                console.error('Error fetching templates:', error)
+                // setLoading(false)
+            });
     }, []);
 
     useEffect(() => {
@@ -36,14 +44,18 @@ function Template() {
 
     function getAuthor(id) {
         fetch(environment.apiURL + `/controllers/user/get_author?id=${id}`)
-        .then(response => response.json())
-        .then(author => {
-            setAuthors(prevAuthors => ({
-                ...prevAuthors,
-                [id]: author.name
-            }));
-        })
-        .catch(error => console.error('Error fetching author:', error));
+            .then(response => response.json())
+            .then(author => {
+                setAuthors(prevAuthors => ({
+                    ...prevAuthors,
+                    [id]: author.name
+                }));
+                setLoading(false)
+            })
+            .catch(error => {
+                console.error('Error fetching author:', error)
+                setLoading(false)
+            });
     }
 
     const deleteTemplate = async (id, event) => {
@@ -96,35 +108,39 @@ function Template() {
                     <Button type="button" className="btn-search" onClick={handleSearch}><SearchIcon /></Button>
                 </InputGroup>
             </Container>
-            <Container>
-                <Row xs={4} className="my-4">
-                    {filteredTemplates.filter(template => template.isPublic || (user && template.owner_id === user.id)).map(template =>
-                        <Col key={template.id} className="my-2">
-                            <Card style={{ height: '150px' }} as={Link} to={'/custom/templates/' + template.id} className="template-card"> {/** Redirection modif template */}
-                                <Card.Body>
-                                    <Card.Title>{template.name}</Card.Title>
-                                    <Card.Subtitle>{template.description}</Card.Subtitle>
-                                    <Card.Text>De : {authors[template.owner_id] || 'Chargement...'}</Card.Text>
-                                    {user && template.owner_id === user.id && (
-                                        <Card.Text onClick={(event) => deleteTemplate(template.id, event)}>
-                                            <DeleteIcon /> Supprimer
-                                        </Card.Text>
-                                    )}
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    )}
-                    {user && (
-                        <Col className="my-2">
-                            <Card style={{ height: '150px' }} as={Link} to="/custom/templates" className="template-card"> {/** Redirection création template */}
-                                <Card.Body className="d-flex align-items-center justify-content-center">
-                                    <BsPlusSquare className="add-template" />
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    )}
-                </Row>
-            </Container>
+            {loading ? (
+                <Loader />
+            ) : (
+                <Container>
+                    <Row xs={4} className="my-4">
+                        {filteredTemplates.filter(template => template.isPublic || (user && template.owner_id === user.id)).map(template =>
+                            <Col key={template.id} className="my-2">
+                                <Card style={{ height: '150px' }} as={Link} to={'/custom/templates/' + template.id} className="template-card"> {/** Redirection modif template */}
+                                    <Card.Body>
+                                        <Card.Title>{template.name}</Card.Title>
+                                        <Card.Subtitle>{template.description}</Card.Subtitle>
+                                        <Card.Text>De : {authors[template.owner_id] || 'Chargement...'}</Card.Text>
+                                        {user && template.owner_id === user.id && (
+                                            <Card.Text onClick={(event) => deleteTemplate(template.id, event)}>
+                                                <DeleteIcon /> Supprimer
+                                            </Card.Text>
+                                        )}
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        )}
+                        {user && (
+                            <Col className="my-2">
+                                <Card style={{ height: '150px' }} as={Link} to="/custom/templates" className="template-card"> {/** Redirection création template */}
+                                    <Card.Body className="d-flex align-items-center justify-content-center">
+                                        <BsPlusSquare className="add-template" />
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        )}
+                    </Row>
+                </Container>
+            )}
         </div>
     )
 }

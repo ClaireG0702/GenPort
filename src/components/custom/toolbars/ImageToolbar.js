@@ -43,42 +43,42 @@ function ImageToolbar({ element, updateComponentParams, updateComponentValues, d
         <Toolbar className='toolbar-element'>
             <Grid container justifyContent="space-between">
                 <Grid item>
-                    <Typography variant='h6'>Lien de l'image :</Typography>
+                    <Typography variant='subtitle1'>Lien de l'image :</Typography>
                     <input type="url" value={link} className='form-control' onChange={(event) => handleElementValuesChange(event, 'link')} />
                 </Grid>
 
                 <Grid item>
-                    <Typography variant="h6">Marge en haut :</Typography>
+                    <Typography variant="subtitle1">Marge en haut :</Typography>
                     <input type="number" value={position_y} min={0} max={100-height} className='form-control' onChange={(event) => handleElementParamsChange(event, 'position_y')} />
                 </Grid>
 
                 <Grid item>
-                    <Typography variant="h6">Marge à gauche :</Typography>
+                    <Typography variant="subtitle1">Marge à gauche :</Typography>
                     <input type="number" value={position_x} min={0} max={100-width} className='form-control' onChange={(event) => handleElementParamsChange(event, 'position_x')} />
                 </Grid>
 
                 <Grid item>
-                    <Typography>Calque :</Typography>
+                    <Typography variant="subtitle1">Calque :</Typography>
                     <input type="number" value={z_index} className='form-control' onChange={(event) => handleElementParamsChange(event, 'z_index')} />
                 </Grid>
 
                 <Grid item>
-                    <Typography variant="h6">Taille:</Typography>
+                    <Typography variant="subtitle1">Taille:</Typography>
                     <input type="number" value={height} min={0} max={100} className='form-control' onChange={(event) => handleElementParamsChange(event, 'height')} />
                 </Grid>
 
                 <Grid item>
-                    <Typography variant="h6">Bordure :</Typography>
+                    <Typography variant="subtitle1">Bordure :</Typography>
                     <input type="number" value={border} min={0} className='form-control' onChange={(event) => handleElementValuesChange(event, 'border')} />
                 </Grid>
 
                 <Grid item>
-                    <Typography variant="h6">Couleur de bordure :</Typography>
+                    <Typography variant="subtitle1">Couleur de bordure :</Typography>
                     <input type="color" value={borderColor} className='form-control' onChange={(event) => handleElementValuesChange(event, 'borderColor')} />
                 </Grid>
 
                 <Grid item>
-                    <Typography variant="h6">Arrondi :</Typography>
+                    <Typography variant="subtitle1">Arrondi :</Typography>
                     <input type="number" value={borderRadius} min={0} className='form-control' onChange={(event) => handleElementValuesChange(event, 'borderRadius')} />
                 </Grid>
 

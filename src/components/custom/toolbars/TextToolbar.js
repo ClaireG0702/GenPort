@@ -97,17 +97,17 @@ function TextToolbar({ element, updateComponentParams, updateComponentValues, de
                 </Grid>
 
                 <Grid item>
-                    <Typography>Calque :</Typography>
+                    <Typography variant="subtitle1">Calque :</Typography>
                     <input type="number" value={z_index} className="form-control" onChange={(event) => handleElementParamsChange(event, 'z_index')} />
                 </Grid>
 
                 <Grid item>
-                    <Typography>Largeur :</Typography>
+                    <Typography variant="subtitle1">Largeur :</Typography>
                     <input type="number" value={width} className="form-control" onChange={(event) => handleElementParamsChange(event, 'width')} />
                 </Grid>
 
                 <Grid item>
-                    <Typography>Hauteur :</Typography>
+                    <Typography variant="subtitle1">Hauteur :</Typography>
                     <input type="number" value={height} className="form-control" onChange={(event) => handleElementParamsChange(event, 'height')} />
                 </Grid>
 

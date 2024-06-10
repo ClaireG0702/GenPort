@@ -8,6 +8,7 @@ import SidebarComponents from './SidebarComponents.js';
 import Preview from './Preview.js';
 import { useAuth } from '../user/Context/AuthContext.js';
 import { useCustomNavigate } from '../../hooks/useCustomNavigate.js';
+import Loader from "../loader/Loader.js";
 
 // Page de modifiaction de template
 function CustomTemplate() {
@@ -24,6 +25,7 @@ function CustomTemplate() {
         owner_id: user.id,
         is_public: true
     });
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(environment.apiURL + `/controllers/${model}/get?id=${id}`)
@@ -35,8 +37,12 @@ function CustomTemplate() {
                 setDescription(portfolioDescription);
                 const { components: componentsData } = data;
                 setComponents(componentsData);
+                setLoading(false)
             })
-            .catch(error => console.error('Error fetching templates:', error));
+            .catch(error => {
+                console.error('Error fetching templates:', error)
+                setLoading(false)
+            });
     }, [id, model]);
 
     useEffect(() => {
@@ -73,8 +79,12 @@ function CustomTemplate() {
                     <SidebarComponents addComponent={(newComponent) => addComponent(newComponent, setComponents)} modelData={templateData} setModelData={setTemplateData} />
                 </Grid>
                 <Grid item xs={10} style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-                    <Preview className="md-10" components={components} setSelectedElement={setSelectedElement} 
+                    {loading ? (
+                        <Loader />
+                    ) : (
+                        <Preview className="md-10" components={components} setSelectedElement={setSelectedElement} 
                         updateComponentText={(id, value) => updateComponentText(id, value, components, setComponents)} />
+                    )}
                 </Grid>
             </Grid>
         </>

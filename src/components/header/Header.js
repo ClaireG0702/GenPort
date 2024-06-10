@@ -40,6 +40,7 @@ function Header() {
                             </>
                         ) : (
                             <>
+                                <p className="mx-3 my-1">{user.username}</p>
                                 <Button className="deconnection-btn" onClick={handleLogout}>Déconnexion</Button>
                             </>
                         )
