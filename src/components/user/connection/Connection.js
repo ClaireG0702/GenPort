@@ -5,7 +5,7 @@ import { useAuth } from "../Context/AuthContext";
 import "./Connection.scss";
 
 function Connection() {
-	const { login } = useAuth();
+	const { login, errorMessage } = useAuth();
 
 	const [loginForm, setLoginForm] = useState({
 		email: '',
@@ -30,6 +30,7 @@ function Connection() {
 				<Card.Header>Se connecter</Card.Header>
 				<Card.Body>
 					<Form className="connection-form">
+						{errorMessage != undefined && <p className="error">{errorMessage}</p>}
 						<Form.Group controlId="email" className='mb-3'>
 							<Form.Label>Identifiant (adresse email)</Form.Label>
 							<Form.Control type="text" name="email" value={loginForm.email} onChange={handleValueChanges}></Form.Control>

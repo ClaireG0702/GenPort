@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { environment } from '../../../environment/environment.developments';
 
 const initState = {
-	user: undefined
+	user: undefined,
 }
 
 const AuthContext = createContext({
@@ -16,6 +16,7 @@ const AuthContext = createContext({
 export const AuthProvider = ({children}) => {
 	const navigate = useNavigate();
 	const [userLogged, setUserLogged] = useState(initState);
+	const [errorMessage, setErrorMessage] = useState(undefined)
 
 	const register = async (registerForm) => {
 		try {
@@ -50,11 +51,13 @@ export const AuthProvider = ({children}) => {
 			});
 
 			if(!response.ok) {
+				setErrorMessage("Votre identifiant ou mot de passe est incorrect");
 				throw new Error('Connection failed');
 			}
 
 			const responseData = await response.json();
 			setUserLogged({user: responseData.user});
+			setErrorMessage(undefined)
 			navigate("/home");
 		} catch(error) {
 			console.error('Error while trying to connect:', error.message);
@@ -68,7 +71,7 @@ export const AuthProvider = ({children}) => {
 	}
 
 	return (
-		<AuthContext.Provider value={{ ...userLogged, register, login, logout }}>
+		<AuthContext.Provider value={{ ...userLogged, errorMessage, register, login, logout }}>
 			{children}
 		</AuthContext.Provider>
 	)
