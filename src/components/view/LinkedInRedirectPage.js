@@ -6,7 +6,7 @@ import "./LinkedInRedirectPage.scss";
 
 // Page de visualisation d'un portfolio
 function LinkedInRedirectPage() {
-	const { navigate } = useNavigate();
+	const navigate = useNavigate();
 	const params = new URLSearchParams(window.location.search);
 
 

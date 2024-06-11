@@ -39,7 +39,7 @@ function App() {
 					<Route path='/custom/:model' exact element={<ProtectedRoute><Custom /></ProtectedRoute>} />
 					<Route path='/custom/:model/:id' element={<ProtectedRoute><CustomTemplate /></ProtectedRoute>} />
 					<Route path='/view/:id' element={<ProtectedRoute><ViewPortfolio /></ProtectedRoute>} />
-					<Route path='/linkedinredirect' element={<ProtectedRoute><LinkedInRedirectPage /></ProtectedRoute>} />
+					<Route path='/linkedinredirect' element={<LinkedInRedirectPage />} />
 					<Route path="*" element={<Navigate to="/home" replace />} />
 				</Routes>
 				<Outlet />
