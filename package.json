@@ -1,7 +1,7 @@
 {
   "name": "gen-port",
   "version": "0.1.0",
-  "homepage": "https://claireg0702.github.io/GenPort",
+  "homepage": "https://ClaireG0702.github.io/GenPort",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -34,7 +34,7 @@
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build github",
+    "deploy": "gh-pages -d build -r https://github.com/ClaireG0702/GenPort.git",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts --openssl-legacy-provider test",
     "eject": "react-scripts --openssl-legacy-provider eject"
