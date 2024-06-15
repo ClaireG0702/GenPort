@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/GenPort/static/css/main.d7754ad0.css",
+    "main.js": "/GenPort/static/js/main.6dfe6bda.js",
+    "static/media/Roboto-BoldItalic.ttf": "/GenPort/static/media/Roboto-BoldItalic.87d61cea6fe1d235d4a8.ttf",
+    "static/media/Roboto-Italic.ttf": "/GenPort/static/media/Roboto-Italic.87f3afe16a8c3c370634.ttf",
+    "static/media/Roboto-Regular.ttf": "/GenPort/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
+    "static/media/Roboto-Bold.ttf": "/GenPort/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
+    "static/media/OpenSans-Italic.ttf": "/GenPort/static/media/OpenSans-Italic.a9d385277b4833d366ce.ttf",
+    "static/media/OpenSans-BoldItalic.ttf": "/GenPort/static/media/OpenSans-BoldItalic.509f36f6029476925dfd.ttf",
+    "static/media/OpenSans-Bold.ttf": "/GenPort/static/media/OpenSans-Bold.c790f99966352c531503.ttf",
+    "static/media/OpenSans-Regular.ttf": "/GenPort/static/media/OpenSans-Regular.b8cc747a58ffa52b7ff9.ttf",
+    "static/media/Sedan-Regular.ttf": "/GenPort/static/media/Sedan-Regular.d7fc4427c1781412445c.ttf",
+    "static/media/Oswald-Bold.ttf": "/GenPort/static/media/Oswald-Bold.41669c1e4f6bdc605d26.ttf",
+    "static/media/Sedan-Italic.ttf": "/GenPort/static/media/Sedan-Italic.067c9dcc0c5c3c584d48.ttf",
+    "static/media/Oswald-Regular.ttf": "/GenPort/static/media/Oswald-Regular.31bce04a1ae8549b1464.ttf",
+    "static/media/undraw_website_builder.svg": "/GenPort/static/media/undraw_website_builder.d8d302547b3f60383557219e1e59d2b0.svg",
+    "index.html": "/GenPort/index.html",
+    "main.d7754ad0.css.map": "/GenPort/static/css/main.d7754ad0.css.map",
+    "main.6dfe6bda.js.map": "/GenPort/static/js/main.6dfe6bda.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7754ad0.css",
+    "static/js/main.6dfe6bda.js"
+  ]
+}
