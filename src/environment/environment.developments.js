@@ -1,4 +1,4 @@
 export const environment = {
-	production: false,
-	apiURL: 'https://localhost:8000'
+	production: true,
+	apiURL: 'https://genport-api-0e768eca4562.herokuapp.com'
 }

@@ -1,7 +1,7 @@
 {
   "name": "gen-port",
   "version": "0.1.0",
-  "homepage": "https://ClaireG0702.github.io/GenPort",
+  "homepage": "http://ClaireG0702.github.io/GenPort",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
