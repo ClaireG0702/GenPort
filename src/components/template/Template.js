@@ -22,7 +22,7 @@ function Template() {
     useEffect(() => {
         fetch(environment.apiURL + '/controllers/templates/get_all', {
             method: 'GET',
-            // mode: 'no-cors'
+            mode: 'no-cors'
         })
             .then(response => response.json())
             .then(data => {
@@ -48,7 +48,7 @@ function Template() {
     function getAuthor(id) {
         fetch(environment.apiURL + `/controllers/user/get_author?id=${id}`, {
             method: 'GET',
-            // mode: 'no-cors'
+            mode: 'no-cors'
         })
             .then(response => response.json())
             .then(author => {
@@ -70,7 +70,7 @@ function Template() {
         try {
             const response = await fetch(environment.apiURL + `/controllers/templates/remove?id=${id}`, {
                 method: 'GET',
-                // mode: 'no-cors'
+                mode: 'no-cors'
             });
 
             if (response.ok) {
