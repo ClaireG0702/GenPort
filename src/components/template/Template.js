@@ -21,7 +21,11 @@ function Template() {
 
     useEffect(() => {
         fetch(environment.apiURL + '/controllers/templates/get_all', {
-            mode: 'no-cors'
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
             .then(response => response.json())
             .then(data => {
