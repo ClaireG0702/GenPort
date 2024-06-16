@@ -20,7 +20,9 @@ function Template() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(environment.apiURL + '/controllers/templates/get_all')
+        fetch(environment.apiURL + '/controllers/templates/get_all', {
+            mode: 'no-cors'
+        })
             .then(response => response.json())
             .then(data => {
                 setTemplates(data)
