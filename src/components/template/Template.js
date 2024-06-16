@@ -21,7 +21,8 @@ function Template() {
 
     useEffect(() => {
         fetch(environment.apiURL + '/controllers/templates/get_all', {
-            method: 'GET'
+            method: 'GET',
+            mode: 'cors'
         })
             .then(response => response.json())
             .then(data => {
@@ -45,7 +46,10 @@ function Template() {
     }, [searchType, searchTerm, templates]);
 
     function getAuthor(id) {
-        fetch(environment.apiURL + `/controllers/user/get_author?id=${id}`)
+        fetch(environment.apiURL + `/controllers/user/get_author?id=${id}`, {
+            method: 'GET',
+            mode: 'cors'
+        })
             .then(response => response.json())
             .then(author => {
                 setAuthors(prevAuthors => ({
@@ -66,6 +70,7 @@ function Template() {
         try {
             const response = await fetch(environment.apiURL + `/controllers/templates/remove?id=${id}`, {
                 method: 'GET',
+                mode: 'cors'
             });
 
             if (response.ok) {
